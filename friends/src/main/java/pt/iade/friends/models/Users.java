@@ -34,7 +34,17 @@ public class Users {
     @Column(name = "gender")
     private char gender;
 
-    public Users() {
+    public Users(String email, String phone_number, int internal_id, int public_id, String name, String likes,
+            String status, DateTimeOffset bdate, char gender) {
+        this.email = email;
+        this.phone_number = phone_number;
+        this.internal_id = internal_id;
+        this.public_id = public_id;
+        this.name = name;
+        this.likes = likes;
+        this.status = status;
+        this.bdate = bdate;
+        this.gender = gender;
 
     }
 
