@@ -37,4 +37,6 @@ public class Users
     public String getStatus() {return status;}
     public String getBdates() {return bdate;}
     public char getGender(){return gender;}
+
+    public void hello(){return null;}
 }
