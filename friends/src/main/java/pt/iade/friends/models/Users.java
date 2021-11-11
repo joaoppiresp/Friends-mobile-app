@@ -38,5 +38,4 @@ public class Users
     public String getBdates() {return bdate;}
     public char getGender(){return gender;}
 
-    public void hello(){return null;}
 }
