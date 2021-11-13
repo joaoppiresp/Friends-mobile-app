@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pt.iade.friends.models.exceptions.NotFoundException;
 import pt.iade.friends.models.Users;
 import pt.iade.friends.models.repositories.UsersRepository;
+import pt.iade.friends.models.responses.Response;
 @RestController
 @RequestMapping(path = "/api/users")
 public class UsersController 
@@ -47,5 +49,16 @@ public class UsersController
         Users newUsers = usersRepository.save(spot);
         return newUsers;
     }
+
+    @DeleteMapping(path = "{internal_id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Response deleteUsersById(@PathVariable int internal_id)
+    {
+        logger.info("delete Users with internal_id: "+internal_id);
+        if(usersRepository.deleteUsersById(internal_id))
+        return new Response(internal_id+ "was deleted.", null);
+        else return new Response(internal_id+ "not found.", null);
+    }
+
+
 }
 
