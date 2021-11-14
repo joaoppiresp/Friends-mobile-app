@@ -20,8 +20,8 @@ import pt.iade.friends.models.responses.Response;
 
 @RestController
 @RequestMapping(path = "/api/info_spot")
-public class Info_SpotController {
-    private Logger logger = LoggerFactory.getLogger(Info_SpotController.class);
+public class InfoSpotController {
+    private Logger logger = LoggerFactory.getLogger(InfoSpotController.class);
     @Autowired
     private InfoSpotRepository info_spotRepository;
 
@@ -56,7 +56,7 @@ public class Info_SpotController {
     @DeleteMapping(path = "{internal_id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response deleteInfo_SpotById(@PathVariable int internal_id) {
         logger.info("delete Info_Spot with internal_id: " + internal_id);
-        if (info_spotRepository.deleteInfo_SpotById(internal_id))
+        if (info_spotRepository.deleteInfoSpotById(internal_id))
             return new Response(internal_id + "was deleted.", null);
         else
             return new Response(internal_id + "not found.", null);
