@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pt.iade.friends.models.exceptions.NotFoundException;
 import pt.iade.friends.models.InfoSpot;
-import pt.iade.friends.models.repositories.Info_SpotRepository;
+import pt.iade.friends.models.repositories.InfoSpotRepository;
 import pt.iade.friends.models.responses.Response;
 
 @RestController
@@ -23,7 +23,7 @@ import pt.iade.friends.models.responses.Response;
 public class Info_SpotController {
     private Logger logger = LoggerFactory.getLogger(Info_SpotController.class);
     @Autowired
-    private Info_SpotRepository info_spotRepository;
+    private InfoSpotRepository info_spotRepository;
 
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
 

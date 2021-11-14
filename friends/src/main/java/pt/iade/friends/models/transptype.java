@@ -12,7 +12,7 @@ import microsoft.sql.DateTimeOffset;
 @Entity
 @Table(name = "transptype")
 
-public class transp {
+public class transptype {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "trnsp_type")
@@ -24,7 +24,7 @@ public class transp {
     @Column(name = "trnsp_id")
     private int trnsp_id;
 
-    public transp(String trnsp_type, DateTimeOffset schedual, int type_spt_id, int trnsp_id) {
+    public transptype(String trnsp_type, DateTimeOffset schedual, int type_spt_id, int trnsp_id) {
         this.trnsp_type = trnsp_type;
         this.schedual = schedual;
         this.type_spt_id = type_spt_id;
