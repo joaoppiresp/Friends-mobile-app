@@ -20,7 +20,7 @@ public class Users
     @Column(name = "user_db_id") private int user_db_id;
     @Column(name = "user_nm") private String user_nm;
     @Column(name = "frnds") private int frnds;
-    @Column(name = "user_bday") private String user_bday;
+    @Column(name = "user_bday") private DateTimeOffset user_bday;
     @Column(name = "user_interest_id") private int user_interest_id;
     @Column(name = "f_group_id") private int f_group_id;
     @Column(name = "trnsp") private int trnsp;
@@ -38,7 +38,7 @@ public class Users
     public int getUser_Db_Id() {return user_db_id;}
     public String getUser_Nm() {return user_nm;}
     public int getFrnds() {return frnds;}
-    public String getUser_Bday() {return user_bday;}
+    public DateTimeOffset getUser_Bday() {return user_bday;}
     public int getUser_Interest_Id() {return user_interest_id;}
     public int getF_Group_Id() {return f_group_id;}
     public int get_Trnsp() {return trnsp;}
