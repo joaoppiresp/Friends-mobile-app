@@ -9,6 +9,50 @@ insert into users (user_email, user_phone_number, user_nm, gender, user_bday, us
 insert into users (user_email, user_phone_number, user_nm, gender, user_bday, user_place) values ('fcr@gmail.com','989012345','Francisco Costa Rosa','M',to_date('1998.02.16','YYYY.MM.DD'),'Costa da Caparica');  
 insert into users (user_email, user_phone_number, user_nm, gender, user_bday, user_place) values ('efp@gmail.com','990123456','Elsa Fialho Pinto','F',to_date('1999.10.29','YYYY.MM.DD'),'Costa da Caparica');  
 
+insert into transptype(trnsp_type, schedual) values('Metro', to_date('2021.11.10','YYYY.MM.DD'));
+insert into transptype(trnsp_type, schedual) values('Autocarro', to_date('2021.11.10','YYYY.MM.DD'));
+insert into transptype(trnsp_type, schedual) values('Barco', to_date('2021.11.10','YYYY.MM.DD'));
+insert into transptype(trnsp_type, schedual) values('Comboio', to_date('2021.11.10','YYYY.MM.DD'));
+
+insert into tspuserspot(price) values(1.50);
+insert into tspuserspot(price) values(2);
+insert into tspuserspot(price) values(3);
+insert into tspuserspot(price) values(2.50);
+
+insert into spottype(spot_type) values('Restaurante');
+insert into spottype(spot_type) values('Bar');
+insert into spottype(spot_type) values('Casa Noturna');
+
+insert into pricetype(prc_type) values('Entrada');
+insert into pricetype(prc_type) values('Bebidas');
+insert into pricetype(prc_type) values('Comidas');
+
+insert into interests(int_name) values('Futebol');
+insert into interests(int_name) values('Música');
+insert into interests(int_name) values('Dança');
+insert into interests(int_name) values('Vinho');
+insert into interests(int_name) values('Karaoke');
+
+insert into infospotprctype(price) values(50);
+insert into infospotprctype(price) values(5);
+insert into infospotprctype(price) values(10);
+
+insert into friends (friendship_status) values('Pedido Aceite');
+insert into friends (friendship_status) values('Aguarde');
+insert into friends (friendship_status) values('Pedido Recusado');
+
+insert into friendgroup (group_name) values('Bairro Alto');
+insert into friendgroup (group_name) values('Santos');
+insert into friendgroup (group_name) values('Ana Aniversário');
+
+insert into eventtype(evnt_type) values('Música ao Vivo');
+insert into eventtype(evnt_type) values('Jantar');
+insert into eventtype(evnt_type) values('Degustação de Vinho');
+insert into eventtype(evnt_type) values('futebol + Bebidas');
+insert into eventtype(evnt_type) values('Dança + Jantar');
+
+insert into crowd(crwd_date) values( to_date('2021.11.10','YYYY.MM.DD'));
+
 insert into infospot(spot_name, contact_info, spot_address) values ('Misc by Tartar-ia', '918515254', 'Rua da Boavista 14, 1200-067 Lisboa');
 insert into infospot(spot_name, contact_info, spot_address) values ('Bohemio da Ribeira', '912932007', 'Tv. do Carvalho 27, 1200-097 Lisboa');
 insert into infospot(spot_name, contact_info, spot_address) values ('SUBA Restaurante', '211573055','R. de Santa Catarina nº 1, 1200-401 Lisboa');
