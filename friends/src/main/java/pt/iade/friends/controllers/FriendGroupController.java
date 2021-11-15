@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.util.Optional;
-import javax.annotation.PostConstruct;
 import pt.iade.friends.models.responses.Response;
 
 @RestController
@@ -64,7 +63,7 @@ public class FriendGroupController {
     @DeleteMapping(path = "{group_id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response deleteFriendGroup(@PathVariable int group_id) {
         logger.info("deleting friend group" + " (id: " + group_id + ")");
-        if (FriendGroupRepository.deleteFriendGroup(group_id))
+        if (friendGroupRepository.deleteFriendGroup(group_id))
             return new Response(group_id + " was deleted", null);
         else
             return new Response(group_id + " was not deleted", null);
@@ -74,7 +73,7 @@ public class FriendGroupController {
     @DeleteMapping(path = "{group_id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response deleteFriendFromGroup(@PathVariable int group_id, @RequestBody int friends_id) {
         logger.info("deleting friend " + "(id: " + friends_id + ")" + " from group " + group_id);
-        if (FriendGroupRepository.deleteFriendFromGroup(friends_id))
+        if (friendGroupRepository.deleteFriendFromGroup(friends_id))
             return new Response(friends_id + " was deleted from the group", null);
         else
             return new Response(friends_id + " was not deleted", null);
