@@ -62,16 +62,8 @@ public class Users {
         return user_email;
     }
 
-    public void setUserEmail(String user_email) {
-        this.user_email = user_email;
-    }
-
     public String getUser_Phone_number() {
         return user_phone_number;
-    }
-
-    public void setPhone_number(String user_phone_number) {
-        this.user_phone_number = user_phone_number;
     }
 
     public int getUser_Public_id() {
@@ -86,10 +78,6 @@ public class Users {
         return user_nm;
     }
 
-    public void setUser_Nm(String user_nm) {
-        this.user_nm = user_nm;
-    }
-
     public int getFrnds() {
         return frnds;
     }
@@ -98,16 +86,8 @@ public class Users {
         return gender;
     }
 
-    public void setGender(char gender) {
-        this.gender = gender;
-    }
-
     public DateTimeOffset getUser_Bday() {
         return user_bday;
-    }
-
-    public void setUser_Bday(DateTimeOffset user_bday) {
-        this.user_bday = user_bday;
     }
 
     public int getUser_Interest_Id() {
@@ -129,9 +109,4 @@ public class Users {
     public String getUser_Place() {
         return user_place;
     }
-
-    public void setUser_Place(String user_place) {
-        this.user_place = user_place;
-    }
-
 }
