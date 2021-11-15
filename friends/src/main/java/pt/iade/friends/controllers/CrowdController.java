@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import pt.iade.friends.models.exceptions.NotFoundException;
 import pt.iade.friends.models.repositories.CrowdRepository;
-import pt.iade.friends.models.crowd;
+import pt.iade.friends.models.Crowd;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import java.util.Optional; //to check id the input is something in the database or if its wrong
@@ -25,9 +25,9 @@ public class CrowdController {
 
     // crowd by crow_id
     @GetMapping(path = "{crowd_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public crowd getcrowdById(@PathVariable int crowd_id) {
+    public Crowd getcrowdById(@PathVariable int crowd_id) {
         logger.info("Sending crowd info with id " + crowd_id);
-        Optional<crowd> _crowd = CrowdRepository.findById(crowd_id);
+        Optional<Crowd> _crowd = CrowdRepository.findById(crowd_id);
         if (_crowd.isPresent())
             return _crowd.get();
         else

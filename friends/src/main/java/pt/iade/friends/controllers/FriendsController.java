@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import pt.iade.friends.models.exceptions.NotFoundException;
 import pt.iade.friends.models.repositories.FriendsRepository;
-import pt.iade.friends.models.friends;
+import pt.iade.friends.models.Friends;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import java.util.Optional;
@@ -23,16 +23,16 @@ public class FriendsController {
 
     // get all friends
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<friends> getAllFriends() {
+    public Iterable<Friends> getAllFriends() {
         logger.info("Sending all friends");
         return friendsRepository.findAll();
     }
 
     // get a friend by id
     @GetMapping(path = "{frnd_user_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public friends getFriendById(@PathVariable int frnd_user_id) {
+    public Friends getFriendById(@PathVariable int frnd_user_id) {
         logger.info("Sending friend info with id " + frnd_user_id);
-        Optional<friends> _friends = friendsRepository.findById(frnd_user_id);
+        Optional<Friends> _friends = friendsRepository.findById(frnd_user_id);
         if (_friends.isPresent())
             return _friends.get();
         else

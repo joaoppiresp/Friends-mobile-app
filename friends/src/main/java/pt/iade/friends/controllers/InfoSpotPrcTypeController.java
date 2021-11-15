@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import pt.iade.friends.models.repositories.InfoSpotPrcTypeRepository;
-import pt.iade.friends.models.infospotprctype;
+import pt.iade.friends.models.InfoSpotPrcType;
 import org.springframework.http.MediaType;
 
 @RestController
@@ -20,7 +20,7 @@ public class InfoSpotPrcTypeController {
 
     // get all prices
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<infospotprctype> getAllprices() {
+    public Iterable<InfoSpotPrcType> getAllprices() {
         logger.info("Sending all prices");
         return infoSpotPrcTypeRepository.findAll();
     }

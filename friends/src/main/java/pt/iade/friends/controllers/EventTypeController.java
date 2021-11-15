@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import pt.iade.friends.models.exceptions.NotFoundException;
 import pt.iade.friends.models.repositories.EventTypeRepository;
-import pt.iade.friends.models.eventtype;
+import pt.iade.friends.models.EventType;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import java.util.Optional;
@@ -22,15 +22,15 @@ public class EventTypeController {
     private EventTypeRepository eventTypeRepository;
 
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<eventtype> getAllEventTypes() {
+    public Iterable<EventType> getAllEventTypes() {
         logger.info("Sending all eventtypes");
         return eventTypeRepository.findAll();
     }
 
     @GetMapping(path = "{evnt_type_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public eventtype getEventTypeById(@PathVariable int evnt_type_id) {
+    public EventType getEventTypeById(@PathVariable int evnt_type_id) {
         logger.info("Sending eventtype info with id " + evnt_type_id);
-        Optional<eventtype> _eventtype = eventTypeRepository.findById(evnt_type_id);
+        Optional<EventType> _eventtype = eventTypeRepository.findById(evnt_type_id);
         if (_eventtype.isPresent())
             return _eventtype.get();
         else

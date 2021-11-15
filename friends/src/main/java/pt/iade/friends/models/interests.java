@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "interests")
 
-public class interests {
+public class Interests {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "int_name")
@@ -18,23 +18,14 @@ public class interests {
     @Column(name = "interest_id")
     private int interest_id;
 
-    public interests() {
+    public Interests() {
     }
     /*
      * public interests(String int_name, int interest_id) { this.int_name =
      * int_name; this.interest_id = interest_id; }
      */
-
-    public String getInt_Name() {
-        return int_name;
-    }
-
-    public void setInt_Name(String int_name) {
-        this.int_name = int_name;
-    }
-
-    public int getInterest_Id() {
-        return interest_id;
-    }
+    
+    public String getInt_Name() {return int_name;}
+    public int getInterest_Id() {return interest_id;}
 
 }

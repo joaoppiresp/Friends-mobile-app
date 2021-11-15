@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tspuserspot")
 
-public class tspuserspot {
+public class TspUserSpot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "price")
@@ -24,32 +24,15 @@ public class tspuserspot {
     @Column(name = "tsp_id")
     private int tsp_id;
 
-    public tspuserspot() {
-    }
+    public TspUserSpot() {}
     /*
      * public tspuserspot(BigDecimal price, int tsp_type_id, int tsp_spot_id, int
      * tsp_id) { this.price = price; this.tsp_type_id = tsp_type_id;
      * this.tsp_spot_id = tsp_spot_id; this.tsp_id = tsp_id; }
      */
 
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public int getTsp_Type_Id() {
-        return tsp_type_id;
-    }
-
-    public int getTsp_Spot_Id() {
-        return tsp_spot_id;
-    }
-
-    public int getTsp_Id() {
-        return tsp_id;
-    }
-
+    public BigDecimal getPrice() {return price;}
+    public int getTsp_Type_Id() {return tsp_type_id;}
+    public int getTsp_Spot_Id() {return tsp_spot_id;}
+    public int getTsp_Id() {return tsp_id;}
 }

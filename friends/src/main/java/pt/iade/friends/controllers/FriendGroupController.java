@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import pt.iade.friends.models.exceptions.NotFoundException;
 import pt.iade.friends.models.repositories.FriendGroupRepository;
-import pt.iade.friends.models.friendgroup;
-import pt.iade.friends.models.friends;
+import pt.iade.friends.models.FriendGroup;
+import pt.iade.friends.models.Friends;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,16 +28,16 @@ public class FriendGroupController {
 
     // get all groups
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<friendgroup> getAllFriendGroups() {
+    public Iterable<FriendGroup> getAllFriendGroups() {
         logger.info("Sending all friendgroups");
         return friendGroupRepository.findAll();
     }
 
     // get a group by id
     @GetMapping(path = "{group_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public friendgroup getFriendGroupById(@PathVariable int group_id) {
+    public FriendGroup getFriendGroupById(@PathVariable int group_id) {
         logger.info("Sending group info with id " + group_id);
-        Optional<friendgroup> _friendgroup = friendGroupRepository.findById(group_id);
+        Optional<FriendGroup> _friendgroup = friendGroupRepository.findById(group_id);
         if (_friendgroup.isPresent())
             return _friendgroup.get();
         else
@@ -46,15 +46,15 @@ public class FriendGroupController {
 
     // creating a group
     @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public friendgroup saveFriendgroup(@RequestBody friendgroup friendgroup) {
-        friendgroup newfriendgroup = friendGroupRepository.saveFriendgroup(friendgroup);
+    public FriendGroup saveFriendgroup(@RequestBody FriendGroup friendgroup) {
+        FriendGroup newfriendgroup = friendGroupRepository.saveFriendgroup(friendgroup);
         logger.info("saving the group with the name: " + newfriendgroup.getGroup_Name());
         return newfriendgroup;
     }
 
     // adding a friend to a group
     @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public int saveFriendInGroup(@PathVariable int group_id, @RequestBody friends friends) {
+    public int saveFriendInGroup(@PathVariable int group_id, @RequestBody Friends friends) {
         logger.info("adding a friend" + " (id: " + friends.getFrnd_User_Id() + ")" + "to the group " + group_id);
         return friendGroupRepository.saveFriendInGroup(group_id, friends);
     }

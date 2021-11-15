@@ -12,7 +12,7 @@ import microsoft.sql.DateTimeOffset;
 @Entity
 @Table(name = "spotevents")
 
-public class spotevents {
+public class SpotEvents {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "evnt_date")
@@ -24,24 +24,16 @@ public class spotevents {
     @Column(name = "evnttype_id")
     private int evnttype_id;
 
-    public spotevents() {
+    public SpotEvents() {
     }
     /*
      * public spotevents(DateTimeOffset evnt_date, int event_type_id, int spot_id,
      * int evnttype_id) { this.evnt_date = evnt_date; this.event_type_id =
      * event_type_id; this.spot_id = spot_id; this.evnttype_id = evnttype_id; }
      */
-
-    public int getEvent_Type_Id() {
-        return event_type_id;
-    }
-
-    public int getSpot_Id() {
-        return spot_id;
-    }
-
-    public int getEvnttype_Id() {
-        return evnttype_id;
-    }
+    
+    public int getEvent_Type_Id() {return event_type_id;}
+    public int getSpot_Id() {return spot_id;}
+    public int getEvnttype_Id() {return evnttype_id;}
 
 }

@@ -1,18 +1,17 @@
 package pt.iade.friends.models;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import microsoft.sql.DateTimeOffset;
 
 @Entity
 @Table(name = "users")
 
-public class Users {
+public class Users 
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_email")
@@ -57,56 +56,18 @@ public class Users {
      * 
      * }
      */
-
-    public String getUserEmail() {
-        return user_email;
-    }
-
-    public String getUser_Phone_number() {
-        return user_phone_number;
-    }
-
-    public int getUser_Public_id() {
-        return user_public_id;
-    }
-
-    public int getUser_db_id() {
-        return user_db_id;
-    }
-
-    public String getUser_nm() {
-        return user_nm;
-    }
-
-    public int getFrnds() {
-        return frnds;
-    }
-
-    public char getGender() {
-        return gender;
-    }
-
-    public DateTimeOffset getUser_Bday() {
-        return user_bday;
-    }
-
-    public int getUser_Interest_Id() {
-        return user_interest_id;
-    }
-
-    public int getF_group_Id() {
-        return f_group_id;
-    }
-
-    public int get_Trnsp() {
-        return trnsp;
-    }
-
-    public int getAt_Spot_Id() {
-        return at_spot_id;
-    }
-
-    public String getUser_Place() {
-        return user_place;
-    }
+    
+    public String getUserEmail() {return user_email;}
+    public String getUser_Phone_number() {return user_phone_number;}
+    public int getUser_Public_id() {return user_public_id;}
+    public int getUser_db_id() {return user_db_id;}
+    public String getUser_nm() {return user_nm;}
+    public int getFrnds() {return frnds;}
+    public char getGender() {return gender;}
+    public DateTimeOffset getUser_Bday() {return user_bday;}
+    public int getUser_Interest_Id() {return user_interest_id;}
+    public int getF_group_Id() {return f_group_id;}
+    public int get_Trnsp() {return trnsp;}
+    public int getAt_Spot_Id() {return at_spot_id;}
+    public String getUser_Place() {return user_place;}
 }

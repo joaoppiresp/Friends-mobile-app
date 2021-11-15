@@ -44,37 +44,12 @@ public class InfoSpot {
      * 
      * }
      */
-
-    public String getSpot_Name() {
-        return spot_name;
-    }
-
-    public int getSpot_db_id() {
-        return spot_db_id;
-    }
-
-    public String getContact_info() {
-        return contact_info;
-    }
-
-    public void setContact_Info(String contact_info) {
-        this.contact_info = contact_info;
-    }
-
-    public String getSpot_Address() {
-        return spot_address;
-    }
-
-    public void setSpot_Address(String spot_address) {
-        this.spot_address = spot_address;
-    }
-
-    public int getSpt_Type() {
-        return spt_type;
-    }
-
-    public int getCrowd_Spot_Id() {
-        return crowd_spot_id;
-    }
+    
+    public String getSpot_Name() {return spot_name;}
+    public int getSpot_db_id() {return spot_db_id;}
+    public String getContact_info() {return contact_info;}
+    public String getSpot_Address() {return spot_address;}
+    public int getSpt_Type() { return spt_type;}
+    public int getCrowd_Spot_Id() {return crowd_spot_id;}
 
 }

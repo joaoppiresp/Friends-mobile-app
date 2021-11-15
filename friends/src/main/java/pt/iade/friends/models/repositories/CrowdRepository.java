@@ -1,10 +1,10 @@
 package pt.iade.friends.models.repositories;
 
 import org.springframework.data.repository.CrudRepository;
-import pt.iade.friends.models.crowd;
+import pt.iade.friends.models.Crowd;
 
-public interface CrowdRepository extends CrudRepository<crowd, Integer> {
+public interface CrowdRepository extends CrudRepository<Crowd, Integer> {
 
-    public Iterable<crowd> getCrowdById(int crowd_id);
+    public Iterable<Crowd> getCrowdById(int crowd_id);
 
 }

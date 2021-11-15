@@ -1,11 +1,11 @@
 package pt.iade.friends.models.repositories;
 
 import org.springframework.data.repository.CrudRepository;
-import pt.iade.friends.models.eventtype;
+import pt.iade.friends.models.EventType;
 
-public interface EventTypeRepository extends CrudRepository<eventtype, Integer> {
+public interface EventTypeRepository extends CrudRepository<EventType, Integer> {
 
-    public Iterable<eventtype> getEventTypeById(int evnt_type_id);
+    public Iterable<EventType> getEventTypeById(int evnt_type_id);
 
-    public Iterable<eventtype> findAll();
+    public Iterable<EventType> findAll();
 }

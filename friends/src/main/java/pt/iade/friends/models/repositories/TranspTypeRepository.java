@@ -1,9 +1,9 @@
 package pt.iade.friends.models.repositories;
 
 import org.springframework.data.repository.CrudRepository;
-import pt.iade.friends.models.transptype;
+import pt.iade.friends.models.TranspType;
 
-public interface TranspTypeRepository extends CrudRepository<transptype, Integer> {
-    public Iterable<transptype> getTranspTypeById(int trnsp_id);
+public interface TranspTypeRepository extends CrudRepository<TranspType, Integer> {
+    public Iterable<TranspType> getTranspTypeById(int trnsp_id);
 
 }

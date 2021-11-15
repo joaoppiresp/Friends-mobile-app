@@ -1,9 +1,8 @@
 package pt.iade.friends.models.repositories;
 
 import org.springframework.data.repository.CrudRepository;
-import pt.iade.friends.models.spottype;
+import pt.iade.friends.models.SpotType;
 
-public interface SpotTypeRepository extends CrudRepository<spottype, Integer> {
-    public Iterable<spottype> getSpotTypeById(int spt_type_id);
-
+public interface SpotTypeRepository extends CrudRepository<SpotType, Integer> {
+    public Iterable<SpotType> getSpotTypeById(int spt_type_id);
 }

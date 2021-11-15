@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "friends")
 
-public class friends {
+public class Friends {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "mainuser_id")
@@ -22,28 +22,17 @@ public class friends {
     @Column(name = "grp_id")
     private int grp_id;
 
-    public friends() {
+    public Friends() {
     }
     /*
      * public friends(int mainuser_id, String friendship_status, int frnd_user_id,
      * int grp_id) { this.mainuser_id = mainuser_id; this.friendship_status =
      * friendship_status; this.frnd_user_id = frnd_user_id; this.grp_id = grp_id; }
      */
-
-    public int getMainuser_Id() {
-        return mainuser_id;
-    }
-
-    public String getFriendship_Status() {
-        return friendship_status;
-    }
-
-    public int getFrnd_User_Id() {
-        return frnd_user_id;
-    }
-
-    public int getGrp_Id() {
-        return grp_id;
-    }
+    
+    public int getMainuser_Id() {return mainuser_id;}
+    public String getFriendship_Status(){return friendship_status;}
+    public int getFrnd_User_Id(){return frnd_user_id;}
+    public int getGrp_Id(){return grp_id;}
 
 }
