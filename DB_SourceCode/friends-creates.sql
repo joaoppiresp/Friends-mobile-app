@@ -111,7 +111,7 @@ CREATE TABLE eventtype(
 CREATE TABLE crowd(
                     crwd_date date,                                   --date of user presence 
                     crowd_id SERIAL NOT NULL,
-                    user_ids INTEGER,                                 --foreign key to users
+                    user_id INTEGER,                                 --foreign key to users
                     spt_id INTEGER,                                   --foreign key to infospot
                     PRIMARY KEY (crowd_id)
 );  
