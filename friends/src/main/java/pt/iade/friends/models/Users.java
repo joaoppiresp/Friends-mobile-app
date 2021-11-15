@@ -17,7 +17,7 @@ public class Users
     @Column(name = "user_email") private String user_email;
     @Column(name = "user_phone_number") private String user_phone_number;
     @Column(name = "user_public_id") private int user_public_id;
-    @Column(name = "user_db_id") private int user_db_id;
+    @Column(name = "user_db_id") private int id;
     @Column(name = "user_nm") private String user_nm;
     @Column(name = "frnds") private int frnds;
     @Column(name = "user_bday") private DateTimeOffset user_bday;
@@ -35,7 +35,7 @@ public class Users
     public String getUser_Email() {return user_email;}
     public String getUser_Phone_Number() {return user_phone_number;}
     public int getUser_Public_id() {return user_public_id;}
-    public int getUser_Db_Id() {return user_db_id;}
+    public int getUser_Db_Id() {return id;}
     public String getUser_Nm() {return user_nm;}
     public int getFrnds() {return frnds;}
     public DateTimeOffset getUser_Bday() {return user_bday;}
