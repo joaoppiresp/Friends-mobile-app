@@ -39,8 +39,6 @@ public class FriendsController {
             throw new NotFoundException("" + frnd_user_id, "friends", "frnd_user_id");
     }
 
-    // TODO: adding a new friend method goes here
-    // TODO: deleting a friend method goes here
 }
 
 /*

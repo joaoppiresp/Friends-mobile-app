@@ -80,7 +80,6 @@ public class FriendGroupController {
     }
 
 }
-// TODO : the error is the same between the methods;
 
 /*
  * Another interesting methods could be to find a friend byt name inside the
