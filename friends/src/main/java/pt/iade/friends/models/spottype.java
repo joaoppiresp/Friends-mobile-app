@@ -16,10 +16,12 @@ public class spottype {
     @Column(name = "spt_type_id")
     private int spt_type_id;
 
-    public spottype(String spot_type, int spt_type_id) {
-        this.spot_type = spot_type;
-        this.spt_type_id = spt_type_id;
+    public spottype() {
     }
+    /*
+     * public spottype(String spot_type, int spt_type_id) { this.spot_type =
+     * spot_type; this.spt_type_id = spt_type_id; }
+     */
 
     public String getSpot_Type() {
         return spot_type;

@@ -42,24 +42,21 @@ public class Users {
     @Column(name = "user_place")
     private String user_place;
 
-    public Users(String user_email, String user_phone_number, int user_db_id, int user_public_id, String user_nm,
-            int frnds, char gender, DateTimeOffset user_bdate, int user_interest_id, int f_group_id, int trnsp,
-            int at_spot_id, String user_place) {
-        this.user_email = user_email;
-        this.user_phone_number = user_phone_number;
-        this.user_db_id = user_db_id;
-        this.user_public_id = user_public_id;
-        this.user_nm = user_nm;
-        this.frnds = frnds;
-        this.gender = gender;
-        // this.user_bdate = user_bdate;
-        this.user_interest_id = user_interest_id;
-        this.f_group_id = f_group_id;
-        this.trnsp = trnsp;
-        this.at_spot_id = at_spot_id;
-        this.user_place = user_place;
-
+    public Users() {
     }
+    /*
+     * public Users(String user_email, String user_phone_number, int user_db_id, int
+     * user_public_id, String user_nm, int frnds, char gender, DateTimeOffset
+     * user_bdate, int user_interest_id, int f_group_id, int trnsp, int at_spot_id,
+     * String user_place) { this.user_email = user_email; this.user_phone_number =
+     * user_phone_number; this.user_db_id = user_db_id; this.user_public_id =
+     * user_public_id; this.user_nm = user_nm; this.frnds = frnds; this.gender =
+     * gender; // this.user_bdate = user_bdate; this.user_interest_id =
+     * user_interest_id; this.f_group_id = f_group_id; this.trnsp = trnsp;
+     * this.at_spot_id = at_spot_id; this.user_place = user_place;
+     * 
+     * }
+     */
 
     public String getUserEmail() {
         return user_email;

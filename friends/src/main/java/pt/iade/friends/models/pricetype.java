@@ -18,10 +18,12 @@ public class pricetype {
     @Column(name = "prc_type_id")
     private int prc_type_id;
 
-    public pricetype(String prc_type, int prc_type_id) {
-        this.prc_type = prc_type;
-        this.prc_type = prc_type;
+    public pricetype() {
     }
+    /*
+     * public pricetype(String prc_type, int prc_type_id) { this.prc_type =
+     * prc_type; this.prc_type = prc_type; }
+     */
 
     public String getPrc_Type() {
         return prc_type;

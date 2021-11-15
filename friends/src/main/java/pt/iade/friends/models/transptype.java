@@ -24,12 +24,13 @@ public class transptype {
     @Column(name = "trnsp_id")
     private int trnsp_id;
 
-    public transptype(String trnsp_type, DateTimeOffset schedual, int type_spt_id, int trnsp_id) {
-        this.trnsp_type = trnsp_type;
-        this.schedual = schedual;
-        this.type_spt_id = type_spt_id;
-        this.trnsp_id = trnsp_id;
+    public transptype() {
     }
+    /*
+     * public transptype(String trnsp_type, DateTimeOffset schedual, int
+     * type_spt_id, int trnsp_id) { this.trnsp_type = trnsp_type; this.schedual =
+     * schedual; this.type_spt_id = type_spt_id; this.trnsp_id = trnsp_id; }
+     */
 
     public String getTrnsp_type() {
         return trnsp_type;

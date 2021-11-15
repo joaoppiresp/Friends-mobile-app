@@ -24,12 +24,13 @@ public class spotevents {
     @Column(name = "evnttype_id")
     private int evnttype_id;
 
-    public spotevents(DateTimeOffset evnt_date, int event_type_id, int spot_id, int evnttype_id) {
-        this.evnt_date = evnt_date;
-        this.event_type_id = event_type_id;
-        this.spot_id = spot_id;
-        this.evnttype_id = evnttype_id;
+    public spotevents() {
     }
+    /*
+     * public spotevents(DateTimeOffset evnt_date, int event_type_id, int spot_id,
+     * int evnttype_id) { this.evnt_date = evnt_date; this.event_type_id =
+     * event_type_id; this.spot_id = spot_id; this.evnttype_id = evnttype_id; }
+     */
 
     public int getEvent_Type_Id() {
         return event_type_id;

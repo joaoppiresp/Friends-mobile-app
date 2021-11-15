@@ -18,10 +18,12 @@ public class interests {
     @Column(name = "interest_id")
     private int interest_id;
 
-    public interests(String int_name, int interest_id) {
-        this.int_name = int_name;
-        this.interest_id = interest_id;
+    public interests() {
     }
+    /*
+     * public interests(String int_name, int interest_id) { this.int_name =
+     * int_name; this.interest_id = interest_id; }
+     */
 
     public String getInt_Name() {
         return int_name;

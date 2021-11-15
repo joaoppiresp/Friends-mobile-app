@@ -24,12 +24,13 @@ public class crowd {
     @Column(name = "spt_id")
     private int spt_id;
 
-    public crowd(DateTimeOffset crwd_date, int crowd_id, int user_ids, int spt_id) {
-        this.crwd_date = crwd_date;
-        this.crowd_id = crowd_id;
-        this.user_ids = user_ids;
-        this.spt_id = spt_id;
+    public crowd() {
     }
+    /*
+     * public crowd(DateTimeOffset crwd_date, int crowd_id, int user_ids, int
+     * spt_id) { this.crwd_date = crwd_date; this.crowd_id = crowd_id; this.user_ids
+     * = user_ids; this.spt_id = spt_id; }
+     */
 
     public DateTimeOffset getCrwd_Date() {
         return crwd_date;

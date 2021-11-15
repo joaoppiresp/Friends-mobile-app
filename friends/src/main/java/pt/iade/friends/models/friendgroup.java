@@ -22,12 +22,13 @@ public class friendgroup {
     @Column(name = "gp_owner_id")
     private int gp_owner_id;
 
-    public friendgroup(String group_name, int group_id, int friends_id, int gp_owner_id) {
-        this.group_name = group_name;
-        this.group_id = group_id;
-        this.friends_id = friends_id;
-        this.gp_owner_id = gp_owner_id;
+    public friendgroup() {
     }
+    /*
+     * public friendgroup(String group_name, int group_id, int friends_id, int
+     * gp_owner_id) { this.group_name = group_name; this.group_id = group_id;
+     * this.friends_id = friends_id; this.gp_owner_id = gp_owner_id; }
+     */
 
     public String getGroup_Name() {
         return group_name;

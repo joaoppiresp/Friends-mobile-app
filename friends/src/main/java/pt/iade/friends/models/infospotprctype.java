@@ -24,12 +24,13 @@ public class infospotprctype {
     @Column(name = "spot_id")
     private int spot_id;
 
-    public infospotprctype(BigDecimal price, int price_id, int prc_type, int spot_id) {
-        this.price = price;
-        this.price_id = price_id;
-        this.prc_type = prc_type;
-        this.spot_id = spot_id;
+    public infospotprctype() {
     }
+    /*
+     * public infospotprctype(BigDecimal price, int price_id, int prc_type, int
+     * spot_id) { this.price = price; this.price_id = price_id; this.prc_type =
+     * prc_type; this.spot_id = spot_id; }
+     */
 
     public BigDecimal getPrice() {
         return price;

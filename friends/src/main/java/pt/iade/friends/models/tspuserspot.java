@@ -24,12 +24,13 @@ public class tspuserspot {
     @Column(name = "tsp_id")
     private int tsp_id;
 
-    public tspuserspot(BigDecimal price, int tsp_type_id, int tsp_spot_id, int tsp_id) {
-        this.price = price;
-        this.tsp_type_id = tsp_type_id;
-        this.tsp_spot_id = tsp_spot_id;
-        this.tsp_id = tsp_id;
+    public tspuserspot() {
     }
+    /*
+     * public tspuserspot(BigDecimal price, int tsp_type_id, int tsp_spot_id, int
+     * tsp_id) { this.price = price; this.tsp_type_id = tsp_type_id;
+     * this.tsp_spot_id = tsp_spot_id; this.tsp_id = tsp_id; }
+     */
 
     public BigDecimal getPrice() {
         return price;

@@ -20,11 +20,13 @@ public class UserInterest {
     @Column(name = "user_int_id")
     private int user_int_id;
 
-    public UserInterest(int int_id, int interest_user_id, int user_int_id) {
-        this.int_id = int_id;
-        this.interest_user_id = interest_user_id;
-        this.user_int_id = user_int_id;
+    public UserInterest() {
     }
+    /*
+     * public UserInterest(int int_id, int interest_user_id, int user_int_id) {
+     * this.int_id = int_id; this.interest_user_id = interest_user_id;
+     * this.user_int_id = user_int_id; }
+     */
 
     public int getInt_Id() {
         return int_id;

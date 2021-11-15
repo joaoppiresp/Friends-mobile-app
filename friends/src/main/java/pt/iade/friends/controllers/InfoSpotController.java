@@ -1,7 +1,6 @@
 package pt.iade.friends.controllers;
 
 import java.util.Optional;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,46 +18,47 @@ import pt.iade.friends.models.repositories.InfoSpotRepository;
 import pt.iade.friends.models.responses.Response;
 
 @RestController
-@RequestMapping(path = "/api/info_spot")
+@RequestMapping(path = "/api/infospots")
 public class InfoSpotController {
     private Logger logger = LoggerFactory.getLogger(InfoSpotController.class);
     @Autowired
-    private InfoSpotRepository info_spotRepository;
+    private InfoSpotRepository infospotRepository;
 
+    // get all spots
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-
-    public Iterable<InfoSpot> getInfo_Spots() {
-        logger.info("Sending all info_spots");
-        return info_spotRepository.findAll();
+    public Iterable<InfoSpot> getInfoSpots() {
+        logger.info("Sending all infospots");
+        return infospotRepository.findAll();
     }
 
-    @GetMapping(path = "{internal_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-
-    public InfoSpot getInfo_SpotById(@PathVariable int internal_id) {
+    // get spot by id
+    @GetMapping(path = "{spot_db_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public InfoSpot getInfoSpotById(@PathVariable int spot_db_id) {
         logger.info("Sending all info_spots");
-        Optional<InfoSpot> _info_spot = info_spotRepository.findById(internal_id);
+        Optional<InfoSpot> _info_spot = infospotRepository.findById(spot_db_id);
         if (_info_spot.isPresent())
             return _info_spot.get();
         else
-            throw new NotFoundException("" + internal_id, "info_spots", "internal_id");
+            throw new NotFoundException("" + spot_db_id, "infospots", "spot_db_id");
 
     }
 
+    // add a new spot
     @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-
-    public InfoSpot saveInfo_Spot(@RequestBody InfoSpot info_spot) {
-        logger.info("Saving info_spot with name: " + info_spot.getSpot_Name());
-        InfoSpot newInfo_Spot = info_spotRepository.save(info_spot);
-        return newInfo_Spot;
+    public InfoSpot saveInfoSpot(@RequestBody InfoSpot infospot) {
+        logger.info("Saving infospot with name: " + infospot.getSpot_Name());
+        InfoSpot newInfoSpot = infospotRepository.save(infospot);
+        return newInfoSpot;
 
     }
 
-    @DeleteMapping(path = "{internal_id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Response deleteInfo_SpotById(@PathVariable int internal_id) {
-        logger.info("delete Info_Spot with internal_id: " + internal_id);
-        if (info_spotRepository.deleteInfoSpotById(internal_id))
-            return new Response(internal_id + "was deleted.", null);
+    // delete a spot
+    @DeleteMapping(path = "{spot_db_id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Response deleteInfoSpotById(@PathVariable int spot_db_id) {
+        logger.info("delete InfoSpot with spot_db_id: " + spot_db_id);
+        if (infospotRepository.deleteInfoSpotById(spot_db_id))
+            return new Response(spot_db_id + "was deleted.", null);
         else
-            return new Response(internal_id + "not found.", null);
+            return new Response(spot_db_id + "not found.", null);
     }
 }

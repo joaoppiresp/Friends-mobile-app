@@ -32,18 +32,18 @@ public class InfoSpot {
     @Column(name = "crowd_spot_id")
     private int crowd_spot_id;
 
-    public InfoSpot(String spot_name, int spot_db_id, String contact_info, String spot_address, int spt_type,
-            int spt_info_prc_id, int evnt_id, int crowd_spot_id) {
-        this.spot_name = spot_name;
-        this.spot_db_id = spot_db_id;
-        this.contact_info = contact_info;
-        this.spot_address = spot_address;
-        this.spt_type = spt_type;
-        this.spt_info_prc_id = spt_info_prc_id;
-        this.evnt_id = evnt_id;
-        this.crowd_spot_id = crowd_spot_id;
-
+    public InfoSpot() {
     }
+    /*
+     * public InfoSpot(String spot_name, int spot_db_id, String contact_info, String
+     * spot_address, int spt_type, int spt_info_prc_id, int evnt_id, int
+     * crowd_spot_id) { this.spot_name = spot_name; this.spot_db_id = spot_db_id;
+     * this.contact_info = contact_info; this.spot_address = spot_address;
+     * this.spt_type = spt_type; this.spt_info_prc_id = spt_info_prc_id;
+     * this.evnt_id = evnt_id; this.crowd_spot_id = crowd_spot_id;
+     * 
+     * }
+     */
 
     public String getSpot_Name() {
         return spot_name;
