@@ -15,6 +15,7 @@ import pt.iade.friends.models.exceptions.NotFoundException;
 import pt.iade.friends.models.Users;
 import pt.iade.friends.models.repositories.UsersRepository;
 import pt.iade.friends.models.responses.Response;
+
 @RestController
 @RequestMapping(path = "/api/users")
 public class UsersController 
@@ -24,7 +25,7 @@ public class UsersController
     private UsersRepository usersRepository;
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
 
-    public Iterable <Users> getusers() 
+    public Iterable <Users> getUsers() 
     {
         logger.info("Sending all Users");
         return usersRepository.findAll();
@@ -39,22 +40,21 @@ public class UsersController
         if(_users.isPresent()) return _users.get();
         else
         throw new NotFoundException(""+ internal_id, "users", "internal_id"); 
-        
     }
 
     @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Users saveUsers(@RequestBody Users spot)
+    public Users SaveUsers(@RequestBody Users users)
     {
-        logger.info("Saving Users with name: "+Users.class.getName());
-        Users newUsers = usersRepository.save(spot);
+        logger.info("Saving Users with name: "+users.getUser_Nm());
+        Users newUsers = usersRepository.save(users);
         return newUsers;
     }
 
     @DeleteMapping(path = "{internal_id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Response deleteUsersById(@PathVariable int internal_id)
+    public Response DeleteUsersById(@PathVariable int internal_id)
     {
-        logger.info("delete Users with internal_id: "+internal_id);
-        if(usersRepository.deleteUsersById(internal_id))
+        logger.info("Delete Users with internal_id: "+internal_id);
+        if(usersRepository.DeleteUsersById(internal_id))
         return new Response(internal_id+ "was deleted.", null);
         else return new Response(internal_id+ "not found.", null);
     }
