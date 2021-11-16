@@ -14,7 +14,7 @@
 	<name>friends</name>
 	<description>friends project</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17.0.1</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
