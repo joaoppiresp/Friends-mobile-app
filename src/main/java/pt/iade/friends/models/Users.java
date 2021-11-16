@@ -1,11 +1,12 @@
 package pt.iade.friends.models;
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import microsoft.sql.DateTimeOffset;
 
 @Entity
 @Table(name = "users")
@@ -20,7 +21,7 @@ public class Users
     @Column(name = "user_db_id") private int id;
     @Column(name = "user_nm") private String user_nm;
     @Column(name = "frnds") private int frnds;
-    @Column(name = "user_bday") private DateTimeOffset user_bday;
+    @Column(name = "user_bday") private BigDecimal user_bday;
     @Column(name = "user_interest_id") private int user_interest_id;
     @Column(name = "f_group_id") private int f_group_id;
     @Column(name = "trnsp") private int trnsp;
@@ -38,7 +39,7 @@ public class Users
     public int getUser_Db_Id() {return id;}
     public String getUser_Nm() {return user_nm;}
     public int getFrnds() {return frnds;}
-    public DateTimeOffset getUser_Bday() {return user_bday;}
+    public BigDecimal getUser_Bday() {return user_bday;}
     public int getUser_Interest_Id() {return user_interest_id;}
     public int getF_Group_Id() {return f_group_id;}
     public int get_Trnsp() {return trnsp;}
