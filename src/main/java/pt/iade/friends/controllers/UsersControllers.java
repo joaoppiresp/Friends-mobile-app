@@ -1,4 +1,4 @@
-package pt.iade.friends.controllers;
+package main.java.pt.iade.friends.controllers;
 
 import java.util.Optional;
 import org.slf4j.Logger;
