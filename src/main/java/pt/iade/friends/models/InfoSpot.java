@@ -30,7 +30,7 @@ public class InfoSpot
     public int getId() {return spotId;}
     public String getContactInfo() {return contactInfo;}
     public String getSpotAddress() {return spotAddress;}
-    public int getSptType() { return sptType;}
+    public int getSptType() {return sptType;}
     public int getSptInfoPrcId() {return sptInfoPrcId;}
     public int getEvntId(){return evntId;}
     public int getCrowdSpotId() {return crowdSpotId;}
