@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import pt.iade.friends.models.exceptions.NotFoundException;
+import pt.iade.friends.models.exceptions.NotFoundException2;
 import pt.iade.friends.models.Users;
 import pt.iade.friends.models.repositories.UsersRepository;
 import pt.iade.friends.models.responses.Response;
@@ -39,7 +40,7 @@ public class UsersController
         logger.info("Sending users with id " + id);
         Optional <Users> _users=usersRepository.findById(id);
         if(!_users.isPresent()) throw 
-        new NotFoundException(""+id,"users", "id");
+        new NotFoundException2(""+id,"users", "id");
         else return _users.get();
     }
 
