@@ -14,7 +14,7 @@ public class InfoSpot
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "spot_name") private String name;
-    @Column(name = "spot_db_id") private int id;
+    @Column(name = "spot_db_id") private int spotId;
     @Column(name = "contact_info") private String contactInfo;
     @Column(name = "spot_address") private String spotAddress;
     @Column(name = "spt_type") private int sptType;
@@ -27,7 +27,7 @@ public class InfoSpot
     }
     
     public String getName() {return name;}
-    public int getId() {return id;}
+    public int getId() {return spotId;}
     public String getContactInfo() {return contactInfo;}
     public String getSpotAddress() {return spotAddress;}
     public int getSptType() { return sptType;}
