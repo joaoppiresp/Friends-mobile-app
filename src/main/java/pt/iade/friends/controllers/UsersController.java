@@ -56,7 +56,7 @@ public class UsersController
     public response deleteUsers(@PathVariable int id) {
         logger.info("Deleted user with id "+id);
         usersRepository.deleteById(id);
-        return new response("Deleted user with id "+id, null);
+        return new Response("Deleted user with id "+id, null);
     }
 
 }
