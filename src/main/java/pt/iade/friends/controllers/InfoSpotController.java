@@ -31,7 +31,7 @@ public class InfoSpotController
 
     // get spot by id
     @GetMapping(path= "/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public InfoSpot getSpot(@PathVariable int id) 
+    public InfoSpot getSpot(@PathVariable("id") Integer id) 
     {
         logger.info("Sending spot");
         Optional<InfoSpot> _infospot = infoSpotRepository.findById(id);
