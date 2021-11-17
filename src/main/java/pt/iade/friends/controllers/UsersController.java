@@ -34,12 +34,12 @@ public class UsersController
     }
 
     // get user by id
-    @GetMapping(path = "/{db_id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Users getUsers(@PathVariable int db_id) {
-        logger.info("Sending users with id "+db_id);
-        Optional<Users> _users=usersRepository.findById(db_id);
+    @GetMapping(path = "/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Users getUsers(@PathVariable int id) {
+        logger.info("Sending users with id "+id);
+        Optional<Users> _users=usersRepository.findById(id);
         if(_users.isEmpty()) throw 
-        new NotFoundException(""+db_id,"users", "db_id");
+        new NotFoundException(id,"users", "db_id");
         else return _users.get() ;
     }
 
