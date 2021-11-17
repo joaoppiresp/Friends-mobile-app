@@ -38,7 +38,7 @@ public class UsersController
         logger.info("Sending user");
         Optional<Users> _users=usersRepository.findById(id);
         if(_users.isEmpty()) throw 
-        new NotFoundException(id,"users", "id");
+        new NotFoundException(id,id , "id");
         else return _users.get() ;
     }
     /*
