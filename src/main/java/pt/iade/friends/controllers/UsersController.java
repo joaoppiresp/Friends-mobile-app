@@ -35,10 +35,10 @@ public class UsersController
 
     // get user by id
     @GetMapping(path = "/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Users getUsers(@PathVariable int id) {
+    public Users getUsers(@PathVariable ("id") int id) {
         logger.info("Sending users with id "+id);
         Optional <Users> _users=usersRepository.findById(id);
-        if(_users.isEmpty()) throw 
+        if(_users.isPresent()) throw 
         new NotFoundException(""+id,"users", "id");
         else return _users.get() ;
     }
