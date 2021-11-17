@@ -25,9 +25,8 @@ public class UsersController
     private Logger logger = LoggerFactory.getLogger(UsersController.class);
     @Autowired
     private UsersRepository usersRepository;
-    @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-
     // get all users
+    @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Users> getUsers() {
         logger.info("Sending all Users");
         return usersRepository.findAll();
@@ -36,7 +35,7 @@ public class UsersController
     // get user by id
     @GetMapping(path = "/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Users getUsers(@PathVariable int id) {
-        logger.info("Sending users with id");
+        logger.info("Sending user");
         Optional<Users> _users=usersRepository.findById(id);
         if(_users.isEmpty()) throw 
         new NotFoundException(id,"users", "id");
