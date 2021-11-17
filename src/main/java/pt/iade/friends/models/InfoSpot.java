@@ -22,14 +22,16 @@ public class InfoSpot
     @Column(name = "evnt_id") private int evntId;
     @Column(name = "crowd_spot_id") private int crowdSpotId;
 
-    public InfoSpot() {}
+    public InfoSpot() {
+        //empty constructor
+    }
     
-    public String getSpot_Name() {return name;}
-    public int getSpot_db_id() {return id;}
-    public String getContact_info() {return contactInfo;}
-    public String getSpot_Address() {return spotAddress;}
-    public int getSpt_Type() { return sptType;}
-    public int getSpt_Info_Prc_Id() {return sptInfoPrcId;}
-    public int getEvnt_Id(){return evntId;}
-    public int getCrowd_Spot_Id() {return crowdSpotId;}
+    public String getName() {return name;}
+    public int getId() {return id;}
+    public String getContactInfo() {return contactInfo;}
+    public String getSpotAddress() {return spotAddress;}
+    public int getSptType() { return sptType;}
+    public int getSptInfoPrcId() {return sptInfoPrcId;}
+    public int getEvntId(){return evntId;}
+    public int getCrowdSpotId() {return crowdSpotId;}
 }
