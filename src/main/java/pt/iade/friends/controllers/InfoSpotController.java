@@ -31,12 +31,12 @@ public class InfoSpotController
 
     // get spot by id
     @GetMapping(path= "/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public InfoSpot getSpot(@PathVariable int id) throws NotFoundException 
+    public InfoSpot getSpot(@PathVariable int id) 
     {
         logger.info("Sending spot");
         Optional<InfoSpot> _infospot = infoSpotRepository.findById(id);
-        if (!_infospot.isPresent()) throw new NotFoundException("" +id, "infospots", "id");
-        else return _infospot.get();
-
+        if (_infospot.isPresent()) return _infospot.get();
+        else
+          throw new NotFoundException("" +id, "infospots", "id");
     }
 }
