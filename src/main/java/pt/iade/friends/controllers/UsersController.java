@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pt.iade.friends.models.exceptions.NotFoundException;
 import pt.iade.friends.models.Users;
 import pt.iade.friends.models.repositories.UsersRepository;
-import pt.iade.friends.models.response.Response;
+import pt.iade.friends.models.Responses.Response;
 
 @RestController
 @RequestMapping(path = "/api/users")
