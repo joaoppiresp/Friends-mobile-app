@@ -22,11 +22,12 @@ public class InfoSpotController
 
     // get all spots
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<InfoSpot> getInfoSpots() 
+    public Iterable<InfoSpot> getSpots() 
     {
         logger.info("Sending all spots");
         return infoSpotRepository.findAll();
     }
+
 
     // get spot by id
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
