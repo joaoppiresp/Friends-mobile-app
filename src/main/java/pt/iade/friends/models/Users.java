@@ -1,6 +1,5 @@
 package pt.iade.friends.models;
-import java.math.BigDecimal;
-
+import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,33 +14,36 @@ public class Users
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_email") private String userEmail;
-    @Column(name = "user_phone_number") private String userPhoneNumber;
-    @Column(name = "user_public_id") private int userPublicId;
+    @Column(name = "user_email") private String email;
+    @Column(name = "user_phone_number") private String phoneNumber;
+    @Column(name = "user_public_id") private int publicId;
     @Column(name = "user_db_id") private int id;
-    @Column(name = "user_nm") private String userNm;
-    @Column(name = "frnds") private int friendsId;
-    @Column(name = "user_bday") private BigDecimal userBday;
-    @Column(name = "user_interest_id") private int userInterestId;
-    @Column(name = "f_group_id") private int fGroupId;
-    @Column(name = "trnsp") private int trnspId;
-    @Column(name = "at_spot_id") private int atSpotId;
-    @Column(name = "user_place") private String userPlace;
+    @Column(name = "user_nm") private String nm;
+    @Column(name = "frnds") private int frnds;
+    @Column(name = "gender") private char gender;
+    @Column(name = "user_bday") private Date bday;
+    @Column(name = "user_interest_id") private int interestId;
+    @Column(name = "f_group_id") private int fgroupId;
+    @Column(name = "trnsp") private int trnsp;
+    @Column(name = "at_spot_id") private int atspotId;
+    @Column(name = "user_place") private String place;
 
     public Users()
     {
+
     }
 
-    public String getUserEmail() {return userEmail;}
-    public String getUserPhoneNumber() {return userPhoneNumber;}
-    public int getUserPublicId() {return userPublicId;}
+    public String getEmail() {return email;}
+    public String getPhoneNumber() {return phoneNumber;}
+    public int getPublicId() {return publicId;}
     public int getId() {return id;}
-    public String getUserNm() {return userNm;}
-    public int getFrnds() {return friendsId;}
-    public BigDecimal getUserBday() {return userBday;}
-    public int getUserInterestId() {return userInterestId;}
-    public int getFGroupId() {return fGroupId;}
-    public int getTrnsp() {return trnspId;}
-    public int getAtSpotId() {return atSpotId;}
-    public String getUserPlace() {return userPlace;}
+    public String getNm() {return nm;}
+    public int getFrnds() {return frnds;}
+    public char getGender() {return gender;}
+    public Date getBday() {return bday;}
+    public int getInterestId() {return interestId;}
+    public int getFGroupId() {return fgroupId;}
+    public int getTrnsp() {return trnsp;}
+    public int getAtSpotId() {return atspotId;}
+    public String getPlace() {return place;}
 }
