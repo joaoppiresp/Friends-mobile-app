@@ -36,7 +36,7 @@ public class Users
     public String getUser_Email() {return user_email;}
     public String getUser_Phone_Number() {return user_phone_number;}
     public int getUser_Public_id() {return user_public_id;}
-    public int getUser_Db_Id() {return id;}
+    public int getDb_Id() {return id;}
     public String getUser_Nm() {return user_nm;}
     public int getFrnds() {return frnds;}
     public BigDecimal getUser_Bday() {return user_bday;}
