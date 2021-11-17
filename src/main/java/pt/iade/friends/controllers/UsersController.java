@@ -8,8 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+//import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,27 +36,27 @@ public class UsersController
     // get user by id
     @GetMapping(path = "/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Users getUsers(@PathVariable int id) {
-        logger.info("Sending users with id " + id);
+        logger.info("Sending users with id");
         Optional<Users> _users=usersRepository.findById(id);
         if(_users.isEmpty()) throw 
-        new NotFoundException(""+id,"users", "id");
-        else return _users.get();
+        new NotFoundException(id,"users", "id");
+        else return _users.get() ;
     }
-    
+    /*
     // save user
     @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public Users saveUsers(@RequestBody Users user) {
         Users saveUsers = usersRepository.save(user);
-    logger.info("Saving user with id"+saveUsers.getId());
-    return saveUsers;
+    logger.info("Saving user with id"+id);
+    return saveUsers.getId();
     }
-    
+    */
     // delete user
     @DeleteMapping(path = "/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response deleteUsers(@PathVariable int id) {
-        logger.info("Deleting user with id "+id);
+        logger.info("Deleted user");
         usersRepository.deleteById(id);
-        return new Response("Deleted user with id "+id,null);
+        return new Response("Deleted user with id "+id, null);
     }
     
 }

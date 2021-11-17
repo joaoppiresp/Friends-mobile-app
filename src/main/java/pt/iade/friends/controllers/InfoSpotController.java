@@ -37,6 +37,6 @@ public class InfoSpotController
         Optional<InfoSpot> _infospot = infoSpotRepository.findById(spotId);
         if (_infospot.isPresent()) return _infospot.get();
         else
-          throw new NotFoundException(""+spotId,"infospots", "spotId");
+          throw new NotFoundException(spotId, "infospots", "spotId");
     }
 }
