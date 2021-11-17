@@ -15,34 +15,33 @@ public class Users
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_email") private String user_email;
-    @Column(name = "user_phone_number") private String user_phone_number;
-    @Column(name = "user_public_id") private int user_public_id;
+    @Column(name = "user_email") private String userEmail;
+    @Column(name = "user_phone_number") private String userPhoneNumber;
+    @Column(name = "user_public_id") private int userPublicId;
     @Column(name = "user_db_id") private int id;
-    @Column(name = "user_nm") private String user_nm;
-    @Column(name = "frnds") private int frnds;
-    @Column(name = "user_bday") private BigDecimal user_bday;
-    @Column(name = "user_interest_id") private int user_interest_id;
-    @Column(name = "f_group_id") private int f_group_id;
-    @Column(name = "trnsp") private int trnsp;
-    @Column(name = "at_spot_id") private int at_spot_id;
-    @Column(name = "user_place") private String user_place;
+    @Column(name = "user_nm") private String userNm;
+    @Column(name = "frnds") private int friendsId;
+    @Column(name = "user_bday") private BigDecimal userBday;
+    @Column(name = "user_interest_id") private int userInterestId;
+    @Column(name = "f_group_id") private int fGroupId;
+    @Column(name = "trnsp") private int trnspId;
+    @Column(name = "at_spot_id") private int atSpotId;
+    @Column(name = "user_place") private String userPlace;
 
     public Users()
     {
-
     }
 
-    public String getUser_Email() {return user_email;}
-    public String getUser_Phone_Number() {return user_phone_number;}
-    public int getUser_Public_id() {return user_public_id;}
-    public int getDb_Id() {return id;}
-    public String getUser_Nm() {return user_nm;}
-    public int getFrnds() {return frnds;}
-    public BigDecimal getUser_Bday() {return user_bday;}
-    public int getUser_Interest_Id() {return user_interest_id;}
-    public int getF_Group_Id() {return f_group_id;}
-    public int get_Trnsp() {return trnsp;}
-    public int getAt_Spot_Id() {return at_spot_id;}
-    public String getUser_Place() {return user_place;}
+    public String getUserEmail() {return userEmail;}
+    public String getUserPhoneNumber() {return userPhoneNumber;}
+    public int getUserPublicId() {return userPublicId;}
+    public int getId() {return id;}
+    public String getUserNm() {return userNm;}
+    public int getFrnds() {return friendsId;}
+    public BigDecimal getUserBday() {return userBday;}
+    public int getUserInterestId() {return userInterestId;}
+    public int getFGroupId() {return fGroupId;}
+    public int getTrnsp() {return trnspId;}
+    public int getAtSpotId() {return atSpotId;}
+    public String getUserPlace() {return userPlace;}
 }
