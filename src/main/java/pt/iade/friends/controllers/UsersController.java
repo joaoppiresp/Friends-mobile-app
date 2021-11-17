@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pt.iade.friends.models.exceptions.NotFoundException;
 import pt.iade.friends.models.Users;
 import pt.iade.friends.models.repositories.UsersRepository;
-import pt.iade.friends.models.Responses.Response;
+import pt.iade.friends.models.responses.Response;
 
 @RestController
 @RequestMapping(path = "/api/users")
@@ -53,10 +53,10 @@ public class UsersController
 
     // delete user
     @DeleteMapping(path = "/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Response deleteUsers(@PathVariable int id) {
+    public response deleteUsers(@PathVariable int id) {
         logger.info("Deleted user with id "+id);
         usersRepository.deleteById(id);
-        return new Response("Deleted user with id "+id, null);
+        return new response("Deleted user with id "+id, null);
     }
 
 }
