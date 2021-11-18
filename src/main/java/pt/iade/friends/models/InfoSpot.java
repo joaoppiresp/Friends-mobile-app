@@ -11,9 +11,9 @@ import javax.persistence.Table;
 
 public class InfoSpot 
 {
+    @Column(name = "spot_name") private String name;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "spot_name") private String name;
     @Column(name = "spot_db_id") private int spotId;
     @Column(name = "contact_info") private String contactInfo;
     @Column(name = "spot_address") private String spotAddress;
