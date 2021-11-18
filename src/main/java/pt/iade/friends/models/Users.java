@@ -14,10 +14,10 @@ public class Users
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_db_id") private int id;
     @Column(name = "user_email") private String email;
     @Column(name = "user_phone_number") private String phoneNumber;
     @Column(name = "user_public_id") private int publicId;
-    @Column(name = "user_db_id") private int id;
     @Column(name = "user_nm") private String nm;
     @Column(name = "frnds") private int frnds;
     @Column(name = "gender") private char gender;
