@@ -12,9 +12,9 @@ public class Friends
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "frnd_user_id") private int frndUserId;
     @Column(name = "friendship_status") private String friendshipStatus;
     @Column(name = "mainuser_id") private int mainuserId;
-    @Column(name = "frnd_user_id") private int frndUserId;
     @Column(name = "grp_id") private int grp_Id;
  
     public Friends()
