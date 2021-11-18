@@ -1,5 +1,14 @@
 package pt.iade.friends.views;
+
+import java.sql.Timestamp;
+
 public interface EventView {
+
+    Timestamp getevntdate();
+    int getevnttypeId();
+    int getsptId();
+    int getevnttpId();
+    
 
 
     String QueryGetEvents = "SELECT infospot.spot_name AS sptname, "+

@@ -25,11 +25,11 @@ public class InfoSpot
     public InfoSpot() {
         //empty constructor
     }
-    
-    public String getName() {return name;}
+   
+    public String getsptname() {return name;}
     public int getId() {return spotId;}
     public String getContactInfo() {return contactInfo;}
-    public String getSpotAddress() {return spotAddress;}
+    public String getsptaddress() {return spotAddress;}
     public int getSptType() {return sptType;}
     public int getSptInfoPrcId() {return sptInfoPrcId;}
     public int getEvntId(){return evntId;}
