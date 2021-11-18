@@ -33,17 +33,108 @@ public class Users
 
     }
 
-    public String getEmail() {return email;}
-    public String getPhoneNumber() {return phoneNumber;}
-    public int getPublicId() {return publicId;}
-    public int getId() {return id;}
-    public String getNm() {return nm;}
-    public int getFrnds() {return frnds;}
-    public char getGender() {return gender;}
-    public Date getBday() {return bday;}
-    public int getInterestId() {return interestId;}
-    public int getFGroupId() {return fgroupId;}
-    public int getTrnsp() {return trnsp;}
-    public int getAtSpotId() {return atspotId;}
-    public String getPlace() {return place;}
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public int getPublicId() {
+        return publicId;
+    }
+
+    public void setPublicId(int publicId) {
+        this.publicId = publicId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNm() {
+        return nm;
+    }
+
+    public void setNm(String nm) {
+        this.nm = nm;
+    }
+
+    public int getFrnds() {
+        return frnds;
+    }
+
+    public void setFrnds(int frnds) {
+        this.frnds = frnds;
+    }
+
+    public char getGender() {
+        return gender;
+    }
+
+    public void setGender(char gender) {
+        this.gender = gender;
+    }
+
+    public Date getBday() {
+        return bday;
+    }
+
+    public void setBday(Date bday) {
+        this.bday = bday;
+    }
+
+    public int getInterestId() {
+        return interestId;
+    }
+
+    public void setInterestId(int interestId) {
+        this.interestId = interestId;
+    }
+
+    public int getFgroupId() {
+        return fgroupId;
+    }
+
+    public void setFgroupId(int fgroupId) {
+        this.fgroupId = fgroupId;
+    }
+
+    public int getTrnsp() {
+        return trnsp;
+    }
+
+    public void setTrnsp(int trnsp) {
+        this.trnsp = trnsp;
+    }
+
+    public int getAtspotId() {
+        return atspotId;
+    }
+
+    public void setAtspotId(int atspotId) {
+        this.atspotId = atspotId;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+    
 }
