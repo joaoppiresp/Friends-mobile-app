@@ -1,8 +1,8 @@
 package pt.iade.friends.models.repositories;
 import org.springframework.data.repository.CrudRepository;
-import pt.iade.friends.models.Users;
+import pt.iade.friends.models.User;
 
-public interface UsersRepository extends CrudRepository<Users, Integer> 
+public interface UserRepository extends CrudRepository<User, Integer> 
 {
 
 }

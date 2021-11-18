@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "friends")
-public class Friends
+public class Friend
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +17,7 @@ public class Friends
     @Column(name = "mainuser_id") private int mainuserId;
     @Column(name = "grp_id") private int grp_Id;
  
-    public Friends()
+    public Friend()
     {
     }
 

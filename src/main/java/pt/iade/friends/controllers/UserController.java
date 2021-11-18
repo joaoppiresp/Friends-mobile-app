@@ -14,48 +14,48 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import pt.iade.friends.models.exceptions.NotFoundException;
-import pt.iade.friends.models.Users;
-import pt.iade.friends.models.repositories.UsersRepository;
+import pt.iade.friends.models.User;
+import pt.iade.friends.models.repositories.UserRepository;
 import pt.iade.friends.models.responses.Response;
 
 @RestController
 @RequestMapping(path = "/api/users")
-public class UsersController 
+public class UserController 
 {
-    private Logger logger = LoggerFactory.getLogger(UsersController.class);
+    private Logger logger = LoggerFactory.getLogger(UserController.class);
     @Autowired
-    private UsersRepository usersRepository;
+    private UserRepository userRepository;
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
 
     // get all users
-    public Iterable <Users> getUsers() {
+    public Iterable <User> getUsers() {
         logger.info("Sending all Users");
-        return usersRepository.findAll();
+        return userRepository.findAll();
     }
 
     // get user by id
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Users getUsers(@PathVariable ("id") int id) {
-        logger.info("Sending users with id " + id);
-        Optional <Users> _users=usersRepository.findById(id);
-        if(!_users.isPresent()) throw 
-        new NotFoundException(""+id,"users", "id");
-        else return _users.get();
+    public User getUser(@PathVariable ("id") int id) {
+        logger.info("Sending user with id " + id);
+        Optional <User> _user=userRepository.findById(id);
+        if(!_user.isPresent()) throw 
+        new NotFoundException(""+id,"user", "id");
+        else return _user.get();
     }
 
     // save user
     @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Users saveUsers(@RequestBody Users users) {
-        Users saveUsers = usersRepository.save(users);
-    logger.info("Saving user with id"+saveUsers.getId());
-    return saveUsers;
+    public User saveUser(@RequestBody User user) {
+        User saveUser = userRepository.save(user);
+    logger.info("Saving user with id"+saveUser.getId());
+    return saveUser;
     }
 
     // delete user
     @DeleteMapping(path = "/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response deleteUsers(@PathVariable int id) {
         logger.info("Deleted user with id "+id);
-        usersRepository.deleteById(id);
+        userRepository.deleteById(id);
         return new Response("Deleted user with id "+id, null);
     }
 
