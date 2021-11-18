@@ -47,11 +47,11 @@ insert into infospotprctype(price) values(20);
 insert into infospotprctype(price) values(100);
 
 
-insert into spotevents(evnt_date) values('2021-11-03, 23:23:23' );
-insert into spotevents(evnt_date) values('2021-10-03, 10:10:10' );
-insert into spotevents(evnt_date) values('2021-09-03, 02:02:22' );
-insert into spotevents(evnt_date) values('2021-08-03, 03:03:33' );
-insert into spotevents(evnt_date) values('2021-07-03, 04:04:44' );
+insert into spotevents(evnt_date) values('2021-11-03 23:23:23' );
+insert into spotevents(evnt_date) values('2021-10-03 10:10:10' );
+insert into spotevents(evnt_date) values('2021-09-03 02:02:22' );
+insert into spotevents(evnt_date) values('2021-08-03 03:03:33' );
+insert into spotevents(evnt_date) values('2021-07-03 04:04:44' );
 
 
 insert into infospot(spot_name, contact_info, spot_address) values('Misc by Tartar-ia', '918515254', 'Rua da Boavista 14, 1200-067 Lisboa');
