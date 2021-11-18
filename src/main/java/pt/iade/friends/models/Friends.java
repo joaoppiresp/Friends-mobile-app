@@ -24,33 +24,14 @@ public class Friends
     public String getFriendshipStatus() {
         return friendshipStatus;
     }
-
-    public void setFriendshipStatus(String friendshipStatus) {
-        this.friendshipStatus = friendshipStatus;
-    }
-
     public int getMainuserId() {
         return mainuserId;
     }
-
-    public void setMainuserId(int mainuserId) {
-        this.mainuserId = mainuserId;
-    }
-
     public int getFrndUserId() {
         return frndUserId;
     }
 
-    public void setFrndUserId(int frndUserId) {
-        this.frndUserId = frndUserId;
-    }
-
     public int getGrp_Id() {
         return grp_Id;
-    }
-
-    public void setGrp_Id(int grp_Id) {
-        this.grp_Id = grp_Id;
-    }
-    
+    }    
 }
