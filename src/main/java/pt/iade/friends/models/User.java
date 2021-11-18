@@ -1,5 +1,4 @@
 package pt.iade.friends.models;
-import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,8 +19,6 @@ public class User
     @Column(name = "user_public_id") private int publicId;
     @Column(name = "user_nm") private String nm;
     @Column(name = "frnds") private int frnds;
-    @Column(name = "gender") private char gender;
-    @Column(name = "user_bday") private Date bday;
     @Column(name = "user_interest_id") private int interestId;
     @Column(name = "f_group_id") private int fgroupId;
     @Column(name = "trnsp") private int trnsp;
@@ -30,7 +27,7 @@ public class User
 
     public User()
     {
-        
+        //empty constructor
     }
 
     public String getEmail() {
@@ -50,12 +47,6 @@ public class User
     }
     public int getFrnds() {
         return frnds;
-    }
-    public char getGender() {
-        return gender;
-    }
-    public Date getBday() {
-        return bday;
     }
     public int getInterestId() {
         return interestId;

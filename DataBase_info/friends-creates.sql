@@ -1,4 +1,3 @@
-
 CREATE TABLE users(
                     user_email VARCHAR(60),                           --user email account
                     user_phone_number VARCHAR(20),                    --user phone number
@@ -6,13 +5,11 @@ CREATE TABLE users(
                     user_db_id SERIAL NOT NULL,                       --db Id
                     user_nm VARCHAR(60) not null,                     --username                      
                     frnds INTEGER,                                    --foreign key to friends
-                    gender CHAR(1) NOT NULL,                          --'M' male, 'F' female or 'O' other
-                    user_bday date NOT NULL,                          --birthday (age verification)
                     user_interest_id INTEGER,                         --foreign key userinterests
                     f_group_id INTEGER,                               --foreign key friendgroup
                     trnsp INTEGER,                                    --foreign key to tsp_user_spot
                     at_spot_id INTEGER,                               --foreign key to crowd
-                    user_place VARCHAR(40) not null,
+                    user_place VARCHAR(40) not null,                  -- main city
                     PRIMARY KEY (user_db_id)
 );
 
@@ -67,11 +64,11 @@ CREATE TABLE infospotprctype(
 
 
 CREATE TABLE spotevents(
-                    evnt_date time with time zone NOT NULL,           --date of the event
+                    evnt_date TIMESTAMP NOT NULL,                 --date of the event
                     event_type_id SERIAL NOT NULL,
                     spot_id INTEGER,                                  --foreign key to infospot
                     evnttype_id INTEGER,                              --foreign key to eventtype
-                    PRIMARY KEY(event_type_id)
+                    PRIMARY KEY (event_type_id)
 );
 
 CREATE TABLE infospot(
@@ -109,7 +106,7 @@ CREATE TABLE eventtype(
 );
 
 CREATE TABLE crowd(
-                    crwd_date date,                                   --date of user presence 
+                    crwd_date TIMESTAMP NOT NULL,                          --date of user presence 
                     crowd_id SERIAL NOT NULL,
                     user_ids INTEGER,                                 --foreign key to users
                     spt_id INTEGER,                                   --foreign key to infospot
@@ -175,7 +172,7 @@ ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 ALTER TABLE tspuserspot
 add constraint tspuserspot_fk_infospot
-foreign key (tsp_spot_id) references infospot(spot_db_id)
+foreign key (tsp_spot_id) references crowd(crowd_id)
 ON DELETE NO ACTION ON UPDATE NO ACTION; 
 
 ALTER TABLE infospotprctype

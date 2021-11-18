@@ -1,8 +1,8 @@
-insert into users (user_email, user_phone_number, user_nm, gender, user_bday, user_place) values ( 'jpl@gmail.com', '901234567', 'Joaquim Pires Lopes', 'M', to_date('1995.01.01','YYYY.MM.DD'), 'Lisboa');  
-insert into users (user_email, user_phone_number, user_nm, gender, user_bday, user_place) values ( 'amf@gmail.com', '912345678', 'Ana Maria Fonseca', 'F', to_date('1997.03.03','YYYY.MM.DD'), 'Setúbal');  
-insert into users (user_email, user_phone_number, user_nm, gender, user_bday, user_place) values ( 'pa@gmail.com', '923456789', 'Paula Antunes', 'F', to_date('1996.07.06','YYYY.MM.DD'), 'Lisboa');  
-insert into users (user_email, user_phone_number, user_nm, gender, user_bday, user_place) values ( 'jrs@mac.com', '934567890', 'Joana Ramalho Silva', 'F', to_date('1984.09.23','YYYY.MM.DD'), 'Costa da Caparica');  
-insert into users (user_email, user_phone_number, user_nm, gender, user_bday, user_place) values ( 'rms@gmail.com', '945678901', 'Rui Manuel Silva', 'M', to_date('1994.08.15','YYYY.MM.DD'), 'Cascais');  
+insert into users (user_email, user_phone_number, user_nm, user_place) values ( 'jpl@gmail.com', '901234567', 'Joaquim Pires Lopes', 'Lisboa');  
+insert into users (user_email, user_phone_number, user_nm, user_place) values ( 'amf@gmail.com', '912345678', 'Ana Maria Fonseca', 'Setúbal');  
+insert into users (user_email, user_phone_number, user_nm, user_place) values ( 'pa@gmail.com', '923456789', 'Paula Antunes', 'Lisboa');  
+insert into users (user_email, user_phone_number, user_nm, user_place) values ( 'jrs@mac.com', '934567890', 'Joana Ramalho Silva', 'Costa da Caparica');  
+insert into users (user_email, user_phone_number, user_nm, user_place) values ( 'rms@gmail.com', '945678901', 'Rui Manuel Silva', 'Cascais');  
 
 
 insert into transptype(trnsp_type, schedual) values('Metro', to_date('2021.11.10','YYYY.MM.DD'));
