@@ -47,8 +47,8 @@ public class FriendsController
     @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public Friends addFriends(@RequestBody Friends friends) {
         Friends saveFriends = friendsRepository.save(friends);
-    logger.info("Saving friends with id"+saveFriends.getFrndUserId());
-    return saveFriends;
+        logger.info("Saving friends with id"+saveFriends.getFrndUserId());
+        return saveFriends;
     }
 
     // delete friends
