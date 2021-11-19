@@ -7,12 +7,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     EditText username;
     EditText password;
     Button registerButton;
+    Button dontRegisterButton1;
 
 
 
@@ -33,6 +33,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        dontRegisterButton1 = findViewById(R.id.dontregisterButton);
+        dontRegisterButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(getApplicationContext(),MapFriend.class);
+                startActivity(intent1);
+            }
+        });
+
     }
 }
 

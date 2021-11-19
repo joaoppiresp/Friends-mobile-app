@@ -102,7 +102,7 @@
         tools:ignore="TextContrastCheck,TextContrastCheck" />
 
     <Button
-        android:id="@+id/travelButton"
+        android:id="@+id/dontregisterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/forgotpass"
