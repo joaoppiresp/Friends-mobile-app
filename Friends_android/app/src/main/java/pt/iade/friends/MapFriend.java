@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentActivity;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -56,8 +55,8 @@ public class MapFriend extends FragmentActivity implements OnMapReadyCallback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_friend);
-        /*binding = ActivityMapFriendBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());*/
+        @NonNull ActivityMapFriendBinding binding = ActivityMapFriendBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
