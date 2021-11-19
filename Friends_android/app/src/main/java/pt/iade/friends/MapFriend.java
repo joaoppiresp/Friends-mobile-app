@@ -61,11 +61,12 @@ public class MapFriend extends FragmentActivity implements OnMapReadyCallback {
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
+        assert mapFragment != null;
         mapFragment.getMapAsync(this);
     }
 
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
 
         //markers of temporary locations in database
@@ -101,44 +102,10 @@ public class MapFriend extends FragmentActivity implements OnMapReadyCallback {
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                mMap.clear();
                 LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
-                mMap.addMarker(new MarkerOptions().position(userLocation).title("Your Location"));
+                mMap.addMarker(new MarkerOptions().position(userLocation).title("You"));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
 
-                Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
-                try {
-                    List<Address> listAddress = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                    if(listAddress !=null && listAddress.size() >0)
-                    {
-                        Log.i("PlaceInfo", listAddress.get(0).toString());
-
-                        String address = "";
-
-                        if(listAddress.get(0).getThoroughfare() != null)
-                        {
-                            address += listAddress.get(0).getThoroughfare() + " ";
-                        }
-                        if(listAddress.get(0).getLocality() != null)
-                        {
-                            address += listAddress.get(0).getLocality() + " ";
-                        }
-                        if(listAddress.get(0).getPostalCode() != null)
-                        {
-                            address += listAddress.get(0).getPostalCode() + " ";
-                        }
-                        if(listAddress.get(0).getAdminArea() != null)
-                        {
-                            address += listAddress.get(0).getAdminArea() + " ";
-                        }
-                        Toast.makeText(MapFriend.this,
-                                address,
-                                Toast.LENGTH_SHORT).show();
-                    }
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
 
             @Override
@@ -170,7 +137,6 @@ public class MapFriend extends FragmentActivity implements OnMapReadyCallback {
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
                 Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
-                mMap.clear();
                 LatLng userLocation = new LatLng(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude());
                 mMap.addMarker(new MarkerOptions().position(userLocation).title("You"));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
