@@ -10,12 +10,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "infospot")
 
-public class InfoSpot extends SpotType
+public class InfoSpot extends SpotType 
 {
-    @Column(name = "spot_name") private String name;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "spot_db_id") private int spotId;
+    @Column(name = "spot_name") private String name;
     @Column(name = "contact_info") private String contactInfo;
     @Column(name = "spot_address") private String spotAddress;
     @Column(name = "spt_type") private int sptType;
@@ -29,8 +29,9 @@ public class InfoSpot extends SpotType
     public int getId() {return spotId;}
     public String getContactInfo() {return contactInfo;}
     public String getsptaddress() {return spotAddress;}
-    public int getSptType() {return sptType;}
+    public int getSpotType() {return sptType;}
     public int getSptInfoPrcId() {return sptInfoPrcId;}
     public int getEvntId(){return evntId;}
     public int getCrowdSpotId() {return crowdSpotId;}
+
 }
