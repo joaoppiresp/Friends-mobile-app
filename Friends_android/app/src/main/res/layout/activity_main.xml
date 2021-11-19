@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,9 +15,9 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="50dp"
         android:gravity="center"
-        android:text="Sign in"
+        android:text="@string/sign_in"
         android:textColor="@color/white"
-        android:textSize="35dp"
+        android:textSize="35sp"
         android:textStyle="bold"
         tools:ignore="TextContrastCheck,TextContrastCheck" />
 
@@ -31,14 +30,15 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="30ffffff"
-        android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+        android:drawableStart="@drawable/ic_baseline_person_outline_24"
         android:drawablePadding="20dp"
-        android:hint="Username"
+        android:hint="@string/username"
         android:padding="20dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        tools:ignore="TextContrastCheck,TextContrastCheck"/>
+        tools:ignore="TextContrastCheck,TextContrastCheck"
+        android:importantForAutofill="no"
+        android:inputType="text"/>
 
     <EditText
         android:id="@+id/password"
@@ -49,28 +49,28 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="30ffffff"
-        android:drawableLeft="@drawable/ic_baseline_info_24"
+        android:drawableStart="@drawable/ic_baseline_info_24"
         android:drawablePadding="20dp"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:padding="20dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        tools:ignore="TextContrastCheck,TextContrastCheck" />
+        tools:ignore="TextContrastCheck,TextContrastCheck"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/loginbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password"
-        android:layout_alignRight="@+id/password"
+        android:layout_alignEnd="@+id/password"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/design_default_color_secondary"
-        android:text="LOGIN"
+        android:text="@string/login"
         tools:ignore="TextContrastCheck,TextContrastCheck" />
 
     <Button
@@ -78,13 +78,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password"
-        android:layout_alignLeft="@+id/password"
+        android:layout_alignStart="@+id/password"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/design_default_color_secondary"
-        android:text="REGISTER"
+        android:text="@string/register"
         tools:ignore="TextContrastCheck,TextContrastCheck" />
 
     <TextView
@@ -97,7 +97,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:text="Forgot Password"
+        android:text="@string/forgot_password"
         android:textColor="@color/white"
         tools:ignore="TextContrastCheck,TextContrastCheck" />
 
@@ -112,7 +112,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/design_default_color_secondary"
-        android:text="DON'T REGISTER"
+        android:text="@string/don_t_register"
         tools:ignore="TextContrastCheck,TextContrastCheck" />
 
     <TextView
@@ -121,7 +121,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/socialicons"
         android:layout_centerHorizontal="true"
-        android:text="or sign in with"
+        android:text="@string/or_sign_in_with"
         android:textColor="@color/white"
         tools:ignore="TextContrastCheck,TextContrastCheck" />
 
@@ -136,21 +136,24 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="20dp"
-            android:src="@drawable/fb"/>
+            android:src="@drawable/fb"
+            android:contentDescription="@string/todo" />
 
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="20dp"
             android:src="@drawable/twitter"
-            tools:ignore="ImageContrastCheck,ImageContrastCheck" />
+            tools:ignore="ImageContrastCheck,ImageContrastCheck"
+            android:contentDescription="@string/too" />
 
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="20dp"
             android:src="@drawable/google"
-            tools:ignore="ImageContrastCheck,ImageContrastCheck" />
+            tools:ignore="ImageContrastCheck,ImageContrastCheck"
+            android:contentDescription="@string/tod" />
     </LinearLayout>
 
 
