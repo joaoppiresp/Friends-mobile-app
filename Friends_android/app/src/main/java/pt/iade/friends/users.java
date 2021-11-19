@@ -5,6 +5,7 @@ public class users {
     public char email;
     public String name;
     public char phone_number;
+
     //constructor
     public users(char email, String name, char phone_number){
         this.email = email;
