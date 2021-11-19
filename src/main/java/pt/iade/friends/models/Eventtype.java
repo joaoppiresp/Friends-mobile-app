@@ -6,17 +6,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 @Entity
 @Table(name = "eventtype")
-public class Eventtype {
+public abstract class Eventtype{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "evnt_type_id") private int evntId;
-    @Column(name = "evnt_type") private String evntTp;
+    @Column(name = "evnt_type_id") public int evntId;
+    @Column(name = "evnt_type") public String evntTp;
 
-    public Eventtype(){}
+    protected Eventtype(){}
 
     public int getEvntId(){return evntId;}
     public String getEvnTp(){return evntTp;}
