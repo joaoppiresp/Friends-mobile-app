@@ -2,12 +2,14 @@ package pt.iade.friends;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -44,12 +46,33 @@ public class MapFriend extends FragmentActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //markers
+        LatLng miscbytartaria = new LatLng(38.7088218655313, -9.14763781597465);
+        MarkerOptions marker = new MarkerOptions();
+        mMap.addMarker(new MarkerOptions().position(miscbytartaria).title("Misc by Tartar-ia"));
+        marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.map_marker));
+        mMap.addMarker(marker);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(miscbytartaria));
 
+        LatLng bohemio = new LatLng(38.707914767868346, -9.146330460154292);
+        MarkerOptions marker2 = new MarkerOptions();
+        mMap.addMarker(new MarkerOptions().position(bohemio).title("Bohemio da Ribeira"));
+        marker2.icon(BitmapDescriptorFactory.fromResource(R.drawable.map_marker));
+        mMap.addMarker(marker2);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(bohemio));
 
+        LatLng suba = new LatLng(38.70977071141623, -9.147095160154217);
+        MarkerOptions marker3 = new MarkerOptions();
+        mMap.addMarker(new MarkerOptions().position(suba).title("SUBA Restaurante"));
+        marker3.icon(BitmapDescriptorFactory.fromResource(R.drawable.map_marker));
+        mMap.addMarker(marker3);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(suba));
 
+        LatLng bono = new LatLng(38.7076953628457, -9.141795075497946);
+        MarkerOptions marker4 = new MarkerOptions();
+        mMap.addMarker(new MarkerOptions().position(bono).title("Bono lisboa"));
+        marker4.icon(BitmapDescriptorFactory.fromResource(R.drawable.map_marker));
+        mMap.addMarker(marker4);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(bono));
     }
 }
