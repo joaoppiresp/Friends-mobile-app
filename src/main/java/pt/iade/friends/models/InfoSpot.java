@@ -1,4 +1,5 @@
 package pt.iade.friends.models;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "infospot")
 
-public class InfoSpot 
+public class InfoSpot extends SpotType
 {
     @Column(name = "spot_name") private String name;
     @Id
@@ -22,9 +23,7 @@ public class InfoSpot
     @Column(name = "evnt_id") private int evntId;
     @Column(name = "crowd_spot_id") private int crowdSpotId;
 
-    public InfoSpot() {
-        //empty constructor
-    }
+    public InfoSpot() {}
    
     public String getsptname() {return name;}
     public int getId() {return spotId;}
