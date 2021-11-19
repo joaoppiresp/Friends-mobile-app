@@ -12,4 +12,11 @@
     <string name="todo">TODO</string>
     <string name="tod">TOD</string>
     <string name="too">TOO</string>
+    <string name="welcome">Welcome</string>
+    <string name="repeat_password">repeat password</string>
+    <string name="email">email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="_register">Register</string>
+    <string name="_repeat_password">Repeat_password</string>
+    <string name="_email">Email</string>
 </resources>
