@@ -10,3 +10,7 @@ Progamação de Dispositivos Móveis (João Dias) e Projeto de Desenvolvimento M
 
 No âmbito do projeto de desenvolvimento mobile e tendo em conta os recentes desenvolvimentos na vida noturna em Lisboa, como desacatos e mudanças recorrêntes nas 
 medidas de segurança impostas, propomo-nos a criar uma app que facilite aos jovens manterem-se a par de tudo á sua volta quando se aventuram pela noite.
+
+# Repositório temporário do projeto em android studio
+
+https://github.com/joaoppiresp/friends-android
