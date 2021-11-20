@@ -74,7 +74,7 @@ insert into friendgroup(group_name) values('Ana Aniversário');
 insert into eventtype(evnt_type) values('Música ao Vivo');
 insert into eventtype(evnt_type) values('Jantar');
 insert into eventtype(evnt_type) values('Degustação de Vinho');
-insert into eventtype(evnt_type) values('futebol + Bebidas');
+insert into eventtype(evnt_type) values('Futebol + Bebidas');
 insert into eventtype(evnt_type) values('Dança + Jantar');
 
 
