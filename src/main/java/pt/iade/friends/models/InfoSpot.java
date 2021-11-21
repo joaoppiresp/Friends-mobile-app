@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "infospot")
 
-public class InfoSpot extends SpotType 
+public class InfoSpot 
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
