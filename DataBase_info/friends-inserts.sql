@@ -84,7 +84,7 @@ insert into crowd(crwd_date) values(to_date('2021.09.13','YYYY.MM.DD'));
 insert into crowd(crwd_date) values(to_date('2021.08.14','YYYY.MM.DD'));
 insert into crowd(crwd_date) values(to_date('2021.07.15','YYYY.MM.DD'));
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 insert into userinterest(int_id, user_int_id) values(1, 1);
 insert into userinterest(int_id, user_int_id) values(2, 2);
