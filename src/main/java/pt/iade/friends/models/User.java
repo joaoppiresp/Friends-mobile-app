@@ -25,42 +25,17 @@ public class User
     @Column(name = "at_spot_id") private int atspotId;
     @Column(name = "user_place") private String place;
 
-    public User()
-    {
-        //empty constructor
-    }
+    public User(){}
 
-    public String getEmail() {
-        return email;
-    }
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-    public int getPublicId() {
-        return publicId;
-    }
-    public int getId() {
-        return id;
-    }
-    public String getNm() {
-        return nm;
-    }
-    public int getFrnds() {
-        return frnds;
-    }
-    public int getInterestId() {
-        return interestId;
-    }
-    public int getFgroupId() {
-        return fgroupId;
-    }
-    public int getTrnsp() {
-        return trnsp;
-    }
-    public int getAtspotId() {
-        return atspotId;
-    }
-    public String getPlace() {
-        return place;
-    }
+    public String getEmail() {return email;}
+    public String getPhoneNumber() {return phoneNumber;}
+    public int getPublicId() {return publicId;}
+    public int getId() {return id;}
+    public String getNm() {return nm;}
+    public int getFrnds() {return frnds;}
+    public int getInterestId() {return interestId;}
+    public int getFgroupId() {return fgroupId;}
+    public int getTrnsp() {return trnsp;}
+    public int getAtspotId() {return atspotId;}
+    public String getPlace() {return place;}
 }

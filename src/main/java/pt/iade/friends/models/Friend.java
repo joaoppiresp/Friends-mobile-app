@@ -17,21 +17,10 @@ public class Friend
     @Column(name = "mainuser_id") private int mainuserId;
     @Column(name = "grp_id") private int grp_Id;
  
-    public Friend()
-    {
-    }
-
-    public String getFriendshipStatus() {
-        return friendshipStatus;
-    }
-    public int getMainuserId() {
-        return mainuserId;
-    }
-    public int getFrndUserId() {
-        return frndUserId;
-    }
-
-    public int getGrp_Id() {
-        return grp_Id;
-    }    
+    public Friend(){}
+    
+    public String getFriendshipStatus() {return friendshipStatus;}
+    public int getMainuserId() {return mainuserId;}
+    public int getFrndUserId() {return frndUserId;}
+    public int getGrp_Id() {return grp_Id;}    
 }

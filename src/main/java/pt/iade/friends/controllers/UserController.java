@@ -28,14 +28,16 @@ public class UserController
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
 
     // get all users
-    public Iterable <User> getUsers() {
+    public Iterable <User> getUsers() 
+    {
         logger.info("Sending all Users");
         return userRepository.findAll();
     }
 
     // get user by id
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public User getUser(@PathVariable ("id") int id) {
+    public User getUser(@PathVariable ("id") int id) 
+    {
         logger.info("Sending user with id " + id);
         Optional <User> _user=userRepository.findById(id);
         if(!_user.isPresent()) throw 
@@ -45,7 +47,8 @@ public class UserController
 
     // save user
     @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public User saveUser(@RequestBody User user) {
+    public User saveUser(@RequestBody User user) 
+    {
         User saveUser = userRepository.save(user);
     logger.info("Saving user with id"+saveUser.getId());
     return saveUser;
@@ -53,7 +56,8 @@ public class UserController
 
     // delete user
     @DeleteMapping(path = "/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Response deleteUsers(@PathVariable int id) {
+    public Response deleteUsers(@PathVariable int id) 
+    {
         logger.info("Deleted user with id "+id);
         userRepository.deleteById(id);
         return new Response("Deleted user with id "+id, null);

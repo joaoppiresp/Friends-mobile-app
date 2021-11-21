@@ -26,14 +26,16 @@ public class FriendController
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
 
     // get all friends
-    public Iterable <Friend> getFriend() {
+    public Iterable <Friend> getFriend() 
+    {
         logger.info("Sending all Friends");
         return friendRepository.findAll();
     }
 
-    // get user by frndUserId
+    // get friend by frndUserId
     @GetMapping(path = "/{frndUserId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Friend getFriends(@PathVariable ("frndUserId") int frndUserId) {
+    public Friend getFriends(@PathVariable ("frndUserId") int frndUserId) 
+    {
         logger.info("Sending users with id " + frndUserId);
         Optional <Friend> _friend=friendRepository.findById(frndUserId);
         if(!_friend.isPresent()) throw 
@@ -43,10 +45,10 @@ public class FriendController
 
     // save friends
     @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Friend addFriend(@RequestBody Friend friend) {
+    public Friend addFriend(@RequestBody Friend friend) 
+    {
         Friend saveFriend = friendRepository.save(friend);
         logger.info("Saving friends with id"+saveFriend.getFrndUserId());
         return saveFriend;
     }
 }
-
