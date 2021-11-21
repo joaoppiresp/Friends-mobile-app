@@ -33,13 +33,13 @@ public class FriendController
     }
 
     // get friend by frndUserId
-    @GetMapping(path = "/{frndUserId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Friend getFriends(@PathVariable ("frndUserId") int frndUserId) 
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Friend getFriends(@PathVariable ("id") int id) 
     {
-        logger.info("Sending users with id " + frndUserId);
-        Optional <Friend> _friend=friendRepository.findById(frndUserId);
+        logger.info("Sending users with id " + id);
+        Optional <Friend> _friend=friendRepository.findById(id);
         if(!_friend.isPresent()) throw 
-        new NotFoundException(""+frndUserId,"friend", "id");
+        new NotFoundException(""+id,"friend", "id");
         else return _friend.get();
     }
 
