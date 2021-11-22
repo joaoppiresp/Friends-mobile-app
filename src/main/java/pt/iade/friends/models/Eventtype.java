@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
 @Table(name = "eventtype")
-public abstract class Eventtype{
+public class Eventtype{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
