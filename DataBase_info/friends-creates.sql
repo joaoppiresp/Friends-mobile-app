@@ -64,8 +64,9 @@ CREATE TABLE infospotprctype(
 
 
 CREATE TABLE spotevents(
-                    evnt_date TIMESTAMP NOT NULL,                 --date of the event
+                    evnt_date TIMESTAMP,                              --date of the event
                     event_type_id SERIAL NOT NULL,
+                    event_name VARCHAR(70),                           --Name of the event        
                     spot_id INTEGER,                                  --foreign key to infospot
                     evnttype_id INTEGER,                              --foreign key to eventtype
                     PRIMARY KEY (event_type_id)
