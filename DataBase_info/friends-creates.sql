@@ -79,7 +79,6 @@ CREATE TABLE infospot(
                     spot_address VARCHAR(70),                         --address information for the spot
                     spt_type INTEGER,                                  --foreign key to spottype
                     spt_info_prc_id INTEGER,                          --foreign key to infospotprctype
-                    evnt_id INTEGER,                                  --foreign key to spotevents
                     crowd_spot_id INTEGER,
                     PRIMARY KEY (spot_db_id) 
 );
@@ -194,11 +193,6 @@ ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE infospot
 add constraint infospot_fk_infospotprctype
 foreign key (spt_info_prc_id) references infospotprctype(price_id)
-ON DELETE NO ACTION ON UPDATE NO ACTION; 
-
-ALTER TABLE infospot
-add constraint infospot_fk_spotevents
-foreign key (evnt_id) references spotevents(event_type_id)
 ON DELETE NO ACTION ON UPDATE NO ACTION; 
 
 ALTER TABLE infospot
