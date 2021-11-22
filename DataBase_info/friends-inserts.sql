@@ -1,3 +1,5 @@
+ALTER SEQUENCE user_idseq RESTART WITH 1000 INCREMENT BY 1
+
 insert into users (user_email, user_nm, user_place)                    values ( 'jpl@gmail.com', 'Joaquim Pires Lopes', 'Lisboa');  
 insert into users (user_email, user_phone_number, user_nm)             values ( 'amf@mac.com', '912345678', 'Ana Maria Fonseca');  
 insert into users (user_email, user_nm, user_place)                    values ( 'pa@hotmail.com', 'Paula Antunes', 'lisboa');  
@@ -8,6 +10,7 @@ insert into users (user_email, user_phone_number, user_nm, user_place) values ( 
 insert into users (user_email, user_phone_number, user_nm, user_place) values ( 'njr@hotmail.com', '967890123', 'Neymar JR', 'Amadora');  
 insert into users (user_email, user_phone_number, user_nm, user_place) values ( 'kbl@mac.com', '978901234', 'Kylian Mabppé Lottin', 'amadora');  
 insert into users (user_email, user_phone_number, user_nm, user_place) values ( 'cr7@mac.com', '989012345', 'Cristiano Ronaldo', 'Odivelas');
+
 
 insert into transptype(trnsp_type, schedual) values('Metro', to_date('2021.11.10','YYYY.MM.DD'));
 insert into transptype(trnsp_type, schedual) values('Autocarro', to_date('2021.11.10','YYYY.MM.DD'));
@@ -73,7 +76,7 @@ insert into infospot(spot_name,spot_address) values('Restaurante Sinal Verde','C
 insert into infospot(spot_name, contact_info, spot_address) values('Restaurante Pedra De Sal', '912932007', 'R.do Diário de Notícias 43 1200-365 Lisboa');
 insert into infospot(spot_name, contact_info, spot_address) values('ALMEIDA & HERRERA LDA', '214600659','TRAVESSA DO ALECRIM 4 1200-019 LISBOA');
 insert into infospot(spot_name, contact_info, spot_address) values('Restaurante Farta Brutos','213426756','Travessa da Espera 16 1200 Lisboa');
-
+insert into infospot(spot_name, contact_info, spot_address) values('Restaurante Brutos Farta','234267567','Rua da raespa 10 1200 Lisboa');
 
 insert into friends( friendship_status) values('Pedido Aceite');
 insert into friends( friendship_status) values('Aguarde');
@@ -112,6 +115,18 @@ insert into crowd(crwd_date) values(to_date('2021.10.27','YYYY.MM.DD'));
 insert into crowd(crwd_date) values(to_date('2021.09.30','YYYY.MM.DD'));
 insert into crowd(crwd_date) values(to_date('2021.08.29','YYYY.MM.DD'));
 insert into crowd(crwd_date) values(to_date('2021.07.28','YYYY.MM.DD'));
+
+
+insert into userinterest(int_fk, users_fk) values(1, 1);
+insert into userinterest(int_fk, users_fk) values(2, 2);
+insert into userinterest(int_fk, users_fk) values(3, 3);
+insert into userinterest(int_fk, users_fk) values(4, 4);
+insert into userinterest(int_fk, users_fk) values(5, 5);
+insert into userinterest(int_fk, users_fk) values(5, 6);
+insert into userinterest(int_fk, users_fk) values(3, 7);
+insert into userinterest(int_fk, users_fk) values(1, 8);
+insert into userinterest(int_fk, users_fk) values(2, 9);
+insert into userinterest(int_fk, users_fk) values(4, 9);
 
 
 UPDATE transportation SET tsptype_fk = 1, crowd_fk = 9 WHERE tsp_id = 1; 
@@ -212,14 +227,3 @@ UPDATE crowd SET user_fk = 8, spt_fk = 6 WHERE crowd_id =8;
 UPDATE crowd SET user_fk = 9, spt_fk = 7 WHERE crowd_id =9;
 UPDATE crowd SET user_fk = 10, spt_fk = 8 WHERE crowd_id =10;
 
-
-insert into userinterest(int_fk, users_fk) values(1, 1);
-insert into userinterest(int_fk, users_fk) values(2, 2);
-insert into userinterest(int_fk, users_fk) values(3, 3);
-insert into userinterest(int_fk, users_fk) values(4, 4);
-insert into userinterest(int_fk, users_fk) values(5, 5);
-insert into userinterest(int_fk, users_fk) values(5, 6);
-insert into userinterest(int_fk, users_fk) values(3, 7);
-insert into userinterest(int_fk, users_fk) values(1, 8);
-insert into userinterest(int_fk, users_fk) values(2, 9);
-insert into userinterest(int_fk, users_fk) values(4, 9);
