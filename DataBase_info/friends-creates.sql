@@ -2,7 +2,7 @@ CREATE TABLE users(
                     user_email VARCHAR(60) NOT NULL,                  --user email account
                     user_phone_number VARCHAR(20),                    --user phone number
                     user_public_id SERIAL UNIQUE NOT NULL,            --user Id for searching up
-                    user_id SERIAL NOT NULL,                          --db Id
+                    user_id SERIAL UNIQUE NOT NULL,                          --db Id
                     user_nm VARCHAR(60) NOT NULL,                     --username                      
                     user_place VARCHAR(40),                           --main city
                     PRIMARY KEY (user_id)
