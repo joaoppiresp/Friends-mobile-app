@@ -154,11 +154,6 @@ add constraint infospot_fk_spottype
 foreign key (spttype_fk) references spottype(spt_id)
 ON DELETE NO ACTION ON UPDATE NO ACTION; 
 
-ALTER TABLE infospot
-add constraint infospot_fk_crowd
-foreign key (crowd_spot_id) references crowd(crowd_id)
-ON DELETE NO ACTION ON UPDATE NO ACTION; 
-
 ALTER TABLE spotevents
 add constraint spotevents_fk_infospot
 foreign key (spot_fk) references infospot(spot_id)
