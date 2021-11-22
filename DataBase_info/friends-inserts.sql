@@ -1,5 +1,3 @@
-ALTER SEQUENCE user_idseq RESTART WITH 1000 INCREMENT BY 1
-
 insert into users (user_email, user_nm, user_place)                    values ( 'jpl@gmail.com', 'Joaquim Pires Lopes', 'Lisboa');  
 insert into users (user_email, user_phone_number, user_nm)             values ( 'amf@mac.com', '912345678', 'Ana Maria Fonseca');  
 insert into users (user_email, user_nm, user_place)                    values ( 'pa@hotmail.com', 'Paula Antunes', 'lisboa');  
@@ -10,7 +8,6 @@ insert into users (user_email, user_phone_number, user_nm, user_place) values ( 
 insert into users (user_email, user_phone_number, user_nm, user_place) values ( 'njr@hotmail.com', '967890123', 'Neymar JR', 'Amadora');  
 insert into users (user_email, user_phone_number, user_nm, user_place) values ( 'kbl@mac.com', '978901234', 'Kylian Mabppé Lottin', 'amadora');  
 insert into users (user_email, user_phone_number, user_nm, user_place) values ( 'cr7@mac.com', '989012345', 'Cristiano Ronaldo', 'Odivelas');
-
 
 insert into transptype(trnsp_type, schedual) values('Metro', to_date('2021.11.10','YYYY.MM.DD'));
 insert into transptype(trnsp_type, schedual) values('Autocarro', to_date('2021.11.10','YYYY.MM.DD'));
@@ -31,13 +28,16 @@ insert into spottype(spot_type) values('Bar');
 insert into spottype(spot_type) values('Casa Noturna');
 insert into spottype(spot_type) values('Clube');
 insert into spottype(spot_type) values('Discoteca');
+insert into spottype(spot_type) values('lounge');
+insert into spottype(spot_type) values('sports bars');
 
 
 insert into pricetype(prc_type) values('Entrada');
 insert into pricetype(prc_type) values('Bebidas');
-insert into pricetype(prc_type) values('Comidas');
+insert into pricetype(prc_type) values('Comida');
 insert into pricetype(prc_type) values('Shisha');
 insert into pricetype(prc_type) values('Sobremesas');
+insert into pricetype(prc_type) values('consumo minimo');
 
 
 insert into interests(int_type) values('Futebol');
@@ -45,6 +45,15 @@ insert into interests(int_type) values('Música');
 insert into interests(int_type) values('Dança');
 insert into interests(int_type) values('Vinho');
 insert into interests(int_type) values('Karaoke');
+insert into interests(int_type) values('desportos aquaticos');
+insert into interests(int_type) values('corrida');
+insert into interests(int_type) values('equitação');
+insert into interests(int_type) values('snowboarding');
+insert into interests(int_type) values('artes marcias');
+insert into interests(int_type) values('netflix');
+insert into interests(int_type) values('sunsets');
+insert into interests(int_type) values('convivios');
+insert into interests(int_type) values('blind dates');
 
 
 insert into pricing(price) values(50);
@@ -52,6 +61,13 @@ insert into pricing(price) values(30);
 insert into pricing(price) values(10);
 insert into pricing(price) values(20);
 insert into pricing(price) values(100);
+insert into pricing(price) values(6.5);
+insert into pricing(price) values(12);
+insert into pricing(price) values(15.5);
+insert into pricing(price) values(25);
+insert into pricing(price) values(3);
+insert into pricing(price) values(55);
+insert into pricing(price) values(37);
 
 
 insert into spotevents(evnt_date, event_name) values('2021-11-23 17:45:00', 'Noite de Champions League');
@@ -66,7 +82,6 @@ insert into spotevents(evnt_date, event_name) values('2021-08-29 15:45:00', 'Vit
 insert into spotevents(evnt_date, event_name) values('2021-07-28 15:30:00', 'Tarde de Karaoke');
 
 
-
 insert into infospot(spot_name, spot_address) values('Misc by Tartar-ia', 'Rua da Boavista 14, 1200-067 Lisboa');
 insert into infospot(spot_name, contact_info) values('Bohemio da Ribeira', '912932007');
 insert into infospot(spot_name, spot_address) values('SUBA Restaurante','R. de Santa Catarina 1, 1200-401 Lisboa');
@@ -77,6 +92,7 @@ insert into infospot(spot_name, contact_info, spot_address) values('Restaurante 
 insert into infospot(spot_name, contact_info, spot_address) values('ALMEIDA & HERRERA LDA', '214600659','TRAVESSA DO ALECRIM 4 1200-019 LISBOA');
 insert into infospot(spot_name, contact_info, spot_address) values('Restaurante Farta Brutos','213426756','Travessa da Espera 16 1200 Lisboa');
 insert into infospot(spot_name, contact_info, spot_address) values('Restaurante Brutos Farta','234267567','Rua da raespa 10 1200 Lisboa');
+
 
 insert into friends( friendship_status) values('Pedido Aceite');
 insert into friends( friendship_status) values('Aguarde');
@@ -97,13 +113,12 @@ insert into friendgroup(group_name) values('Bocelli Goooo');
 insert into friendgroup(group_name) values('Cantar ate cair no Karaoke');
 insert into friendgroup(group_name) values('Vamos ao Noite de Champions');
 
-
 insert into eventtype(evnt_type) values('Música ao Vivo');
 insert into eventtype(evnt_type) values('Jantar');
 insert into eventtype(evnt_type) values('Degustação de Vinho');
 insert into eventtype(evnt_type) values('Futebol + Bebidas');
 insert into eventtype(evnt_type) values('Dança + Jantar');
-
+insert into eventtype(evnt_type) values('rock night')
 
 insert into crowd(crwd_date) values(to_date('2021.11.23','YYYY.MM.DD'));
 insert into crowd(crwd_date) values(to_date('2021.11.25','YYYY.MM.DD'));
@@ -146,11 +161,13 @@ UPDATE pricing SET prctype_fk = 4, spot_fk = 2 WHERE pri_id = 2;
 UPDATE pricing SET prctype_fk = 1, spot_fk = 3 WHERE pri_id = 3;           
 UPDATE pricing SET prctype_fk = 5, spot_fk = 4 WHERE pri_id = 4;          
 UPDATE pricing SET prctype_fk = 3, spot_fk = 5 WHERE pri_id = 5;          
-UPDATE pricing SET prctype_fk = 2, spot_fk = 6 WHERE pri_id = 1;          
-UPDATE pricing SET prctype_fk = 4, spot_fk = 7 WHERE pri_id = 2;         
-UPDATE pricing SET prctype_fk = 1, spot_fk = 8 WHERE pri_id = 3;           
-UPDATE pricing SET prctype_fk = 5, spot_fk = 9 WHERE pri_id = 4;          
-UPDATE pricing SET prctype_fk = 3, spot_fk = 10 WHERE pri_id = 5;          
+UPDATE pricing SET prctype_fk = 6, spot_fk = 6 WHERE pri_id = 6;          
+UPDATE pricing SET prctype_fk = 4, spot_fk = 7 WHERE pri_id = 7;         
+UPDATE pricing SET prctype_fk = 1, spot_fk = 8 WHERE pri_id = 8;           
+UPDATE pricing SET prctype_fk = 5, spot_fk = 9 WHERE pri_id = 9;          
+UPDATE pricing SET prctype_fk = 6, spot_fk = 10 WHERE pri_id = 10; 
+UPDATE pricing SET prctype_fk = 5, spot_fk = 9 WHERE pri_id = 11;          
+UPDATE pricing SET prctype_fk = 3, spot_fk = 10 WHERE pri_id = 12;
 
 
 UPDATE spotevents SET spot_fk = 1, evnttype_fk = 1 WHERE spot_evnt_id = 1; 
@@ -159,11 +176,11 @@ UPDATE spotevents SET spot_fk = 3, evnttype_fk = 3 WHERE spot_evnt_id = 3;
 UPDATE spotevents SET spot_fk = 4, evnttype_fk = 4 WHERE spot_evnt_id = 4; 
 UPDATE spotevents SET spot_fk = 5, evnttype_fk = 5 WHERE spot_evnt_id = 5; 
 UPDATE spotevents SET spot_fk = 6, evnttype_fk = 6 WHERE spot_evnt_id = 6; 
-UPDATE spotevents SET spot_fk = 7, evnttype_fk = 7 WHERE spot_evnt_id = 7; 
-UPDATE spotevents SET spot_fk = 8, evnttype_fk = 8 WHERE spot_evnt_id = 8; 
-UPDATE spotevents SET spot_fk = 9, evnttype_fk = 9 WHERE spot_evnt_id = 9; 
-UPDATE spotevents SET spot_fk = 10, evnttype_fk = 10 WHERE spot_evnt_id = 10; 
-
+UPDATE spotevents SET spot_fk = 7, evnttype_fk = 1 WHERE spot_evnt_id = 7; 
+UPDATE spotevents SET spot_fk = 8, evnttype_fk = 4 WHERE spot_evnt_id = 8; 
+UPDATE spotevents SET spot_fk = 9 WHERE spot_evnt_id = 9; 
+UPDATE spotevents SET spot_fk = 10 WHERE spot_evnt_id = 10; 
+SELECT * FROM spotevents
 
 UPDATE infospot SET spttype_fk = 2 WHERE spot_id = 1; 
 UPDATE infospot SET spttype_fk = 1 WHERE spot_id = 2;
