@@ -4,13 +4,13 @@ CREATE TABLE users(
                     user_public_id SERIAL UNIQUE NOT NULL,            --user Id for searching up
                     user_id SERIAL NOT NULL,                          --db Id
                     user_nm VARCHAR(60) not null,                     --username                      
-                    user_place VARCHAR(40) not null,                  -- main city
+                    user_place VARCHAR(40) not null,                  --main city
                     PRIMARY KEY (user_id)
 );
 
 CREATE TABLE userinterest(
                     int_fk INTEGER,                                   --foreign key to interests         
-                    users_fk INTEGER,                                 --foreign key to users
+                    users_fk INTEGER                                  --foreign key to users
 );
 CREATE TABLE transptype(
                     trnsp_type text,                                  --type of transportation available
@@ -48,7 +48,7 @@ CREATE TABLE interests(
 CREATE TABLE pricing(
                     price money,                                      --amount to pay (varying value)
                     prctype_fk INTEGER,                               --foreign key to pricetype
-                    spot_fk INTEGER,                                  --foreign key to infospot
+                    spot_fk INTEGER                                   --foreign key to infospot
 );
 
 
@@ -57,7 +57,7 @@ CREATE TABLE spotevents(
                     evnt_date TIMESTAMP,                              --date of the event
                     event_name VARCHAR(70),                           --Name of the event        
                     spot_fk INTEGER,                                  --foreign key to infospot
-                    evnttype_fk INTEGER,                              --foreign key to eventtype
+                    evnttype_fk INTEGER                               --foreign key to eventtype
 );
 
 CREATE TABLE infospot(
@@ -72,8 +72,7 @@ CREATE TABLE infospot(
 CREATE TABLE friends(
                     mainuser_fk INTEGER,                              --foreign key to users (main user)                         
                     friendship_status text,                           --status of friendship (accept, pending, etc)
-                    frnds_fk SERIAL INTEGER,                          --foreign key to users (friends)
-                    grp_fk INTEGER,                                   --foreign key to friendgroup        
+                    grp_fk INTEGER                                    --foreign key to friendgroup        
 );
 
 CREATE TABLE friendgroup(
@@ -124,11 +123,6 @@ add constraint friends_fk_friendgroup
 foreign key (grp_fk) references friendgroup(group_id)
 ON DELETE NO ACTION ON UPDATE NO ACTION; 
 
-ALTER TABLE friends
-add constraint friends_fk_users
-foreign key (frnds_fk) references users(user_id)
-ON DELETE NO ACTION ON UPDATE NO ACTION; 
-
 ALTER TABLE transportation
 add constraint transportation_fk_transptype
 foreign key (tsptype_fk) references transptype(trnsp_id)
@@ -166,7 +160,7 @@ ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 ALTER TABLE crowd
 add constraint crowd_fk_users
-foreign key (user_fk) references users(user_db_id)
+foreign key (user_fk) references users(user_id)
 ON DELETE NO ACTION ON UPDATE NO ACTION; 
 
 ALTER TABLE crowd
