@@ -1,10 +1,10 @@
 CREATE TABLE users(
-                    user_email VARCHAR(60),                           --user email account
+                    user_email VARCHAR(60) NOT NULL,                  --user email account
                     user_phone_number VARCHAR(20),                    --user phone number
                     user_public_id SERIAL UNIQUE NOT NULL,            --user Id for searching up
                     user_id SERIAL NOT NULL,                          --db Id
-                    user_nm VARCHAR(60) not null,                     --username                      
-                    user_place VARCHAR(40) not null,                  --main city
+                    user_nm VARCHAR(60) NOT NULL,                     --username                      
+                    user_place VARCHAR(40),                           --main city
                     PRIMARY KEY (user_id)
 );
 
@@ -12,6 +12,7 @@ CREATE TABLE userinterest(
                     int_fk INTEGER,                                   --foreign key to interests         
                     users_fk INTEGER                                  --foreign key to users
 );
+
 CREATE TABLE transptype(
                     trnsp_type text,                                  --type of transportation available
                     schedual date,                                    --schedual
@@ -47,22 +48,27 @@ CREATE TABLE interests(
 
 CREATE TABLE pricing(
                     price money,                                      --amount to pay (varying value)
+                    pri_id SERIAL NOT NULL,                             
                     prctype_fk INTEGER,                               --foreign key to pricetype
-                    spot_fk INTEGER                                   --foreign key to infospot
+                    spot_fk INTEGER,                                  --foreign key to infospot
+                    PRIMARY KEY (pri_id)
 );
 
 
 
 CREATE TABLE spotevents(
                     evnt_date TIMESTAMP,                              --date of the event
+                    spot_evnt_id SERIAL NOT NULL,
                     event_name VARCHAR(70),                           --Name of the event        
                     spot_fk INTEGER,                                  --foreign key to infospot
-                    evnttype_fk INTEGER                               --foreign key to eventtype
+                    evnttype_fk INTEGER,                               --foreign key to eventtype
+                    PRIMARY KEY (spot_evnt_id)
+
 );
 
 CREATE TABLE infospot(
                     spot_name VARCHAR(50) NOT NULL,                   --name of the spot
-                    spot_id SERIAL NOT NULL,                       --db internal Id
+                    spot_id SERIAL NOT NULL,                          --db internal Id
                     contact_info VARCHAR(30),                         --contact information for the spot
                     spot_address VARCHAR(70),                         --address information for the spot
                     spttype_fk INTEGER,                               --foreign key to spottype
@@ -70,15 +76,17 @@ CREATE TABLE infospot(
 );
 
 CREATE TABLE friends(
-                    mainuser_fk INTEGER,                              --foreign key to users (main user)                         
+                    mainuser_fk INTEGER,                              --foreign key to users (main user)
+                    friend_id SERIAL NOT NULL,                         
                     friendship_status text,                           --status of friendship (accept, pending, etc)
-                    grp_fk INTEGER                                    --foreign key to friendgroup        
+                    PRIMARY KEY (friend_id)
 );
 
 CREATE TABLE friendgroup(
                     group_name text,                                  --friend group's name (user defined)
                     group_id SERIAL NOT NULL,
                     owner_id INTEGER,                                 --foreign key to users
+                    friend_fk INTEGER,                                 --foreign key to friends
                     PRIMARY KEY (group_id)
 );
 
@@ -103,6 +111,11 @@ add constraint friendgroup_fk_users
 foreign key (owner_id) references users(user_id) 
 ON DELETE NO ACTION ON UPDATE NO ACTION; 
 
+ALTER TABLE friendgroup
+add constraint friendgroup_fk_friends
+foreign key (friend_fk) references friends(friend_id)
+ON DELETE NO ACTION ON UPDATE NO ACTION; 
+
 ALTER TABLE userinterest
 add constraint userinterest_fk_users
 foreign key (users_fk) references users(user_id) 
@@ -116,11 +129,6 @@ ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE friends
 add constraint friends_fk_users
 foreign key (mainuser_fk) references users(user_id)
-ON DELETE NO ACTION ON UPDATE NO ACTION; 
-
-ALTER TABLE friends
-add constraint friends_fk_friendgroup
-foreign key (grp_fk) references friendgroup(group_id)
 ON DELETE NO ACTION ON UPDATE NO ACTION; 
 
 ALTER TABLE transportation
