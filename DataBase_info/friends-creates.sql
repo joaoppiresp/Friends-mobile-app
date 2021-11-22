@@ -16,7 +16,7 @@ CREATE TABLE userinterest(
 CREATE TABLE transptype(
                     trnsp_type text,                                  --type of transportation available
                     schedual date,                                    --schedual
-                    trnsp_id SERIAL NOT NULL,                         --db internal Id
+                    trnsp_id SERIAL UNIQUE NOT NULL,                         --db internal Id
                     PRIMARY KEY (trnsp_id)
 );
 
@@ -24,31 +24,31 @@ CREATE TABLE transportation(
                     price money,                                      --price for the transportation used by the user (acording to distance)
                     tsptype_fk INTEGER,                               --foreign key to transptype
                     crowd_fk INTEGER,                                 --foreign key to crowd
-                    tsp_id SERIAL NOT NULL,
+                    tsp_id SERIAL UNIQUE NOT NULL,
                     PRIMARY KEY (tsp_id)
 );
 
 CREATE TABLE spottype(
                     spot_type text,                                   --type of spot (bar, club, etc)
-                    spt_id SERIAL NOT NULL,                         
+                    spt_id SERIAL UNIQUE NOT NULL,                         
                     PRIMARY KEY (spt_id)
 );
 
 CREATE TABLE pricetype(
                     prc_type text,                                    --type of price(menu, entry-fee, drink, etc)
-                    prc_id SERIAL NOT NULL,
+                    prc_id SERIAL UNIQUE NOT NULL,
                     PRIMARY KEY (prc_id)
 );
 
 CREATE TABLE interests(
                     int_type text,                                    --interest available for the user to pick
-                    interest_id SERIAL NOT NULL,
+                    interest_id SERIAL UNIQUE NOT NULL,
                     PRIMARY KEY (interest_id)
 );
 
 CREATE TABLE pricing(
                     price money,                                      --amount to pay (varying value)
-                    pri_id SERIAL NOT NULL,                             
+                    pri_id SERIAL UNIQUE NOT NULL,                             
                     prctype_fk INTEGER,                               --foreign key to pricetype
                     spot_fk INTEGER,                                  --foreign key to infospot
                     PRIMARY KEY (pri_id)
@@ -58,7 +58,7 @@ CREATE TABLE pricing(
 
 CREATE TABLE spotevents(
                     evnt_date TIMESTAMP,                              --date of the event
-                    spot_evnt_id SERIAL NOT NULL,
+                    spot_evnt_id SERIAL UNIQUE NOT NULL,
                     event_name VARCHAR(70),                           --Name of the event        
                     spot_fk INTEGER,                                  --foreign key to infospot
                     evnttype_fk INTEGER,                               --foreign key to eventtype
@@ -68,7 +68,7 @@ CREATE TABLE spotevents(
 
 CREATE TABLE infospot(
                     spot_name VARCHAR(50) NOT NULL,                   --name of the spot
-                    spot_id SERIAL NOT NULL,                          --db internal Id
+                    spot_id SERIAL UNIQUE NOT NULL,                          --db internal Id
                     contact_info VARCHAR(30),                         --contact information for the spot
                     spot_address VARCHAR(70),                         --address information for the spot
                     spttype_fk INTEGER,                               --foreign key to spottype
@@ -77,14 +77,14 @@ CREATE TABLE infospot(
 
 CREATE TABLE friends(
                     mainuser_fk INTEGER,                              --foreign key to users (main user)
-                    friend_id SERIAL NOT NULL,                         
+                    friend_id SERIAL UNIQUE NOT NULL,                         
                     friendship_status text,                           --status of friendship (accept, pending, etc)
                     PRIMARY KEY (friend_id)
 );
 
 CREATE TABLE friendgroup(
                     group_name text,                                  --friend group's name (user defined)
-                    group_id SERIAL NOT NULL,
+                    group_id SERIAL UNIQUE NOT NULL,
                     owner_id INTEGER,                                 --foreign key to users
                     friend_fk INTEGER,                                 --foreign key to friends
                     PRIMARY KEY (group_id)
@@ -98,7 +98,7 @@ CREATE TABLE eventtype(
 
 CREATE TABLE crowd(
                     crwd_date TIMESTAMP NOT NULL,                     --date of user presence 
-                    crowd_id SERIAL NOT NULL,
+                    crowd_id SERIAL UNIQUE NOT NULL,
                     user_fk INTEGER,                                 --foreign key to users
                     spt_fk INTEGER,                                   --foreign key to infospot
                     PRIMARY KEY (crowd_id)
