@@ -14,9 +14,9 @@ import java.math.BigDecimal;
 public class Pricing {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "price_id") private int prcId;
+    @Column(name = "pri_id") private int prcId;
     @Column(name = "price") private BigDecimal price;
-    @Column(name = "prctype_id") private int prctypeFk;
+    @Column(name = "prctype_fk") private int prctypeFk;
     @Column(name = "spot_fk") private int spotId;
 
     public Pricing(){

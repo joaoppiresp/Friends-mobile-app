@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Pricetype {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "price_id") public int prctpId;
+    @Column(name = "prc_id") public int prctpId;
     @Column(name = "prc_type") public String prctype;
 
     public Pricetype(){
