@@ -45,7 +45,7 @@ public class SpotEventController {
   
     //bydate
     @GetMapping(path = "/dates/{date}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<SpotEvent> getEvntbydates(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") Timestamp evntdate) {
+    public Iterable<SpotEvent> getEvntbydates(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ") Timestamp evntdate) {
         logger.info("Sending all events for date "+evntdate);
         return spotEventRepository.filterDate(evntdate);
     }
@@ -63,7 +63,7 @@ public class SpotEventController {
         logger.info("Sending all events for spot with name "+name+" and date "+evntdate);
         return spotEventRepository.filterSptNameDate(name, evntdate);
     }
-    
+    //Working
     //bytype
     @GetMapping(path = "/types/{evntTypeFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
     public SpotEvent getEventtp(@PathVariable(value="evntTypeFK") int evntTypeFK) throws NotFoundException
@@ -74,12 +74,6 @@ public class SpotEventController {
         else return _spotevent.get();
           
     }
-    /*
-    public Iterable<SpotEvent> getEvntbytype(@PathVariable(value="evntTypeFK") int evntTypeFK) {
-        logger.info("Sending all events of type "+evntTypeFK);
-        return spotEventRepository.filterType(evntTypeFK);
-    }
-    */
 
     //byevntname
     @GetMapping(path = "/evtnames/{evntNm}", produces= MediaType.APPLICATION_JSON_VALUE)

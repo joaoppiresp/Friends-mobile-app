@@ -21,30 +21,30 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     //events by id
     String byIdQuery = getEvntQuery + " WHERE infospot.spot_id= :spotId";
     @Query(value=byIdQuery, nativeQuery=true)
-    Iterable<SpotEvent> filtersptId(@Param("spotId") int spotId);
+    Iterable<SpotEvent> filtersptId(@Param(value="spotId") int spotId);
 
     //events by date
     String byDateQuery = getEvntQuery + " WHERE spotevents.evnt_date= :evntdate";
     @Query(value=byDateQuery, nativeQuery = true)
-    Iterable<SpotEvent> filterDate(@Param("evntdate") Timestamp evntdate);
+    Iterable<SpotEvent> filterDate(@Param(value="evntdate") Timestamp evntdate);
     
     //events by spotname
     String byNmQuery = getEvntQuery + " WHERE infospot.spot_name= :name";
     @Query(value=byNmQuery, nativeQuery = true)
-    Iterable<SpotEvent> filterSptNm(@Param("name") String name);
+    Iterable<SpotEvent> filterSptNm(@Param(value="name") String name);
 
     //events by spotname & eventdate
     String byNmDateQuery = getEvntQuery + " WHERE infospot.spot_name= :name AND spotevents.evnt_date= :evntdate";
     @Query(value=byNmDateQuery, nativeQuery = true)
-    Iterable<SpotEvent> filterSptNameDate(@Param("name") String name, @Param("evntdate") Timestamp evntdate);
+    Iterable<SpotEvent> filterSptNameDate(@Param(value="name") String name, @Param(value="evntdate") Timestamp evntdate);
 
     //events by eventtype
     String byTypeQuery = getEvntQuery + " WHERE eventtype.evnt_id= :evntTypeFK ";
     @Query(value=byTypeQuery, nativeQuery = true)
-    Iterable<SpotEvent> filterType(@Param("evntTypeFK") int evntTypeFK);
+    Iterable<SpotEvent> filterType(@Param(value="evntTypeFK") int evntTypeFK);
 
     //events by eventname
     String byEvNmQuery = getEvntQuery + " WHERE spotevents.event_name= :evntNm";
     @Query(value=byEvNmQuery, nativeQuery = true)
-    Iterable<SpotEvent> filterEvntNm(@Param("evntNm") String evntNm);
+    Iterable<SpotEvent> filterEvntNm(@Param(value="evntNm") String evntNm);
 }
