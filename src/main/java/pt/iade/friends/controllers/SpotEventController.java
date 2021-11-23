@@ -61,5 +61,4 @@ public class SpotEventController {
         logger.info("Sending all events with the name "+evntNm);
         return spotEventRepository.filterEvntNm(evntNm);
     }
-
 }
