@@ -34,7 +34,7 @@ public class FriendController
 
     // get friend by frndUserId
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Friend getFriends(@PathVariable ("id") int id) 
+    public Friend getFriends(@PathVariable(value="id") int id) 
     {
         logger.info("Sending users with id " + id);
         Optional <Friend> _friend=friendRepository.findById(id);

@@ -5,7 +5,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import pt.iade.friends.models.SpotEvent;
-import pt.iade.friends.models.Eventtype;
 public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
 
     String getEvntQuery = "Select price, "+
@@ -48,12 +47,4 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     String byEvNmQuery = getEvntQuery + " WHERE spotevents.event_name= :evntNm";
     @Query(value=byEvNmQuery, nativeQuery = true)
     Iterable<SpotEvent> filterEvntNm(@Param("event_name") String evntNm);
-
-    /*
-    TODO: Define the range in params
-    double minPrc, maxPrc;
-    String byPrcRngQuery = getEvntQuery + " WHERE infospotprctype.price BETWEEN :minPrc NAD :maxPrc";
-    @Query(value=byPrcRngQuery, nativeQuery = true)
-    Iterable<SpotEvent> filterPrcRange(@Param(..................);
-    */
 }
