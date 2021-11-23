@@ -19,9 +19,9 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     "Inner Join eventtype on spotevents.evnttype_fk=eventtype.evnt_id";
 	
     //events by id
-    String byIdQuery = getEvntQuery + " WHERE infospot.spot_id= :spotId";
+    String byIdQuery = getEvntQuery + " WHERE infospot.spot_id= :spotFK";
     @Query(value=byIdQuery, nativeQuery=true)
-    Iterable<SpotEvent> filtersptId(@Param(value="spotId") int spotId);
+    Iterable<SpotEvent> filtersptId(@Param(value="spotFK") int spotFK);
 
     //events by date
     String byDateQuery = getEvntQuery + " WHERE spotevents.evnt_date= :evntdate";

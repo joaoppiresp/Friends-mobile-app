@@ -24,7 +24,7 @@ public class SpotEventController {
     private Logger logger = LoggerFactory.getLogger(SpotEventController.class);
     @Autowired
     private SpotEventRepository spotEventRepository;
-    
+    /*
     //byId
     @GetMapping(path = "/ids/{spotFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
     public SpotEvent getEvent(@PathVariable(value="spotFK") int spotFK) throws NotFoundException
@@ -35,13 +35,13 @@ public class SpotEventController {
         else return _spotevent.get();
           
     }
-    /*
+    */
     @GetMapping(path = "/ids/{spotFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
     public Iterable<SpotEvent> getEvntbyId(@PathVariable(value="spotFK") int spotFK) {
         logger.info("Sending all events for spot with id "+spotFK);
         return spotEventRepository.filtersptId(spotFK);
     }
-    */
+    
   
     //bydate
     @GetMapping(path = "/dates/{date}", produces= MediaType.APPLICATION_JSON_VALUE)
