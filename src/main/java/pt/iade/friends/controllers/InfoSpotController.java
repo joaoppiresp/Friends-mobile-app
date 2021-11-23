@@ -22,7 +22,7 @@ public class InfoSpotController
     private Logger logger = LoggerFactory.getLogger(InfoSpotController.class);
     @Autowired
     private InfoSpotRepository infoSpotRepository;
-
+    //working
     // get all spots
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<InfoSpot> getSpots() 
@@ -30,7 +30,7 @@ public class InfoSpotController
         logger.info("Sending all spots");
         return infoSpotRepository.findAll();
     }
-
+    //working
     // get spot by id
     @GetMapping(path= "/{spotId:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
     public InfoSpot getSpot(@PathVariable(value="spotId") int spotId) throws NotFoundException
@@ -41,7 +41,7 @@ public class InfoSpotController
         else return _infospot.get();
           
     }
-
+    //TODO : not fully finished
     @PostMapping(path="", produces = MediaType.APPLICATION_JSON_VALUE)
     public InfoSpot saveSpot(@RequestBody InfoSpot newSpot){
         logger.info("saving a new spot");

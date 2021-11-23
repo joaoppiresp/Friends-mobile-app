@@ -17,7 +17,7 @@ public class PricingController {
     private Logger logger = LoggerFactory.getLogger(PricingController.class);
     @Autowired
     private PricingRepository pricingRepository;
-
+    //not working
     //all prices for a spot
     @GetMapping(path = "/{spotId:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Pricing> getEvntbysptid(@PathVariable(value="spotId") int spotId) {

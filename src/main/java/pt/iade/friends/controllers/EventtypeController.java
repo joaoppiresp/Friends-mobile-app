@@ -19,8 +19,9 @@ public class EventtypeController {
     private Logger logger = LoggerFactory.getLogger(EventtypeController.class);
     @Autowired
     private EventtypeRepository eventTypeRepository;
-    
-    // get all event types available
+    //All working but with calling repeated values(@JsonIgnore)??
+
+    // get all event types available 
     @GetMapping(path = "/events", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Eventtype> getEvents() 
     {
