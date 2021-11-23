@@ -55,13 +55,5 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     String byPrcRngQuery = getEvntQuery + " WHERE infospotprctype.price BETWEEN :minPrc NAD :maxPrc";
     @Query(value=byPrcRngQuery, nativeQuery = true)
     Iterable<SpotEvent> filterPrcRange(@Param(..................);
-
-    //going to an event(user)
-    String createEvntQuery = " 
-    @Modifying
-    @Transactional
-    @Query(value=createEvntQuery, nativeQuery=true)
-    (...)
-
     */
 }
