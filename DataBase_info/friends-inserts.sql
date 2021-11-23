@@ -29,8 +29,8 @@ insert into spottype(spot_type) values('Bar');
 insert into spottype(spot_type) values('Casa Noturna');
 insert into spottype(spot_type) values('Clube');
 insert into spottype(spot_type) values('Discoteca');
-insert into spottype(spot_type) values('lounge');
-insert into spottype(spot_type) values('sports bars');
+insert into spottype(spot_type) values('Lounge');
+insert into spottype(spot_type) values('Sports bars');
 
 
 insert into pricetype(prc_type) values('Entrada');
@@ -38,23 +38,23 @@ insert into pricetype(prc_type) values('Bebidas');
 insert into pricetype(prc_type) values('Comida');
 insert into pricetype(prc_type) values('Shisha');
 insert into pricetype(prc_type) values('Sobremesas');
-insert into pricetype(prc_type) values('consumo minimo');
+insert into pricetype(prc_type) values('Consumo mínimo');
 
 
 insert into interests(int_type) values('Futebol');
 insert into interests(int_type) values('Música');
 insert into interests(int_type) values('Dança');
 insert into interests(int_type) values('Vinho');
-insert into interests(int_type) values('Karaoke');
-insert into interests(int_type) values('desportos aquaticos');
-insert into interests(int_type) values('corrida');
-insert into interests(int_type) values('equitação');
-insert into interests(int_type) values('snowboarding');
-insert into interests(int_type) values('artes marcias');
-insert into interests(int_type) values('netflix');
-insert into interests(int_type) values('sunsets');
-insert into interests(int_type) values('convivios');
-insert into interests(int_type) values('blind dates');
+insert into interests(int_type) values('Karaokê');
+insert into interests(int_type) values('Desportos Aquáticos');
+insert into interests(int_type) values('Corrida');
+insert into interests(int_type) values('Equitação');
+insert into interests(int_type) values('Snowboarding');
+insert into interests(int_type) values('Artes Márcias');
+insert into interests(int_type) values('Netflix');
+insert into interests(int_type) values('Sunsets');
+insert into interests(int_type) values('Convívios');
+insert into interests(int_type) values('Blind dates');
 
 
 insert into pricing(price) values(50);
@@ -83,13 +83,13 @@ insert into spotevents(evnt_date, event_name) values('2021-08-29 15:45:00', 'Vit
 insert into spotevents(evnt_date, event_name) values('2021-07-28 15:30:00', 'Tarde de Karaoke');
 
 
-insert into infospot(spot_name, spot_address) values('Misc by Tartar-ia', 'Rua da Boavista 14, 1200-067 Lisboa');
-insert into infospot(spot_name, contact_info) values('Bohemio da Ribeira', '912932007');
-insert into infospot(spot_name, spot_address) values('SUBA Restaurante','R. de Santa Catarina 1, 1200-401 Lisboa');
-insert into infospot(spot_name, contact_info) values('Epur','213460519');
-insert into infospot(spot_name, contact_info) values('Bono Lisboa','937141859');
-insert into infospot(spot_name,spot_address) values('Restaurante Sinal Verde','Calçada Do Combro 40/44 1200-115 Lisboa');
-insert into infospot(spot_name, contact_info, spot_address) values('Restaurante Pedra De Sal', '912932007', 'R.do Diário de Notícias 43 1200-365 Lisboa');
+insert into infospot(spot_name, spot_address)               values('Misc by Tartar-ia', 'Rua da Boavista 14, 1200-067 Lisboa');
+insert into infospot(spot_name, contact_info)               values('Bohemio da Ribeira', '912932007');
+insert into infospot(spot_name, spot_address)               values('SUBA Restaurante','R. de Santa Catarina 1, 1200-401 Lisboa');
+insert into infospot(spot_name, contact_info)               values('Epur','213460519');
+insert into infospot(spot_name, contact_info)               values('Bono Lisboa','937141859');
+insert into infospot(spot_name,spot_address)                values('Restaurante Sinal Verde','Calçada Do Combro 40/44 1200-115 Lisboa');
+insert into infospot(spot_name, contact_info, spot_address) values('Restaurante Pedra De Sal', '929320078', 'R.do Diário de Notícias 43 1200-365 Lisboa');
 insert into infospot(spot_name, contact_info, spot_address) values('ALMEIDA & HERRERA LDA', '214600659','TRAVESSA DO ALECRIM 4 1200-019 LISBOA');
 insert into infospot(spot_name, contact_info, spot_address) values('Restaurante Farta Brutos','213426756','Travessa da Espera 16 1200 Lisboa');
 insert into infospot(spot_name, contact_info, spot_address) values('Restaurante Brutos Farta','234267567','Rua da raespa 10 1200 Lisboa');
@@ -111,7 +111,7 @@ insert into friendgroup(group_name) values('Nigthhhhhhhhhh');
 insert into friendgroup(group_name) values('Mexer as madeiras');
 insert into friendgroup(group_name) values('Ana Aniversário');
 insert into friendgroup(group_name) values('Bocelli Goooo');
-insert into friendgroup(group_name) values('Cantar ate cair no Karaoke');
+insert into friendgroup(group_name) values('Cantar ate cair no Karaokê');
 insert into friendgroup(group_name) values('Vamos ao Noite de Champions');
 
 
@@ -120,7 +120,7 @@ insert into eventtype(evnt_type) values('Jantar');
 insert into eventtype(evnt_type) values('Degustação de Vinho');
 insert into eventtype(evnt_type) values('Futebol + Bebidas');
 insert into eventtype(evnt_type) values('Dança + Jantar');
-insert into eventtype(evnt_type) values('rock night');
+insert into eventtype(evnt_type) values('Rock Night');
 
 
 insert into crowd(crwd_date) values(to_date('2021.11.23','YYYY.MM.DD'));
@@ -209,34 +209,12 @@ UPDATE friends SET mainuser_fk = 9 WHERE friend_id = 9;
 UPDATE friends SET mainuser_fk = 10 WHERE friend_id = 10;
 
 
-UPDATE friendgroup SET owner_id = 2, friend_fk = 1 WHERE group_id = 1;
-UPDATE friendgroup SET owner_id = 2, friend_fk = 4 WHERE group_id = 1;
-UPDATE friendgroup SET owner_id = 2, friend_fk = 7 WHERE group_id = 1;
-UPDATE friendgroup SET owner_id = 2, friend_fk = 10 WHERE group_id = 1;
-
-
-UPDATE friendgroup SET owner_id = 3, friend_fk = 1 WHERE group_id = 2;
-UPDATE friendgroup SET owner_id = 3, friend_fk = 4 WHERE group_id = 2;
-UPDATE friendgroup SET owner_id = 3, friend_fk = 7 WHERE group_id = 2;
-UPDATE friendgroup SET owner_id = 3, friend_fk = 10 WHERE group_id = 2;
-
-
-UPDATE friendgroup SET owner_id = 5, friend_fk = 1 WHERE group_id = 3;
-UPDATE friendgroup SET owner_id = 5, friend_fk = 4 WHERE group_id = 3;
-UPDATE friendgroup SET owner_id = 5, friend_fk = 7 WHERE group_id = 3;
-UPDATE friendgroup SET owner_id = 5, friend_fk = 10 WHERE group_id = 3;
-
-
-UPDATE friendgroup SET owner_id = 6, friend_fk = 1 WHERE group_id = 4;
-UPDATE friendgroup SET owner_id = 6, friend_fk = 4 WHERE group_id = 4;
-UPDATE friendgroup SET owner_id = 6, friend_fk = 7 WHERE group_id = 4;
+UPDATE friendgroup SET owner_id = 2, friend_fk = 1  WHERE group_id = 1;
+UPDATE friendgroup SET owner_id = 3, friend_fk = 4  WHERE group_id = 2;
+UPDATE friendgroup SET owner_id = 5, friend_fk = 7  WHERE group_id = 3;
 UPDATE friendgroup SET owner_id = 6, friend_fk = 10 WHERE group_id = 4;
-
-
-UPDATE friendgroup SET owner_id = 8, friend_fk = 1 WHERE group_id = 5;
-UPDATE friendgroup SET owner_id = 8, friend_fk = 4 WHERE group_id = 5;
-UPDATE friendgroup SET owner_id = 8, friend_fk = 7 WHERE group_id = 5;
-UPDATE friendgroup SET owner_id = 8, friend_fk = 10 WHERE group_id = 5;
+UPDATE friendgroup SET owner_id = 8, friend_fk = 1  WHERE group_id = 5;
+UPDATE friendgroup SET owner_id = 9, friend_fk = 4  WHERE group_id = 6;
 
 
 UPDATE crowd SET user_fk = 1, spt_fk = 1 WHERE crowd_id =1;
