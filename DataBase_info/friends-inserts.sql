@@ -14,7 +14,7 @@ insert into transptype(trnsp_type, schedual) values('Metro', to_date('2021.11.10
 insert into transptype(trnsp_type, schedual) values('Autocarro', to_date('2021.11.10','YYYY.MM.DD'));
 insert into transptype(trnsp_type, schedual) values('Barco', to_date('2021.11.10','YYYY.MM.DD'));
 insert into transptype(trnsp_type, schedual) values('Comboio', to_date('2021.11.10','YYYY.MM.DD'));
-insert into transptype(trnsp_type, schedual) values('Eletrico', to_date('2021.11.10','YYYY.MM.DD'));
+insert into transptype(trnsp_type, schedual) values('Elétrico ', to_date('2021.11.10','YYYY.MM.DD'));
 
 
 insert into transportation(price) values(1.50);
@@ -75,12 +75,12 @@ insert into spotevents(evnt_date, event_name) values('2021-11-23 17:45:00', 'Noi
 insert into spotevents(evnt_date, event_name) values('2021-11-25 20:30:00', 'Andrea Bocelli ao Vivo');
 insert into spotevents(evnt_date, event_name) values('2021-09-26 19:00:00', 'Noite de Kizomba');
 insert into spotevents(evnt_date, event_name) values('2021-08-21 21:00:00', 'Picanhas e os Melhores Vinhos');
-insert into spotevents(evnt_date, event_name) values('2021-07-03 21:30:00', 'Noite de Karaoke');
+insert into spotevents(evnt_date, event_name) values('2021-07-03 21:30:00', 'Noite de Karaokê');
 insert into spotevents(evnt_date, event_name) values('2021-11-24 18:45:00', 'Noite de Porto vs Benfica');
-insert into spotevents(evnt_date, event_name) values('2021-10-27 18:30:00', 'Roberta Miranada ao Vivo');
+insert into spotevents(evnt_date, event_name) values('2021-10-27 18:30:00', 'Roberta Miranda ao Vivo');
 insert into spotevents(evnt_date, event_name) values('2021-09-30 22:10:10', 'Noite de Samba');
 insert into spotevents(evnt_date, event_name) values('2021-08-29 15:45:00', 'Vitelas e os Melhores Vinhos');
-insert into spotevents(evnt_date, event_name) values('2021-07-28 15:30:00', 'Tarde de Karaoke');
+insert into spotevents(evnt_date, event_name) values('2021-07-28 15:30:00', 'Tarde de Karaokê');
 
 
 insert into infospot(spot_name, spot_address)               values('Misc by Tartar-ia', 'Rua da Boavista 14, 1200-067 Lisboa');
