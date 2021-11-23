@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "pricetype")
 public class Pricetype {
@@ -18,7 +20,7 @@ public class Pricetype {
     public Pricetype(){
         //
     };
-
+    @JsonIgnore
     public int getprctpid(){return prctpId;}
     public String getprctype(){return prctype;}
 }
