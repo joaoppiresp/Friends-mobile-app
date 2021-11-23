@@ -14,11 +14,11 @@ public class SpotEvent
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "spot_evnt_id") private int evntId;
-    @Column(name = "evnt_date") private Timestamp evntDate;
-    @Column(name = "event_name") private String eventNm;
-    @Column(name = "spot_fk") private int spotFK;
-    @Column(name = "evnttype_fk ") private int evntTypeFK;
+    @Column(name = "spot_evnt_id") public int evntId;
+    @Column(name = "evnt_date") public Timestamp evntDate;
+    @Column(name = "event_name") public String eventNm;
+    @Column(name = "spot_fk") public int spotFK;
+    @Column(name = "evnttype_fk ") public int evntTypeFK;
    
     public SpotEvent(){//empty const.
     };
