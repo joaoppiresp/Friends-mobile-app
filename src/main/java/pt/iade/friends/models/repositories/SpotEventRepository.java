@@ -38,10 +38,8 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     @Query(value=byTypeQuery, nativeQuery = true)
     Iterable<SpotEvent> filterType(@Param(value="evntTypeFK") int evntTypeFK);
 
-    //events by spotname
-    Optional<SpotEvent> findBysptnm(String name );
     //events by eventname
-    Optional <SpotEvent> findByEvntnm(String eventNm);
+    Optional <SpotEvent> findByeventNm(String eventNm);
 }
 
 /*
@@ -55,5 +53,11 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     String byEvNmQuery = getEvntQuery + " WHERE spotevents.event_name= :evntNm";
     @Query(value=byEvNmQuery, nativeQuery = true)
     Iterable<SpotEvent> filterEvntNm(@Param(value="evntNm") String evntNm);
+
+*/
+
+/*
+    //events by spotname
+    Optional<SpotEvent> findByname(String name );
 
 */
