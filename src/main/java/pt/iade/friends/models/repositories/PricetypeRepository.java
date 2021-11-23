@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import pt.iade.friends.models.Pricetype;
 
 public interface PricetypeRepository extends CrudRepository<Pricetype, Integer> {
-        Optional<Pricetype> getPrctpbyId( int prctpId);
+        Optional<Pricetype> findById(int prctpId);
 }
