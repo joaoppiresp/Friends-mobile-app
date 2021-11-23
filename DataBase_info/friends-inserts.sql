@@ -3,7 +3,7 @@ insert into users (user_email, user_phone_number, user_nm)             values ( 
 insert into users (user_email, user_nm, user_place)                    values ( 'pa@hotmail.com', 'Paula Antunes', 'lisboa');  
 insert into users (user_email, user_phone_number, user_nm)             values ( 'jrs@mac.com', '934567890', 'Joana Ramalho Silva');  
 insert into users (user_email, user_nm, user_place)                    values ( 'rms@gmail.com', 'Rui Manuel Silva', 'Cascais');  
-insert into users (user_email, user_phone_number, user_nm)             values ( 'rms@hotmail.com', '945678901', 'Rui Manuel Silva');  
+insert into users (user_email, user_phone_number, user_nm)             values ( 'ms@hotmail.com', '945678901', 'Manuel Silva');  
 insert into users (user_email, user_phone_number, user_nm, user_place) values ( 'lam@hotmail.com', '956789012', 'Lionel Andres Messi', 'cascais');  
 insert into users (user_email, user_phone_number, user_nm, user_place) values ( 'njr@hotmail.com', '967890123', 'Neymar JR', 'Amadora');  
 insert into users (user_email, user_phone_number, user_nm, user_place) values ( 'kbl@mac.com', '978901234', 'Kylian Mabppé Lottin', 'amadora');  
@@ -118,7 +118,7 @@ insert into eventtype(evnt_type) values('Jantar');
 insert into eventtype(evnt_type) values('Degustação de Vinho');
 insert into eventtype(evnt_type) values('Futebol + Bebidas');
 insert into eventtype(evnt_type) values('Dança + Jantar');
-insert into eventtype(evnt_type) values('rock night')
+insert into eventtype(evnt_type) values('rock night');
 
 insert into crowd(crwd_date) values(to_date('2021.11.23','YYYY.MM.DD'));
 insert into crowd(crwd_date) values(to_date('2021.11.25','YYYY.MM.DD'));
@@ -178,9 +178,9 @@ UPDATE spotevents SET spot_fk = 5, evnttype_fk = 5 WHERE spot_evnt_id = 5;
 UPDATE spotevents SET spot_fk = 6, evnttype_fk = 6 WHERE spot_evnt_id = 6; 
 UPDATE spotevents SET spot_fk = 7, evnttype_fk = 1 WHERE spot_evnt_id = 7; 
 UPDATE spotevents SET spot_fk = 8, evnttype_fk = 4 WHERE spot_evnt_id = 8; 
-UPDATE spotevents SET spot_fk = 9 WHERE spot_evnt_id = 9; 
-UPDATE spotevents SET spot_fk = 10 WHERE spot_evnt_id = 10; 
-SELECT * FROM spotevents
+UPDATE spotevents SET spot_fk = 9                  WHERE spot_evnt_id = 9; 
+UPDATE spotevents SET spot_fk = 10                 WHERE spot_evnt_id = 10; 
+
 
 UPDATE infospot SET spttype_fk = 2 WHERE spot_id = 1; 
 UPDATE infospot SET spttype_fk = 1 WHERE spot_id = 2;
