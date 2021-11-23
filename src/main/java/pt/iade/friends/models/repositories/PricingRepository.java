@@ -13,7 +13,7 @@ public interface PricingRepository extends CrudRepository<Pricing, Integer> {
     "From pricetype "+
     "Inner Join pricing on picetype.prc_id=pricing.prctype_fk "+
     "Inner Join infospot on pricing.spot_fk=infospot.spot_id "+
-    "WHERE spot_fk = ?1";
+    "WHERE pricing.spot_fk = ?1";
 
     //prices by spot id
     @Query(value=getpricesQuery, nativeQuery = true)
