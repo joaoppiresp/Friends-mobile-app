@@ -22,10 +22,10 @@ public class SpotEventController {
     private SpotEventRepository spotEventRepository;
 
     //byId
-    @GetMapping(path = "/ids/{spotId:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<SpotEvent> getEvntbyId(@PathVariable(value="id") int spotId) {
-        logger.info("Sending all events for spot with id "+spotId);
-        return spotEventRepository.filtersptId(spotId);
+    @GetMapping(path = "/ids/{spotFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<SpotEvent> getEvntbyId(@PathVariable(value="spotFK") int spotFK) {
+        logger.info("Sending all events for spot with id "+spotFK);
+        return spotEventRepository.filtersptId(spotFK);
     }
     //bydate
     @GetMapping(path = "/dates/{date}", produces= MediaType.APPLICATION_JSON_VALUE)
@@ -40,16 +40,16 @@ public class SpotEventController {
         return spotEventRepository.filterSptNm(name);
     }
     //byspotname & evntdate
-    @RequestMapping(value = "/name/date", method=RequestMethod.GET)
+    @RequestMapping(value = "/name/{date}", method=RequestMethod.GET)
     public Iterable<SpotEvent> getEvntbyNmDate(@RequestParam String name,@RequestParam Timestamp evntdate) {
         logger.info("Sending all events for spot with name "+name+" and date "+evntdate);
         return spotEventRepository.filterSptNameDate(name, evntdate);
     }
     //bytype
-    @GetMapping(path = "/types", produces= MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<SpotEvent> getEvntbytype(@PathVariable(value="evntTp") String evntTp) {
-        logger.info("Sending all events of type "+evntTp);
-        return spotEventRepository.filterType(evntTp);
+    @GetMapping(path = "/types/{evntTypeFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<SpotEvent> getEvntbytype(@PathVariable(value="evntTypeFK") int evntTypeFK) {
+        logger.info("Sending all events of type "+evntTypeFK);
+        return spotEventRepository.filterType(evntTypeFK);
     }
     //byevntname
     @GetMapping(path = "/evtnames", produces= MediaType.APPLICATION_JSON_VALUE)

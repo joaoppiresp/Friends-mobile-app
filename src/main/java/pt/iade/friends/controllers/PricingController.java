@@ -19,9 +19,9 @@ public class PricingController {
     private PricingRepository pricingRepository;
 
     //all prices for a spot
-    @GetMapping(path = "/{name}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<Pricing> getEvntbyNm(@PathVariable(value="name") String name) {
-        logger.info("Sending all events for spot with name "+name);
-        return pricingRepository.filterSpotNm(name);
+    @GetMapping(path = "/{spotId:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Pricing> getEvntbysptid(@PathVariable(value="spotId") int spotId) {
+        logger.info("Sending all events for spot with id "+spotId);
+        return pricingRepository.filterSpotid(spotId);
     }
 }

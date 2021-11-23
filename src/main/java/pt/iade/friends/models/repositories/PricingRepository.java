@@ -11,9 +11,10 @@ public interface PricingRepository extends CrudRepository<Pricing, Integer> {
     "prc_type AS type, "+
     "infospot.spot_name AS spotName "+
     "From pricing "+
-    "Inner Join infospot on pricing.spot_fk = infospot.spot_id";
+    "Inner Join infospot on pricing.spot_fk = infospot.spot_id "+
+    "WHERE spt_fk= :spotId";
 
-    //prices by spotname
+    //prices by spot id
     @Query(value=getpricesQuery, nativeQuery = true)
-    Iterable<Pricing> filterSpotNm(@Param("spot_name") String name);
+    Iterable<Pricing> filterSpotid(@Param("spotId") int spotId);
 }
