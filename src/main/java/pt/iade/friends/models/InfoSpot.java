@@ -14,14 +14,12 @@ public class InfoSpot
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "spot_db_id") private int spotId;
+    @Column(name = "spot_id") private int spotId;
     @Column(name = "spot_name") private String name;
     @Column(name = "contact_info") private String contactInfo;
     @Column(name = "spot_address") private String spotAddress;
-    @Column(name = "spt_type") private int sptType;
-    @Column(name = "spt_info_prc_id") private int sptInfoPrcId;
-    @Column(name = "evnt_id") private int evntId;
-    @Column(name = "crowd_spot_id") private int crowdSpotId;
+    @Column(name = "spttype_fk") private int sptType;
+
 
     public InfoSpot() {}
    
@@ -30,8 +28,5 @@ public class InfoSpot
     public String getContactInfo() {return contactInfo;}
     public String getsptaddress() {return spotAddress;}
     public int getSpotType() {return sptType;}
-    public int getSptInfoPrcId() {return sptInfoPrcId;}
-    public int getEvntId(){return evntId;}
-    public int getCrowdSpotId() {return crowdSpotId;}
 
 }

@@ -14,13 +14,13 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     "date_part('year', evnt_date) AS evyear, date_part('month', evnt_date) AS evmonth, date_part('day', evnt_date) AS evday, "+
     "date_part('hour', evnt_date) AS evhour, date_part('minute', evnt_date) AS evmin, "+
     "eventtype.evnt_type AS type "+
-    "From infospotprctype "+
-    "Inner Join infospot on infospotprctype.spot_id = infospot.spot_db_id "+
-    "Inner Join spotevents on infospot.spot_db_id=spotevents.spot_id "+
-    "Inner Join eventtype on spotevents.evnttype_id=eventtype.evnt_type_id";
+    "From pricing "+
+    "Inner Join infospot on pricing.spot_fk = infospot.spot_id "+
+    "Inner Join spotevents on infospot.spot_id=spotevents.spot_fk "+
+    "Inner Join eventtype on spotevents.evnttype_fk=eventtype.evnt_id";
 	
     //events by id
-    String byIdQuery = getEvntQuery + " WHERE infospot.spot_db_id= :spotId";
+    String byIdQuery = getEvntQuery + " WHERE infospot.spot_db_id= :spot_Id";
     @Query(value=byIdQuery, nativeQuery=true)
     Iterable<SpotEvent> filtersptId(@Param("spotId") int spotId);
 

@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public abstract class SpotType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "spt_type_id") private int sptTypeId;
+    @Column(name = "spt_id") private int sptTypeId;
     @Column(name = "spot_type") private String sptType;
 
     protected SpotType(){}
