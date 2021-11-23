@@ -19,8 +19,7 @@ public class EventtypeController {
     private Logger logger = LoggerFactory.getLogger(EventtypeController.class);
     @Autowired
     private EventtypeRepository eventTypeRepository;
-    //All working but with calling repeated values(@JsonIgnore)??
-
+    //working
     // get all event types available 
     @GetMapping(path = "/events", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Eventtype> getEvents() 
@@ -28,13 +27,14 @@ public class EventtypeController {
         logger.info("showing all event types available");
         return eventTypeRepository.findAll();
     }
-     // get evnt types by id
-     @GetMapping(path= "/{evntId:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
-     public Eventtype getEventsId(@PathVariable(value = "evntId") int evntId) throws NotFoundException
-     {
-        logger.info("showing event types with id "+evntId);
-        Optional<Eventtype> _eventtype = eventTypeRepository.findById(evntId);
-        if (!_eventtype.isPresent()) throw new NotFoundException(""+evntId, "Eventtype", "evntId");
-        else return _eventtype.get();
-     }
+    //working
+    // get evnt types by id
+    @GetMapping(path= "/{evntId:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
+    public Eventtype getEventsId(@PathVariable(value = "evntId") int evntId) throws NotFoundException
+    {
+       logger.info("showing event types with id "+evntId);
+       Optional<Eventtype> _eventtype = eventTypeRepository.findById(evntId);
+       if (!_eventtype.isPresent()) throw new NotFoundException(""+evntId, "Eventtype", "evntId");
+       else return _eventtype.get();
+    }
 }

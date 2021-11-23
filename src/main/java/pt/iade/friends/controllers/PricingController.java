@@ -22,6 +22,6 @@ public class PricingController {
     @GetMapping(path = "/{spotId:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Pricing> getEvntbysptid(@PathVariable(value="spotId") int spotId) {
         logger.info("Sending all events for spot with id "+spotId);
-        return pricingRepository.filterSpotid(spotId);
+        return pricingRepository.filterSpotId(spotId);
     }
 }

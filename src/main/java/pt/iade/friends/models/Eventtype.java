@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "eventtype")
 public class Eventtype{
@@ -19,6 +21,7 @@ public class Eventtype{
     protected Eventtype(){}
 
     public int getEvntId(){return evntId;}
+    @JsonIgnore
     public String getEvnTp(){return evntTp;}
 
 }
