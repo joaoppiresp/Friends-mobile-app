@@ -41,10 +41,15 @@ public class InfoSpotController
         else return _infospot.get();
           
     }
-    //TODO : not fully finished
+    
+}
+
+/*
+
     @PostMapping(path="", produces = MediaType.APPLICATION_JSON_VALUE)
     public InfoSpot saveSpot(@RequestBody InfoSpot newSpot){
         logger.info("saving a new spot");
         return infoSpotRepository.save(newSpot);
     }
-}
+
+*/

@@ -24,45 +24,43 @@ public class SpotEventController {
     private Logger logger = LoggerFactory.getLogger(SpotEventController.class);
     @Autowired
     private SpotEventRepository spotEventRepository;
-    /*
-    //byId
-    @GetMapping(path = "/ids/{spotFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public SpotEvent getEvent(@PathVariable(value="spotFK") int spotFK) throws NotFoundException
+  
+
+    public SpotEvent getEvntbyId(@PathVariable(value="spot_fk") int spotFK) throws NotFoundException
     {
         logger.info("Sending all events for spot with id "+spotFK);
         Optional<SpotEvent> _spotevent = spotEventRepository.findById(spotFK);
         if (!_spotevent.isPresent()) throw new NotFoundException(""+spotFK, "SpotEvent", "spotFK");
-        else return _spotevent.get();
+        else return (SpotEvent) spotEventRepository.filtersptId(spotFK);
           
-    }
-    */
-    @GetMapping(path = "/ids/{spotFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<SpotEvent> getEvntbyId(@PathVariable(value="spotFK") int spotFK) {
-        logger.info("Sending all events for spot with id "+spotFK);
-        return spotEventRepository.filtersptId(spotFK);
     }
     
   
     //bydate
-    @GetMapping(path = "/dates/{date}", produces= MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/dates/{evnt_date}", produces= MediaType.APPLICATION_JSON_VALUE)
     public Iterable<SpotEvent> getEvntbydates(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ") Timestamp evntdate) {
         logger.info("Sending all events for date "+evntdate);
         return spotEventRepository.filterDate(evntdate);
     }
    
     //byspotname
-    @GetMapping(path = "/sptnames/{name}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<SpotEvent> getEvntbyNm(@PathVariable(value="name") String name) {
+    @GetMapping(path = "/sptnames/{spot_name}", produces= MediaType.APPLICATION_JSON_VALUE)
+    public SpotEvent getEventbysptnam(@PathVariable(value="spot_name") String name) throws NotFoundException
+    {
         logger.info("Sending all events for spot with name "+name);
-        return spotEventRepository.filterSptNm(name);
+        Optional<SpotEvent> _spotevent = spotEventRepository.findBysptnm(name);
+        if (!_spotevent.isPresent()) throw new NotFoundException(""+name, "SpotEvent", "name");
+        else return _spotevent.get();
+          
     }
 
     //byspotname & evntdate
-    @RequestMapping(value = "/name/{name}/{date}", method=RequestMethod.GET)
+    @RequestMapping(value = "/name/{spot_name}/date/{evnt_date}", method=RequestMethod.GET)
     public Iterable<SpotEvent> getEvntbyNmDate(@RequestParam String name,@RequestParam Timestamp evntdate) {
         logger.info("Sending all events for spot with name "+name+" and date "+evntdate);
         return spotEventRepository.filterSptNameDate(name, evntdate);
     }
+
     //Working
     //bytype
     @GetMapping(path = "/types/{evntTypeFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
@@ -77,8 +75,12 @@ public class SpotEventController {
 
     //byevntname
     @GetMapping(path = "/evtnames/{evntNm}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<SpotEvent> getEvntNm(@PathVariable(value="evntNm") String evntNm) {
-        logger.info("Sending all events with the name "+evntNm);
-        return spotEventRepository.filterEvntNm(evntNm);
+    public SpotEvent getEventbyNm(@PathVariable(value="event_name") String eventNm) throws NotFoundException
+    {
+        logger.info("Sending event with name "+eventNm);
+        Optional<SpotEvent> _spotevent = spotEventRepository.findByEvntnm(eventNm);
+        if (!_spotevent.isPresent()) throw new NotFoundException(""+eventNm, "SpotEvent", "eventNm");
+        else return _spotevent.get();
+          
     }
 }

@@ -1,5 +1,5 @@
 package pt.iade.friends.models.repositories;
-
+import java.util.Optional;
 import java.sql.Timestamp;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.jpa.repository.Query;
@@ -27,11 +27,6 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     String byDateQuery = getEvntQuery + " WHERE spotevents.evnt_date= :evntdate";
     @Query(value=byDateQuery, nativeQuery = true)
     Iterable<SpotEvent> filterDate(@Param(value="evntdate") Timestamp evntdate);
-    
-    //events by spotname
-    String byNmQuery = getEvntQuery + " WHERE infospot.spot_name= :name";
-    @Query(value=byNmQuery, nativeQuery = true)
-    Iterable<SpotEvent> filterSptNm(@Param(value="name") String name);
 
     //events by spotname & eventdate
     String byNmDateQuery = getEvntQuery + " WHERE infospot.spot_name= :name AND spotevents.evnt_date= :evntdate";
@@ -43,8 +38,22 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     @Query(value=byTypeQuery, nativeQuery = true)
     Iterable<SpotEvent> filterType(@Param(value="evntTypeFK") int evntTypeFK);
 
+    //events by spotname
+    Optional<SpotEvent> findBysptnm(String name );
     //events by eventname
+    Optional <SpotEvent> findByEvntnm(String eventNm);
+}
+
+/*
+    
+    String byNmQuery = getEvntQuery + " WHERE infospot.spot_name= :name";
+    @Query(value=byNmQuery, nativeQuery = true)
+    Iterable<SpotEvent> filterSptNm(@Param(value="name") String name);
+
+*/
+/*
     String byEvNmQuery = getEvntQuery + " WHERE spotevents.event_name= :evntNm";
     @Query(value=byEvNmQuery, nativeQuery = true)
     Iterable<SpotEvent> filterEvntNm(@Param(value="evntNm") String evntNm);
-}
+
+*/
