@@ -25,7 +25,7 @@ public class SpotEventController {
     @Autowired
     private SpotEventRepository spotEventRepository;
   
-    @GetMapping(path = "/dates/{spotFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/evntids/{spotFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
     public SpotEvent getEvntbyId(@PathVariable(value="spot_fk") int spotFK) throws NotFoundException
     {
         logger.info("Sending all events for spot with id "+spotFK);
