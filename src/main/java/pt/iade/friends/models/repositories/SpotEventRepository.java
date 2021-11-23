@@ -8,8 +8,7 @@ import pt.iade.friends.models.SpotEvent;
 public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
 
     String getEvntQuery = "Select price, "+
-    "infospot.spot_name AS sptname, "+
-    "infospot.spot_address AS sptaddress, "+
+    "infospot.spot_address AS sptaddress, "+ 
     "date_part('year', evnt_date) AS evyear, date_part('month', evnt_date) AS evmonth, date_part('day', evnt_date) AS evday, "+
     "date_part('hour', evnt_date) AS evhour, date_part('minute', evnt_date) AS evmin, "+
     "eventtype.evnt_type AS type "+
