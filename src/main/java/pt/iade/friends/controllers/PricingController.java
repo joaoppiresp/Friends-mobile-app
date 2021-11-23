@@ -1,7 +1,6 @@
 package pt.iade.friends.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +20,7 @@ public class PricingController {
     //not working
     //all prices for a spot
     @GetMapping(path = "/{spotId:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<Pricing> getEvntbysptid(@RequestParam(value="spotId") int spotId) {
+    public Iterable<Pricing> getEvntbysptid(@PathVariable(value="spotId") int spotId) {
         logger.info("Sending all events for spot with id "+spotId);
         return pricingRepository.filterSpotId(spotId);
     }
