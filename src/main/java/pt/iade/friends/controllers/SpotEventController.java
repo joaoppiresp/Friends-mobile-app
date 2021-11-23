@@ -24,8 +24,20 @@ public class SpotEventController {
     private Logger logger = LoggerFactory.getLogger(SpotEventController.class);
     @Autowired
     private SpotEventRepository spotEventRepository;
+    //Working
+    //by type of event (id)
+    @GetMapping(path = "/types/{evntTypeFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
+    public SpotEvent getEventtp(@PathVariable(value="evntTypeFK") int evntTypeFK) throws NotFoundException
+    {
+        logger.info("Sending all events for type with id "+evntTypeFK);
+        Optional<SpotEvent> _spotevent = spotEventRepository.findById(evntTypeFK);
+        if (!_spotevent.isPresent()) throw new NotFoundException(""+evntTypeFK, "SpotEvent", "evntTypeFK");
+        else return _spotevent.get();
+          
+    }
+
     //not working
-    @GetMapping(path = "/evntids/{spotFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/spotids/{spotFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
     public SpotEvent getEvntbyId(@PathVariable(value="spot_fk") int spotFK) throws NotFoundException
     {
         logger.info("Sending all events for spot with id "+spotFK);
@@ -46,17 +58,6 @@ public class SpotEventController {
     public Iterable<SpotEvent> getEvntbyNmDate(@RequestParam String name,@RequestParam Timestamp evntdate) {
         logger.info("Sending all events for spot with name "+name+" and date "+evntdate);
         return spotEventRepository.filterSptNameDate(name, evntdate);
-    }
-    //Working
-    //by type of event (id)
-    @GetMapping(path = "/types/{evntTypeFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public SpotEvent getEventtp(@PathVariable(value="evntTypeFK") int evntTypeFK) throws NotFoundException
-    {
-        logger.info("Sending all events for type with id "+evntTypeFK);
-        Optional<SpotEvent> _spotevent = spotEventRepository.findById(evntTypeFK);
-        if (!_spotevent.isPresent()) throw new NotFoundException(""+evntTypeFK, "SpotEvent", "evntTypeFK");
-        else return _spotevent.get();
-          
     }
 
     //byevntname
