@@ -20,6 +20,7 @@ public class PriceTypeController {
     @Autowired
     private PricetypeRepository priceTypeRepository;
     
+    //not working
     //price type by id 
     @GetMapping(path= "/{prctpId:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
     public Pricetype getPrctpbyId(@PathVariable(value = "prctpId") int prctpId) throws NotFoundException

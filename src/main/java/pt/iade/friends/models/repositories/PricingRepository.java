@@ -12,7 +12,7 @@ public interface PricingRepository extends CrudRepository<Pricing, Integer> {
     "infospot.spot_name AS spotName "+
     "From pricing "+
     "Inner Join infospot on pricing.spot_fk = infospot.spot_id "+
-    "WHERE spot_id= :spotId";
+    "WHERE spot_fk= :spotId";
 
     //prices by spot id
     @Query(value=getpricesQuery, nativeQuery = true)
