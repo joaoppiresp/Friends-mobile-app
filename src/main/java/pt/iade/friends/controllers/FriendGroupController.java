@@ -10,33 +10,33 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pt.iade.friends.models.exceptions.NotFoundException;
-import pt.iade.friends.models.UserInterest;
-import pt.iade.friends.models.repositories.UserInterestRepository;
+import pt.iade.friends.models.FriendGroup;
+import pt.iade.friends.models.repositories.FriendGroupRepository;
 
 @RestController
-@RequestMapping(path = "/api/usersinterests")
-public class UserInterestController 
+@RequestMapping(path = "/api/friendgroup")
+public class FriendGroupController 
 {
-    private Logger logger = LoggerFactory.getLogger(UserInterestController.class);
+    private Logger logger = LoggerFactory.getLogger(FriendGroupController.class);
     @Autowired
-    private UserInterestRepository userinterestRepository;
+    private FriendGroupRepository friendgroupRepository;
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
 
     // get all users
-    public Iterable <UserInterest> getUserInterests() 
+    public Iterable <FriendGroup> getFriendGroups() 
     {
-        logger.info("Sending all User Interests");
-        return userinterestRepository.findAll();
+        logger.info("Sending all Friend Groups");
+        return friendgroupRepository.findAll();
     }
 
     // get user by id
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserInterest getUser(@PathVariable(value="id") int id) 
+    public FriendGroup getFriendGroup(@PathVariable(value="id") int id) 
     {
         logger.info("Sending user with id " + id);
-        Optional <UserInterest> _userinterest=userinterestRepository.findById(id);
-        if(!_userinterest.isPresent()) throw 
-        new NotFoundException(""+id,"user interest", "id");
-        else return _userinterest.get();
+        Optional <FriendGroup> _friendgroup=friendgroupRepository.findById(id);
+        if(!_friendgroup.isPresent()) throw 
+        new NotFoundException(""+id,"friend group", "id");
+        else return _friendgroup.get();
     }
 }
