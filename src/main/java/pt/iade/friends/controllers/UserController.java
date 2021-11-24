@@ -25,7 +25,7 @@ public class UserController
     // get all users
     public Iterable <User> getUsers() 
     {
-        logger.info("Sending all Users");
+        logger.info(" Sending all Users ");
         return userRepository.findAll();
     }
 
@@ -33,10 +33,10 @@ public class UserController
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public User getUser(@PathVariable(value="id") int id) 
     {
-        logger.info("Sending user with id " + id);
+        logger.info(" Sending user with id " + id);
         Optional <User> _user=userRepository.findById(id);
         if(!_user.isPresent()) throw 
-        new NotFoundException(""+id,"user", "id");
+        new NotFoundException("  "+id," user ", " id ");
         else return _user.get();
     }
 }

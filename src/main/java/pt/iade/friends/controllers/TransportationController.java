@@ -25,7 +25,7 @@ public class TransportationController
     // get all users
     public Iterable <Transportation> getTransportation() 
     {
-        logger.info("Sending all Transportation");
+        logger.info(" Sending all Transportation ");
         return transportationRepository.findAll();
     }
 
@@ -33,10 +33,10 @@ public class TransportationController
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Transportation getFriendGroup(@PathVariable(value="id") int id) 
     {
-        logger.info("Sending Transportation with id " + id);
+        logger.info(" Sending Transportation with id " + id);
         Optional <Transportation> _transportation=transportationRepository.findById(id);
         if(!_transportation.isPresent()) throw 
-        new NotFoundException(""+id,"Transportation", "id");
+        new NotFoundException("  "+id," Transportation ", " id ");
         else return _transportation.get();
     }
 }

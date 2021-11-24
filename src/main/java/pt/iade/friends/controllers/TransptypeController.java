@@ -25,7 +25,7 @@ public class TransptypeController
     // get all users
     public Iterable <Transptype> getTransptype() 
     {
-        logger.info("Sending all Transptype");
+        logger.info(" Sending all Transptype ");
         return transptypeRepository.findAll();
     }
 
@@ -33,10 +33,10 @@ public class TransptypeController
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Transptype getTransptype(@PathVariable(value="id") int id) 
     {
-        logger.info("Sending Transptype with id " + id);
+        logger.info(" Sending Transptype with id " + id);
         Optional <Transptype> _transptype=transptypeRepository.findById(id);
         if(!_transptype.isPresent()) throw 
-        new NotFoundException(""+id,"Transptype", "id");
+        new NotFoundException("  "+id," Transptype ", " id ");
         else return _transptype.get();
     }
 }

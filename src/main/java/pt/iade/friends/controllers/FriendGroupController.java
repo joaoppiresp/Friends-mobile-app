@@ -25,7 +25,7 @@ public class FriendGroupController
     // get all users
     public Iterable <FriendGroup> getFriendGroups() 
     {
-        logger.info("Sending all Friend Groups");
+        logger.info(" Sending all Friend Groups ");
         return friendgroupRepository.findAll();
     }
 
@@ -33,10 +33,10 @@ public class FriendGroupController
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public FriendGroup getFriendGroup(@PathVariable(value="id") int id) 
     {
-        logger.info("Sending user with id " + id);
+        logger.info(" Sending user with id " + id);
         Optional <FriendGroup> _friendgroup=friendgroupRepository.findById(id);
         if(!_friendgroup.isPresent()) throw 
-        new NotFoundException(""+id,"friend group", "id");
+        new NotFoundException("  "+id," friend group ", " id ");
         else return _friendgroup.get();
     }
 }

@@ -26,7 +26,7 @@ public class FriendController
     // get all friends
     public Iterable <Friend> getFriend() 
     {
-        logger.info("Sending all Friends");
+        logger.info(" Sending all Friends ");
         return friendRepository.findAll();
     }
 
@@ -34,10 +34,10 @@ public class FriendController
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Friend getFriends(@PathVariable(value="id") int id) 
     {
-        logger.info("Sending friends with id " + id);
+        logger.info(" Sending friends with id " + id);
         Optional <Friend> _friend=friendRepository.findById(id);
         if(!_friend.isPresent()) throw 
-        new NotFoundException(""+id,"friend", "id");
+        new NotFoundException("  "+id," friend ", " id ");
         else return _friend.get();
     }
 }
