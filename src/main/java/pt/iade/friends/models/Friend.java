@@ -12,15 +12,15 @@ public class Friend
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "friend_id") private int frndUserId;
+    @Column(name = "friend_id") private int friendId;
+    @Column(name = "mainuser_fk") private int mainuserFk;
     @Column(name = "friendship_status") private String friendshipStatus;
-    @Column(name = "mainuser_fk") private int mainuserId;
 
  
     public Friend(){}
     
+    public int getFriendId() {return friendId;}
+    public int getMainuserFk() {return mainuserFk;}
     public String getFriendshipStatus() {return friendshipStatus;}
-    public int getMainuserId() {return mainuserId;}
-    public int getFrndUserId() {return frndUserId;}
    
 }

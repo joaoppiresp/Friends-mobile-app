@@ -10,33 +10,33 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pt.iade.friends.models.exceptions.NotFoundException;
-import pt.iade.friends.models.User;
-import pt.iade.friends.models.repositories.UserRepository;
+import pt.iade.friends.models.UserInterest;
+import pt.iade.friends.models.repositories.UserInterestRepository;
 
 @RestController
-@RequestMapping(path = "/api/users")
-public class UserController 
+@RequestMapping(path = "/api/usersinterests")
+public class UserInterestController 
 {
-    private Logger logger = LoggerFactory.getLogger(UserController.class);
+    private Logger logger = LoggerFactory.getLogger(UserInterestController.class);
     @Autowired
-    private UserRepository userRepository;
+    private UserInterestRepository userinterestRepository;
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
 
     // get all users
-    public Iterable <User> getUsers() 
+    public Iterable <UserInterest> getUserInterests() 
     {
-        logger.info("Sending all Users");
-        return userRepository.findAll();
+        logger.info("Sending all User Interests");
+        return userinterestRepository.findAll();
     }
 
     // get user by id
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public User getUser(@PathVariable(value="id") int id) 
+    public UserInterest getUser(@PathVariable(value="id") int id) 
     {
         logger.info("Sending user with id " + id);
-        Optional <User> _user=userRepository.findById(id);
-        if(!_user.isPresent()) throw 
-        new NotFoundException(""+id,"user", "id");
-        else return _user.get();
+        Optional <UserInterest> _userinterest=userinterestRepository.findById(id);
+        if(!_userinterest.isPresent()) throw 
+        new NotFoundException(""+id,"user interest", "id");
+        else return _userinterest.get();
     }
 }

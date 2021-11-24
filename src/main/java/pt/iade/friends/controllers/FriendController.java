@@ -32,11 +32,11 @@ public class FriendController
         return friendRepository.findAll();
     }
 
-    // get friend by frndUserId
+    // get friend by friendId
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Friend getFriends(@PathVariable(value="id") int id) 
     {
-        logger.info("Sending users with id " + id);
+        logger.info("Sending friends with id " + id);
         Optional <Friend> _friend=friendRepository.findById(id);
         if(!_friend.isPresent()) throw 
         new NotFoundException(""+id,"friend", "id");
@@ -48,7 +48,7 @@ public class FriendController
     public Friend addFriend(@RequestBody Friend friend) 
     {
         Friend saveFriend = friendRepository.save(friend);
-        logger.info("Saving friends with id"+saveFriend.getFrndUserId());
+        logger.info("Saving friends with id"+saveFriend.getFriendId());
         return saveFriend;
     }
 }
