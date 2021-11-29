@@ -21,7 +21,7 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     //events by id
     String byIdQuery = getEvntQuery + "WHERE spotevents.spot_fk = spotFK";
     @Query(value=byIdQuery, nativeQuery=true)
-    Iterable<SpotEvent> filtersptId(@Param(value="spotFK") int spotFK);
+    Iterable<SpotEvent> filtersptId(@Param(value="spot_fk") int spotFK);
     
 
 }
