@@ -8,6 +8,7 @@ import pt.iade.friends.models.SpotEvent;
 public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
 
     String getEvntQuery = "Select price, "+
+    "infospot.spot_name, "+
     "infospot.spot_address AS sptaddress, "+ 
     "date_part('year', evnt_date) AS evyear, date_part('month', evnt_date) AS evmonth, date_part('day', evnt_date) AS evday, "+
     "date_part('hour', evnt_date) AS evhour, date_part('minute', evnt_date) AS evmin, "+
@@ -15,10 +16,10 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     "From pricing "+
     "Inner Join infospot on pricing.spot_fk = infospot.spot_id "+
     "Inner Join spotevents on infospot.spot_id=spotevents.spot_fk "+
-    "Inner Join eventtype on spotevents.evnttype_fk=eventtype.evnt_id";
+    "Inner Join eventtype on spotevents.evnttype_fk=eventtype.evnt_id ";
 	
     //events by id
-    String byIdQuery = getEvntQuery + " WHERE infospot.spot_id= :spotFK";
+    String byIdQuery = getEvntQuery + "WHERE infospot.spot_id= :spotFK";
     @Query(value=byIdQuery, nativeQuery=true)
     Iterable<SpotEvent> filtersptId(@Param(value="spotFK") int spotFK);
 

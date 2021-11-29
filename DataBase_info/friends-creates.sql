@@ -68,7 +68,7 @@ CREATE TABLE spotevents(
 
 CREATE TABLE infospot(
                     spot_name VARCHAR(50) NOT NULL,                   --name of the spot
-                    spot_id SERIAL UNIQUE,                   --db internal Id
+                    spot_id SERIAL UNIQUE,                            --db internal Id
                     contact_info VARCHAR(30),                         --contact information for the spot
                     spot_address VARCHAR(70),                         --address information for the spot
                     spttype_fk INTEGER,                               --foreign key to spottype
