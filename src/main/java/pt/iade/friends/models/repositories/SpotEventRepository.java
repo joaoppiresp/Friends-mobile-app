@@ -23,6 +23,9 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     @Query(value=getEvntQuery + "WHERE spotevents.spot_fk=:spotFK", nativeQuery=true)
     Iterable<SpotEventView> filtersptId(@Param("spotFK") int spotFK);
 
+    //events by eventtype
+    @Query(value=getEvntQuery+ " WHERE eventtype.evnt_id=:evntTypeFK ", nativeQuery = true)
+    Iterable<SpotEventView> filterType(@Param("evntTypeFK") int evntTypeFK);
 }
 
 /*

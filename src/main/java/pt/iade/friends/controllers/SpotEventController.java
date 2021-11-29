@@ -23,20 +23,8 @@ public class SpotEventController {
     private Logger logger = LoggerFactory.getLogger(SpotEventController.class);
     @Autowired
     private SpotEventRepository spotEventRepository;
-    
+
     //Working
-    //by type of event (id)
-    @GetMapping(path = "/types/{evntTypeFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public SpotEvent getEventtp(@PathVariable(value="evntTypeFK") int evntTypeFK) throws NotFoundException
-    {
-        logger.info("Sending all events for type with id "+evntTypeFK);
-        Optional<SpotEvent> _spotevent = spotEventRepository.findById(evntTypeFK);
-        if (!_spotevent.isPresent()) throw new NotFoundException(""+evntTypeFK, "SpotEvent", "evntTypeFK");
-        else return _spotevent.get();
-          
-    }
-    
-    //not working
     //byspotid
     @GetMapping(path = "/spotids/{spotFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
     public Iterable<SpotEventView> getEvntbyId(@PathVariable int spotFK){
@@ -45,6 +33,18 @@ public class SpotEventController {
         return spotEventRepository.filtersptId(spotFK);
 
     }
+
+    //Working
+    //by type of event (id)
+    @GetMapping(path = "/types/{evntTypeFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
+    public Iterabal<SpotEventView> getEventtp(@PathVariable int evntTypeFK) 
+    {
+        logger.info("Sending all events for type with id "+evntTypeFK);
+        return spotEventRepository.filterType(evntTypeFK);
+          
+    }
+    
+    
     
 }
 
