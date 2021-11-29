@@ -37,13 +37,11 @@ public class SpotEventController {
     }
 
     //not working
+    //byspotid
     @GetMapping(path = "/spotids/{spotFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public SpotEvent getEvntbyId(@PathVariable(value="spot_fk") int spotFK) throws NotFoundException
-    {
+    public Iterable<SpotEvent> getEvntbyId(@PathVariable(value="spot_fk") int spotFK){
         logger.info("Sending all events for spot with id "+spotFK);
-        Optional<SpotEvent> _spotevent = spotEventRepository.findById(spotFK);
-        if (!_spotevent.isPresent()) throw new NotFoundException(""+spotFK, "SpotEvent", "spotFK");
-        else return _spotevent.get(); 
+        return spotEventRepository.filtersptId(spotFK);
     }
     //not working
     //bydate
