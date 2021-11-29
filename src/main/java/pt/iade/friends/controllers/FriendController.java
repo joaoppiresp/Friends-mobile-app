@@ -5,14 +5,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import pt.iade.friends.models.exceptions.NotFoundException;
 import pt.iade.friends.models.Friend;
 import pt.iade.friends.models.repositories.FriendRepository;
+import pt.iade.friends.models.responses.Response;
 
 @RestController
 @RequestMapping(path = "/api/friends")
@@ -40,4 +44,24 @@ public class FriendController
         new NotFoundException("  "+id," friend ", " id ");
         else return _friend.get();
     }
+
+        // save friend
+        @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+        public Friend saveUser(@RequestBody Friend friend) 
+        {
+            Friend saveFriend = friendRepository.save(friend);
+        logger.info(" Saving friend with id "+saveFriend.getFriendId());
+        return saveFriend;
+        }
+    
+        // delete friend
+        @DeleteMapping(path = "/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
+        public Response deleteFriend(@PathVariable(value="id") int id) 
+        {
+            logger.info(" Deleted user with id "+id);
+            friendRepository.deleteById(id);
+            return new Response(" Deleted friend with id "+id, null);
+        }
 }
+    
+    
