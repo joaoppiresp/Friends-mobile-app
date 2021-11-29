@@ -13,7 +13,7 @@ public class User
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id") private int id;
+    @Column(name = "user_id") private int userId;
     @Column(name = "user_email") private String email;
     @Column(name = "user_phone_number") private String phoneNumber;
     @Column(name = "user_public_id") private int publicId;
@@ -22,10 +22,10 @@ public class User
 
     public User(){}
 
+    public int getId() {return userId;}
     public String getEmail() {return email;}
     public String getPhoneNumber() {return phoneNumber;}
     public int getPublicId() {return publicId;}
-    public int getId() {return id;}
     public String getNm() {return nm;}
     public String getPlace() {return place;}
 }
