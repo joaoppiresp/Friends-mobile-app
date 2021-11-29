@@ -29,7 +29,7 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     "Inner Join infospot on pricing.spot_fk = infospot.spot_id "+
     "Inner Join spotevents on infospot.spot_id=spotevents.spot_fk "+
     "Inner Join eventtype on spotevents.evnttype_fk=eventtype.evnt_id "+
-    "WHERE spotevents.spot_fk = spotFK";
+    "WHERE spotevents.spot_fk = :spotFK";
 
     @Query(value=testquery, nativeQuery=true)
     Iterable<SpotEvent> filtersptId(@Param(value="spotFK") int spotFK);
