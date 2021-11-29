@@ -37,7 +37,7 @@ public class SpotEventController {
     //Working
     //by type of event (id)
     @GetMapping(path = "/types/{evntTypeFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public Iterabal<SpotEventView> getEventtp(@PathVariable int evntTypeFK) 
+    public Iterable<SpotEventView> getEventtp(@PathVariable int evntTypeFK) 
     {
         logger.info("Sending all events for type with id "+evntTypeFK);
         return spotEventRepository.filterType(evntTypeFK);
