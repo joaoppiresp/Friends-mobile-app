@@ -20,10 +20,11 @@ import pt.iade.friends.models.repositories.SpotEventRepository;
 @RestController
 @RequestMapping(path = "/api/events")
 public class SpotEventController {
-
+    
     private Logger logger = LoggerFactory.getLogger(SpotEventController.class);
     @Autowired
     private SpotEventRepository spotEventRepository;
+    /*
     //Working
     //by type of event (id)
     @GetMapping(path = "/types/{evntTypeFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
@@ -35,7 +36,7 @@ public class SpotEventController {
         else return _spotevent.get();
           
     }
-
+    */
     //not working
     //byspotid
     @GetMapping(path = "/spotids/{spotFK}", produces= MediaType.APPLICATION_JSON_VALUE)
@@ -57,7 +58,7 @@ public class SpotEventController {
         logger.info("Sending all events for spot with name "+name+" and date "+evntdate);
         return spotEventRepository.filterSptNameDate(name, evntdate);
     }
-
+    /*
     //byevntname
     @GetMapping(path = "/evtnames/{evntNm}", produces= MediaType.APPLICATION_JSON_VALUE)
     public SpotEvent getEventbyNm(@PathVariable(value="event_name") String eventNm) throws NotFoundException
@@ -68,6 +69,7 @@ public class SpotEventController {
         else return _spotevent.get();
           
     }
+    */
 }
 
 /*
