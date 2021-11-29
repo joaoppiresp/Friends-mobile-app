@@ -9,5 +9,5 @@ public interface SpotEventView {
     Double getEvHour();
     Double getEvMin();
     String getType();
-    int getSpotFk();
+    // int getSpotFk();
 }
