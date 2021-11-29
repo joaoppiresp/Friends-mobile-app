@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import pt.iade.friends.models.SpotEvent;
 import pt.iade.friends.models.repositories.SpotEventRepository;
 @RestController
