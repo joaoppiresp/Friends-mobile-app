@@ -39,7 +39,7 @@ public class SpotEventController {
     //not working
     //byspotid
     @GetMapping(path = "/spotids/{spotFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<SpotEvent> getEvntbyId(@PathVariable(value="spot_fk") int spotFK){
+    public Iterable<SpotEvent> getEvntbyId(@PathVariable(value="spotFK") int spotFK){
         logger.info("Sending all events for spot with id "+spotFK);
         return spotEventRepository.filtersptId(spotFK);
     }
