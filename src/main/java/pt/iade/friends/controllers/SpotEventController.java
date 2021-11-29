@@ -43,7 +43,7 @@ public class SpotEventController {
         return spotEventRepository.filterType(evntTypeFK);
           
     }
-    
+    //Working
     //byspotname
     @GetMapping(path = "/sptnames/{name}", produces= MediaType.APPLICATION_JSON_VALUE)
     public Iterable<SpotEventView> getEventbysptnam(@PathVariable String name)
@@ -52,6 +52,13 @@ public class SpotEventController {
         return spotEventRepository.filterSptNm(name);
     }
     
+    //byevntname
+    @GetMapping(path = "/evtnames/{eventNm}", produces= MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<SpotEventView> getEventbyNm(@PathVariable String eventNm)
+    {
+        logger.info("Sending event with name "+eventNm);
+        return spotEventRepository.filterEvntNm(eventNm);
+    }
 }
 
 /*
@@ -72,16 +79,4 @@ public class SpotEventController {
         return spotEventRepository.filterSptNameDate(name, evntdate);
     }
     
-    //byevntname
-    @GetMapping(path = "/evtnames/{evntNm}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public SpotEvent getEventbyNm(@PathVariable(value="event_name") String eventNm) throws NotFoundException
-    {
-        logger.info("Sending event with name "+eventNm);
-        Optional<SpotEvent> _spotevent = spotEventRepository.findByeventNm(eventNm);
-        if (!_spotevent.isPresent()) throw new NotFoundException(""+eventNm, "SpotEvent", "eventNm");
-        else return _spotevent.get();
-          
-    }
-    
-
 */

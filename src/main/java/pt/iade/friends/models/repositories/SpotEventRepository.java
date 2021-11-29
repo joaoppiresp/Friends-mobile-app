@@ -19,7 +19,7 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     "Inner Join spotevents on infospot.spot_id=spotevents.spot_fk "+
     "Inner Join eventtype on spotevents.evnttype_fk=eventtype.evnt_id ";
 
-    //events by id
+    //events by spot id
     @Query(value=getEvntQuery + "WHERE spotevents.spot_fk=:spotFK", nativeQuery=true)
     Iterable<SpotEventView> filtersptId(@Param("spotFK") int spotFK);
 
@@ -30,20 +30,12 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     //events by spot name
     @Query(value=getEvntQuery + " WHERE infospot.spot_name=:name", nativeQuery = true)
     Iterable<SpotEventView> filterSptNm(@Param("name") String name);
+
+    //events by event name
+    @Query(value=getEvntQuery + " WHERE spotevents.event_name=:eventNm", nativeQuery = true)
+    Iterable<SpotEventView> filterEvntNm(@Param("eventNm") String eventNm);
 }
 
-/*
-    String byEvNmQuery = getEvntQuery + " WHERE spotevents.event_name= :evntNm";
-    @Query(value=byEvNmQuery, nativeQuery = true)
-    Iterable<SpotEvent> filterEvntNm(@Param(value="evntNm") String evntNm);
-
-*/
-
-/*
-    //events by spotname
-    Optional<SpotEvent> findByname(String name );
-
-*/
 
 /*
     //events by date
@@ -57,17 +49,3 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     Iterable<SpotEvent> filterSptNameDate(@Param(value="name") String name, @Param(value="evntdate") Timestamp evntdate);
 */
 
-/*
-    //events by eventname
-    Optional <SpotEvent> findByeventNm(String eventNm);~
-
-*/
-
-/*
-
-    //events by eventtype
-    String byTypeQuery = getEvntQuery + " WHERE eventtype.evnt_id= :evntTypeFK ";
-    @Query(value=byTypeQuery, nativeQuery = true)
-    Iterable<SpotEvent> filterType(@Param(value="evntTypeFK") int evntTypeFK);
-
-*/
