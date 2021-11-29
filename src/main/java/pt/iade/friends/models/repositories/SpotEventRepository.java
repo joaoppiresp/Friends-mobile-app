@@ -5,10 +5,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import pt.iade.friends.models.SpotEvent;
+import pt.iade.friends.models.Views.SpotEventView;
 public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
 
-    String getEvntQuery = "Select price, infospot.spot_name, "+
-    "infospot.spot_name, "+
+    String getEvntQuery = "Select price AS price, " +
+    "infospot.spot_name AS sptName, "+
     "infospot.spot_address AS sptaddress, "+ 
     "date_part('year', evnt_date) AS evyear, date_part('month', evnt_date) AS evmonth, date_part('day', evnt_date) AS evday, "+
     "date_part('hour', evnt_date) AS evhour, date_part('minute', evnt_date) AS evmin, "+
@@ -19,10 +20,8 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     "Inner Join eventtype on spotevents.evnttype_fk=eventtype.evnt_id ";
 
     //events by id
-    String byIdQuery = getEvntQuery + "WHERE spotevents.spot_fk = ?spotFK";
-    @Query(value=byIdQuery, nativeQuery=true)
-    Iterable<SpotEvent> filtersptId(@Param(value="spot_fk") int spotFK);
-    
+    @Query(value=getEvntQuery + "WHERE spotevents.spot_fk = spotFK", nativeQuery=true)
+    Iterable<SpotEventView> filtersptId(@Param(value="spot_fk") int spotFK);
 
 }
 

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import pt.iade.friends.models.SpotEvent;
+import pt.iade.friends.models.Views.SpotEventView;
 import pt.iade.friends.models.repositories.SpotEventRepository;
 @RestController
 @RequestMapping(path = "/api/events")
@@ -39,7 +40,7 @@ public class SpotEventController {
     //not working
     //byspotid
     @GetMapping(path = "/spotids/{spotFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<SpotEvent> getEvntbyId(@PathVariable(value="spotFK") int spotFK){
+    public Iterable<SpotEventView> getEvntbyId(@PathVariable(value="spotFK") int spotFK){
         logger.info("Sending all events for spot with id "+spotFK);
         return spotEventRepository.filtersptId(spotFK);
     }
