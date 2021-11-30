@@ -10,8 +10,8 @@ CREATE TABLE users(
 
 CREATE TABLE userinterest(
                     int_fk INTEGER,                                   --foreign key to interests         
-                    users_fk INTEGER                                  --foreign key to users
-                    user_inte_id SERIAL UNIQUE,
+                    users_fk INTEGER,                                  --foreign key to users
+                    user_inte_id SERIAL UNIQUE NOT NULL,
                     PRIMARY KEY (user_inte_id)
 );
 
