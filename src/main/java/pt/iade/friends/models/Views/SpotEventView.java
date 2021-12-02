@@ -12,5 +12,5 @@ public interface SpotEventView {
     Double getEvDay();
     Double getEvHour();
     Double getEvMin();
-    Double getType();
+    String getType();
 }
