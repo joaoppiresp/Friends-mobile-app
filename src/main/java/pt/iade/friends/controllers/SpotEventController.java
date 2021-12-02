@@ -60,15 +60,16 @@ public class SpotEventController {
         return spotEventRepository.filterEvntNm(eventNm);
     }
 
-}
-
-/*
     //bydate
-    @GetMapping(path = "/dates/{evnt_date}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<SpotEvent> getEvntbydates(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mmZ") Double evntdate) {
+    @GetMapping(path = "/dates/{evntdate}", produces= MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<SpotEventView> getEvntbydates(@PathVariable double evntdate)
+    {
         logger.info("Sending all events for date "+evntdate);
         return spotEventRepository.filterDate(evntdate);
     }
+}
+
+/*
 
     //not working
     //byspotname & evntdate
