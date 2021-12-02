@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import pt.iade.friends.models.SpotEvent;
 import pt.iade.friends.models.Views.SpotEventView;
 import pt.iade.friends.models.repositories.SpotEventRepository;
 @RestController
@@ -62,7 +61,7 @@ public class SpotEventController {
 
     //bydate
     @GetMapping(path = "/dates/{evntdate}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<SpotEventView> getEvntbydates(@PathVariable double evntdate)
+    public Iterable<SpotEventView> getEvntbydates(@PathVariable String evntdate)
     {
         logger.info("Sending all events for date "+evntdate);
         return spotEventRepository.filterDate(evntdate);
@@ -70,6 +69,8 @@ public class SpotEventController {
 }
 
 /*
+    Double.parseDouble(str)
+
 
     //not working
     //byspotname & evntdate
