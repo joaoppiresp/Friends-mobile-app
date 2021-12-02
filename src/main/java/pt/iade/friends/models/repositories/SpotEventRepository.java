@@ -1,6 +1,8 @@
 package pt.iade.friends.models.repositories;
 import java.util.Optional;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -37,7 +39,7 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
 
     //events by event date
     @Query(value=getEvntQuery + " WHERE spotevents.evnt_date= :evntdate", nativeQuery = true)
-    Iterable<SpotEventView> filterDate(@Param("evntdate") String evntdate);
+    Iterable<SpotEventView> filterDate(@Param("evntdate") LocalDateTime evntdate);
 }
 
 
