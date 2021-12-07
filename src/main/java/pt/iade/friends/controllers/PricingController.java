@@ -1,5 +1,6 @@
 package pt.iade.friends.controllers;
 
+import pt.iade.friends.models.Views.SpotEventView;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.slf4j.Logger;
@@ -17,11 +18,11 @@ public class PricingController {
     private Logger logger = LoggerFactory.getLogger(PricingController.class);
     @Autowired
     private PricingRepository pricingRepository;
-    //not working (values in database can't be null?)
+    
     //all prices for a spot
-    @GetMapping(path = "/{spotId:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<Pricing> getEvntbysptid(@PathVariable int spotId) {
-        logger.info("Sending all events for spot with id "+spotId);
+    @GetMapping(path = "/byspot/{spotId:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<SpotEventView> getEvntbysptid(@PathVariable int spotId) {
+        logger.info("Sending all prices for spot with id "+spotId);
         return pricingRepository.filterSpotId(spotId);
     }
 }
