@@ -35,7 +35,7 @@ public class UserController
     {
         logger.info(" Sending user with id " + userId);
         Optional <User> _user=userRepository.findById(userId);
-        if(!_user.isPresent()) throw new NotFoundException("  "+userId," user ", " userId ");
+        if(!_user.isPresent()) throw new NotFoundException("  "+userId,"user", "userId");
         else return _user.get();
     }
 }
