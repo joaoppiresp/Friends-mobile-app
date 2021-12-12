@@ -18,7 +18,7 @@ public class UserInterest
     @Column(name = "int_fk") private int intFk;
     @Column(name = "users_fk") private int usersFk ;
 
-    public UserInterest(){}
+    public UserInterest(){};
 
     public int getUserInteId(){return userInteId;}
     public int getIntFk(){return intFk;}
