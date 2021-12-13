@@ -33,7 +33,6 @@ public class SpotEventController {
         return spotEventRepository.filtersptId(spotFK);
 
     }
-
     //Working
     //by type of event (id)
     @GetMapping(path = "/types/{evntTypeFK:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
@@ -58,6 +57,13 @@ public class SpotEventController {
     {
         logger.info("Sending event with name "+eventNm);
         return spotEventRepository.filterEvntNm(eventNm);
+    }
+    //byevntid
+    @GetMapping(path = "/evtids/{evntId:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<SpotEventView> getEventbyevtid(@PathVariable int evntId)
+    {
+        logger.info("Sending event with id "+evntId);
+        return spotEventRepository.filterEvntId(evntId);
     }
 
 }
