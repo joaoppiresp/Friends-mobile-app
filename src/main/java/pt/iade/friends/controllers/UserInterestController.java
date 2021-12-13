@@ -11,7 +11,7 @@ import pt.iade.friends.models.Views.UserInterestView;
 import pt.iade.friends.models.repositories.UserInterestRepository;
 
 @RestController
-@RequestMapping(path = "/api/userinterest")
+@RequestMapping(path = "/api/userinterests")
 public class UserInterestController 
 {
     private Logger logger = LoggerFactory.getLogger(UserInterestController.class);
@@ -19,9 +19,9 @@ public class UserInterestController
     private UserInterestRepository userInterestRepository;
 
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<UserInterestView> getUserInterestbyId(@PathVariable int name)
+    public Iterable<UserInterestView> getUserInterestbyId(@PathVariable int usersFk)
     {
-        logger.info(" Sending all user interest " +name);
-        return userInterestRepository.filtername(name);
+        logger.info(" Sending all user interest " +usersFk);
+        return userInterestRepository.filteruserInterestUser(usersFk);
     }
 }
