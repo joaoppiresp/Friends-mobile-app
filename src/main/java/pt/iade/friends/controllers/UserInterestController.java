@@ -18,7 +18,7 @@ public class UserInterestController
     @Autowired
     private UserInterestRepository userInterestRepository;
 
-    @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/usersid/{usersFk:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<UserInterestView> getUserInterestbyId(@PathVariable int usersFk)
     {
         logger.info(" Sending all user interest " +usersFk);
