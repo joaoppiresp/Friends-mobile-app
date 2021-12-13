@@ -44,7 +44,7 @@ public class UserController
     }
 
     // save User
-        @PostMapping(path = "/cuser", produces = MediaType.APPLICATION_JSON_VALUE)
+        @PostMapping(path = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
         public User saveUser(@RequestBody User user) 
         {
             User savedUser = userRepository.save(user);
@@ -53,7 +53,7 @@ public class UserController
         }
     
     // delete User
-        @DeleteMapping(path = "/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
+        @DeleteMapping(path = "/delete/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
         public Response deleteUser(@PathVariable(value="id") int id) 
         {
             logger.info(" Deleted User with id "+id);

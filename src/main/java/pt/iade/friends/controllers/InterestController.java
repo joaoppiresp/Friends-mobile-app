@@ -44,16 +44,16 @@ public class InterestController
     }
 
         // save Interest
-        @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+        @PostMapping(path = "/save", produces = MediaType.APPLICATION_JSON_VALUE)
         public Interest saveInterest(@RequestBody Interest interest) 
         {
             Interest saveInterest = interestRepository.save(interest);
-        logger.info(" Saving interest with id "+saveInterest.getInterestId());
+        logger.info(" Saving interest with id ");
         return saveInterest;
         }
     
         // delete Interest
-        @DeleteMapping(path = "/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
+        @DeleteMapping(path = "/delete/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
         public Response deleteInterest(@PathVariable(value="id") int id) 
         {
             logger.info(" Deleted Interest with id "+id);
