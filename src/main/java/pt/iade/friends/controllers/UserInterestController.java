@@ -18,17 +18,10 @@ public class UserInterestController
     @Autowired
     private UserInterestRepository userInterestRepository;
 
-    @GetMapping(path = "/usersid/{usersFk:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<UserInterestView> getUserInterestbyId(@PathVariable int usersFk)
+    @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<UserInterestView> getUserInterestbyId(@PathVariable int name)
     {
-        logger.info(" Sending all userinterest for user with id " +usersFk);
-        return userInterestRepository.filteruserId(usersFk);
-    }
-
-    @GetMapping(path = "/interestid/{intFk:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<UserInterestView> getInterestbyId(@PathVariable int intFk)
-    {
-        logger.info(" Sending all userinterest for interest with id " +intFk);
-        return userInterestRepository.filterinterestId(intFk);
+        logger.info(" Sending all user interest " +name);
+        return userInterestRepository.filtername(name);
     }
 }
