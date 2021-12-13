@@ -19,6 +19,7 @@ public class User
     @Column(name = "user_public_id") private int publicId;
     @Column(name = "user_nm") private String nm;
     @Column(name = "user_place") private String place;
+    @Column(name = "user_password") private String password;
 
     public User(){}
 
@@ -28,4 +29,5 @@ public class User
     public int getPublicId() {return publicId;}
     public String getNm() {return nm;}
     public String getPlace() {return place;}
+    public String getPassword(){return password;}
 }
