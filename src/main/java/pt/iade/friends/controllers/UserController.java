@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pt.iade.friends.models.exceptions.NotFoundException;
+import pt.iade.friends.models.exceptions.NotFoundException2;
 import pt.iade.friends.models.User;
 import pt.iade.friends.models.repositories.UserRepository;
 import pt.iade.friends.models.responses.Response;
@@ -43,7 +44,18 @@ public class UserController
         else return _user.get();
     }
 
-        // save User
+    // get user by Username
+    @GetMapping(path = "/getUsernameById/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getUsernameById(@PathVariable("id") int id)
+    {
+        logger.info("Sending user with id: " + id);
+        Optional<User> _user = userRepository.findById(id);
+        if(!_user.isPresent())throw
+        new NotFoundException("" + id, "Utilizador", "");
+        else return _user.get().getNm();
+    }
+
+    // save User
         @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
         public User saveUser(@RequestBody User user) 
         {
@@ -52,7 +64,7 @@ public class UserController
         return saveUser;
         }
     
-        // delete User
+    // delete User
         @DeleteMapping(path = "/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
         public Response deleteUser(@PathVariable(value="id") int id) 
         {
