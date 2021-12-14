@@ -20,7 +20,7 @@ import pt.iade.friends.models.responses.Response;
 @RequestMapping(path = "/api/users")
 public class UserController 
 {
-    private Logger logger = LoggerFactory.getLogger(InterestController.class);
+    private Logger logger = LoggerFactory.getLogger(UserController.class);
     @Autowired
     private UserRepository userRepository;
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
