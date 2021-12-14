@@ -82,13 +82,4 @@ public class UserController
             new NotFoundException("" +email,"user","email");
             else return _user.get();
         }
-
-        //get user by name and password
-        @GetMapping(path = "/usernmandpassword/{nm}/{password}", produces = MediaType.APPLICATION_JSON_VALUE)
-        public User getUserbyNmAndPassword
-        (@PathVariable(value ="nm")String nm, @PathVariable(value ="password")String password)
-        {
-            logger.info("Sending user with name:" +nm+ "password:" +password);
-            return userRepository.findByUserNmAndPassword(nm,password);
-        }
     }
