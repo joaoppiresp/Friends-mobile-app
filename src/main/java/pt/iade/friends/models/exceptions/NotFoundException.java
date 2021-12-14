@@ -9,7 +9,7 @@ public class NotFoundException extends RuntimeException
     public NotFoundException(String id, String elemType, String idName) 
     {
         super(elemType+" with "+idName+" "+id+" not found."
-        +"\n"+"Search Again");
+        +"\n"+"Research Differently.n");
     } 
 }
 

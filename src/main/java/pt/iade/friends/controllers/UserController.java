@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pt.iade.friends.models.exceptions.NotFoundException;
-import pt.iade.friends.models.exceptions.NotFoundException1;
 import pt.iade.friends.models.User;
 import pt.iade.friends.models.repositories.UserRepository;
 import pt.iade.friends.models.responses.Response;
