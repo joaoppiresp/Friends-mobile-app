@@ -70,7 +70,7 @@ public class SpotEventController {
     }
     //
     //byspotname & evntdate
-    @GetMapping(value = "/name/{name}/date/{dateMilis}", produces=MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/names/{name}/dates/{dateMilis}", produces=MediaType.APPLICATION_JSON_VALUE)
     public Iterable<SpotEventView> getEvntbyNmDate(@PathVariable String name,@PathVariable Long dateMilis) {
         logger.info("Sending all events for spot with name "+name+" and date "+dateMilis);
         return spotEventRepository.filterSptNameDate(name, dateMilis);
