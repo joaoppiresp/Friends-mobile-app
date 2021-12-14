@@ -11,7 +11,7 @@ import pt.iade.friends.models.Views.UserInterestView;
 import pt.iade.friends.models.repositories.UserInterestRepository;
 
 @RestController
-@RequestMapping(path = "/api/userinterests")
+@RequestMapping(path = "/api/userinterest")
 public class UserInterestController 
 {
     private Logger logger = LoggerFactory.getLogger(UserInterestController.class);

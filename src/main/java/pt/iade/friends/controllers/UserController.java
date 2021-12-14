@@ -61,14 +61,25 @@ public class UserController
             return new Response(" Deleted User with id "+id, null);
         }
         
-    /* get user by Username
-    @GetMapping(path = "/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getUserByName(@PathVariable("name") String name)
+    //get user by Username
+    @GetMapping(path="/{nm}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public User getUserName(@PathVariable(value ="nm")String nm)
     {
-        logger.info("Sending user with name: " + name);
-        Optional<User> _user = userRepository.(name);
+        logger.info("Sending user with username: " + nm);
+        Optional<User> _user = userRepository.findByNm(nm);
         if(!_user.isPresent())throw
-        new NotFoundException("" + name, "Utilizador", "");
-        else return _user.get().getNm();
-    }*/
+        new NotFoundException("" + nm, "user", "nm");
+        else return _user.get();
+    }
+
+        //get user by Useremail
+        @GetMapping(path="/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
+        public User getUserEmail(@PathVariable(value ="email")String email)
+        {
+            logger.info("Sending user with useremail: " + email);
+            Optional<User> _user = userRepository.findByEmail(email);
+            if(!_user.isPresent())throw
+            new NotFoundException("" + email, "user", "email");
+            else return _user.get();
+        }
 }
