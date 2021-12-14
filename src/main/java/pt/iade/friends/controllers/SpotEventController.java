@@ -60,7 +60,7 @@ public class SpotEventController {
         logger.info("Sending event with id "+evntId);
         return spotEventRepository.filterEvntId(evntId);
     }
-    //
+    //Working
     //bydate
     @GetMapping(path = "/dates/{dateMilis}", produces= MediaType.APPLICATION_JSON_VALUE)
     public Iterable<SpotEventView> getEvntbydates(@PathVariable Double dateMilis)
@@ -68,7 +68,7 @@ public class SpotEventController {
         logger.info("Sending all events for date "+dateMilis);
         return spotEventRepository.filterDate(dateMilis);
     }
-    //
+    //not Working
     //byspotname & evntdate
     @GetMapping(value = "/names/{name}/dates/{dateMilis}", produces=MediaType.APPLICATION_JSON_VALUE)
     public Iterable<SpotEventView> getEvntbyNmDate(@PathVariable String name,@PathVariable Double dateMilis) {
