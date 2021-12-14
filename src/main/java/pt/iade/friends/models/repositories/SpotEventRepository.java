@@ -39,7 +39,7 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     Iterable<SpotEventView> filterEvntId(@Param("evntId") int evntId);
 
     //events by event date
-    @Query(value=getEvntQuery + " WHERE spotevents.evnt_date =:dateMilis", nativeQuery = true)
+    @Query(value=getEvntQuery + " WHERE spotevents.event_date_milis =:dateMilis", nativeQuery = true)
     Iterable<SpotEventView> filterDate(@Param("dateMilis") Double dateMilis);
 
     //events by spotname & eventdate
