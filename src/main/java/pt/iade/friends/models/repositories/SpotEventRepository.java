@@ -40,10 +40,10 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
 
     //events by event date
     @Query(value=getEvntQuery + " WHERE spotevents.evnt_date =:dateMilis", nativeQuery = true)
-    Iterable<SpotEventView> filterDate(@Param("dateMilis") Long dateMilis);
+    Iterable<SpotEventView> filterDate(@Param("dateMilis") Double dateMilis);
 
     //events by spotname & eventdate
     String byNmDateQuery = getEvntQuery + " WHERE infospot.spot_name=:name AND spotevents.event_date_milis=:dateMilis";
     @Query(value=byNmDateQuery, nativeQuery = true)
-    Iterable<SpotEventView> filterSptNameDate(@Param("name") String name, @Param("dateMilis") Long dateMilis);
+    Iterable<SpotEventView> filterSptNameDate(@Param("name") String name, @Param("dateMilis") Double dateMilis);
 }
