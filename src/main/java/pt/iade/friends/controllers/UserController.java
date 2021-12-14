@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pt.iade.friends.models.exceptions.NotFoundException;
+import pt.iade.friends.models.exceptions.NotFoundException1;
 import pt.iade.friends.models.User;
 import pt.iade.friends.models.repositories.UserRepository;
 import pt.iade.friends.models.responses.Response;
@@ -62,18 +63,18 @@ public class UserController
         }
         
     //get user by Username
-    @GetMapping(path="/{nm}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path="/userbynm/{nm}", produces = MediaType.APPLICATION_JSON_VALUE)
     public User getUserName(@PathVariable(value ="nm")String nm)
     {
         logger.info("Sending user with username: " + nm);
         Optional<User> _user = userRepository.findByNm(nm);
         if(!_user.isPresent())throw
-        new NotFoundException("" + nm, "user", "nm");
+        new NotFoundException1("" + nm, "user", "nm");
         else return _user.get();
     }
 
         //get user by Useremail
-        @GetMapping(path="/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
+        @GetMapping(path="/userbyemail/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
         public User getUserEmail(@PathVariable(value ="email")String email)
         {
             logger.info("Sending user with useremail: " + email);
