@@ -28,57 +28,67 @@ public class UserController
     // get all users
     public Iterable <User> getUser() 
     {
-        logger.info(" Sending all Users ");
+        logger.info("Sending all Users");
         return userRepository.findAll();
     }
 
     // get user by Id
-    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public User getUser(@PathVariable(value="id") int id) 
+    @GetMapping(path ="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public User getUser(@PathVariable(value ="id") int id) 
     {
-        logger.info(" Sending User with id " + id);
+        logger.info("Sending User with id" +id);
         Optional <User> _user=userRepository.findById(id);
         if(!_user.isPresent()) throw 
-        new NotFoundException("  "+id," User ", " id ");
+        new NotFoundException("" +id,"User","id");
         else return _user.get();
     }
 
     // save User
-        @PostMapping(path = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
+        @PostMapping(path ="/create", produces = MediaType.APPLICATION_JSON_VALUE)
         public User saveUser(@RequestBody User user) 
         {
             User savedUser = userRepository.save(user);
-        logger.info(" Saving user with id ");
+        logger.info("Saving user with id");
         return savedUser;
         }
     
     // delete User
-        @DeleteMapping(path = "/delete/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-        public Response deleteUser(@PathVariable(value="id") int id) 
+        @DeleteMapping(path ="/delete/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
+        public Response deleteUser(@PathVariable(value ="id") int id) 
         {
-            logger.info(" Deleted User with id "+id);
+            logger.info("Deleted User with id"+id);
             userRepository.deleteById(id);
-            return new Response(" Deleted User with id "+id, null);
+            return new Response("Deleted User with id" +id, null);
         }
         
     //get user by Username
-    @GetMapping(path="/userbynm/{nm}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path ="/userbynm/{nm}", produces = MediaType.APPLICATION_JSON_VALUE)
     public User getUserName(@PathVariable(value ="nm")String nm)
     {
-        logger.info("Sending user with username: " + nm);
+        logger.info("Sending user with username:" +nm);
         Optional<User> _user = userRepository.findByNm(nm);
         if(!_user.isPresent())throw
-        new NotFoundException("" + nm, "user", "nm");
+        new NotFoundException("" +nm,"user","nm");
         else return _user.get();
     }
+        
         //get user by Useremail
-        @GetMapping(path="/userbyemail/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
+        @GetMapping(path ="/userbyemail/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
         public User getUserEmail(@PathVariable(value ="email")String email)
         {
-            logger.info("Sending user with useremail: " + email);
+            logger.info("Sending user with useremail:" +email);
             Optional<User> _user = userRepository.findByEmail(email);
             if(!_user.isPresent())throw
-            new NotFoundException("" + email, "user", "email");
+            new NotFoundException("" +email,"user","email");
             else return _user.get();
         }
-}
+
+        //get user by name and password
+        @GetMapping(path = "/usernmandpassword/{nm}/{password}", produces = MediaType.APPLICATION_JSON_VALUE)
+        public User getUserbyNmAndPassword
+        (@PathVariable(value ="nm")String nm, @PathVariable(value ="password")String password)
+        {
+            logger.info("Sending user with name:" +nm+ "password:" +password);
+            return userRepository.findByUserNmAndPassword(nm,password);
+        }
+    }
