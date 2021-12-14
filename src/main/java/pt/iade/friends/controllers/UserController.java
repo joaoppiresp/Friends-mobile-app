@@ -71,7 +71,6 @@ public class UserController
         new NotFoundException("" + nm, "user", "nm");
         else return _user.get();
     }
-
         //get user by Useremail
         @GetMapping(path="/userbyemail/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
         public User getUserEmail(@PathVariable(value ="email")String email)
