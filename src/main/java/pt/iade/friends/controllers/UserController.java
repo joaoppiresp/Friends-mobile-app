@@ -69,7 +69,7 @@ public class UserController
         logger.info("Sending user with username: " + nm);
         Optional<User> _user = userRepository.findByNm(nm);
         if(!_user.isPresent())throw
-        new NotFoundException1("" + nm, "user", "nm");
+        new NotFoundException("" + nm, "user", "nm");
         else return _user.get();
     }
 
