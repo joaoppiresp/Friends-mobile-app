@@ -60,6 +60,17 @@ public class InterestController
             interestRepository.deleteById(id);
             return new Response(" Deleted Interest with id "+id, null);
     }
+
+    //get interest by name
+    @GetMapping(path="/interestbyname/{intType}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Interest getInterestName(@PathVariable(value ="intType")String intType)
+    {
+        logger.info("Sending interest with name: " + intType);
+        Optional<Interest> _interest = interestRepository.findByIntType(intType);
+        if(!_interest.isPresent())throw
+        new NotFoundException("" + intType, "interest", "name");
+        else return _interest.get();
+    }
 }
     
     
