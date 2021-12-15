@@ -32,7 +32,7 @@ public class InterestController
         return interestRepository.findAll();
     }
 
-    // get interests by Id
+    // get interest by Id
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Interest getInterest(@PathVariable(value="id") int id) 
     {

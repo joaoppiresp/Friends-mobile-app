@@ -26,14 +26,14 @@ public class FriendGroupController
     private FriendGroupRepository friendgroupRepository;
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
 
-    // get all users
+    // get all group
     public Iterable <FriendGroup> getFriendGroups() 
     {
         logger.info(" Sending all Friend Groups ");
         return friendgroupRepository.findAll();
     }
 
-    // get user by id
+    // get group by id
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public FriendGroup getFriendGroup(@PathVariable(value="id") int id) 
     {
