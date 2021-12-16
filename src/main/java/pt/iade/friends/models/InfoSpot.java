@@ -14,11 +14,11 @@ public class InfoSpot
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "spot_id") private int spotId;
-    @Column(name = "spot_name") private String name;
-    @Column(name = "contact_info") private String contactInfo;
-    @Column(name = "spot_address") private String spotAddress;
-    @Column(name = "spttype_fk") private int sptType;
+    @Column(name = "spot_id") public int spotId;
+    @Column(name = "spot_name") public String name;
+    @Column(name = "contact_info") public String contactInfo;
+    @Column(name = "spot_address") public String spotAddress;
+    @Column(name = "spttype_fk") public int sptType;
 
 
     public InfoSpot() {}
