@@ -9,7 +9,7 @@ public interface InfoSpotRepository extends CrudRepository<InfoSpot, Integer>
     String getSpotIdentifiersQuery = "SELECT spot_name, spot_id FROM infospot ";
     
     //getting Identifiers
-    @Query(value=getSpotIdentifiersQuery, nativeQuery=true)
+    @Query(value=getSpotIdentifiersQuery + " ", nativeQuery=true)
     Iterable<InfoSpotView> getAllIdentifiers();
 
 
