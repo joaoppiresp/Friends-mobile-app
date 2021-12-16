@@ -23,10 +23,10 @@ public class InfoSpot
 
     public InfoSpot() {}
    
-    public String getsptname() {return name;}
+    public String getSptName() {return name;}
     public int getId() {return spotId;}
     public String getContactInfo() {return contactInfo;}
-    public String getsptaddress() {return spotAddress;}
+    public String getSptAddress() {return spotAddress;}
     public int getSpotType() {return sptType;}
 
 }

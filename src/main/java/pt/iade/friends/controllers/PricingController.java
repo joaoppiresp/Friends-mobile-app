@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
-import pt.iade.friends.models.Pricing;
 import pt.iade.friends.models.repositories.PricingRepository;
 import org.springframework.web.bind.annotation.PathVariable;
 

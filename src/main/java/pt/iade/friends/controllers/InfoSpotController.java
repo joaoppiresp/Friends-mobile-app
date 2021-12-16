@@ -7,13 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pt.iade.friends.models.exceptions.NotFoundException;
 import pt.iade.friends.models.InfoSpot;
 import pt.iade.friends.models.repositories.InfoSpotRepository;
+import pt.iade.friends.models.Views.InfoSpotView;
 
 @RestController
 @RequestMapping(path = "/api/spots")
@@ -22,6 +21,13 @@ public class InfoSpotController
     private Logger logger = LoggerFactory.getLogger(InfoSpotController.class);
     @Autowired
     private InfoSpotRepository infoSpotRepository;
+    
+    //getting Identifiers
+    @GetMapping(path = "/idents", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<InfoSpotView> getIdentifiers(){
+        logger.info("sending indentifiers for all spots");
+        return infoSpotRepository.getAllIdentifiers();
+    }
     //working
     // get all spots
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -44,12 +50,3 @@ public class InfoSpotController
     
 }
 
-/*
-
-    @PostMapping(path="", produces = MediaType.APPLICATION_JSON_VALUE)
-    public InfoSpot saveSpot(@RequestBody InfoSpot newSpot){
-        logger.info("saving a new spot");
-        return infoSpotRepository.save(newSpot);
-    }
-
-*/
