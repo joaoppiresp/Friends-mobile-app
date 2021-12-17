@@ -13,6 +13,7 @@ import pt.iade.friends.models.exceptions.NotFoundException;
 import pt.iade.friends.models.InfoSpot;
 import pt.iade.friends.models.repositories.InfoSpotRepository;
 import pt.iade.friends.models.Views.InfoSpotView;
+import pt.iade.friends.models.Views.InfoSpotView2;
 
 @RestController
 @RequestMapping(path = "/api/spots")
@@ -21,12 +22,19 @@ public class InfoSpotController
     private Logger logger = LoggerFactory.getLogger(InfoSpotController.class);
     @Autowired
     private InfoSpotRepository infoSpotRepository;
-    
+    //working
     //getting Identifiers
     @GetMapping(path = "/idents/{spotId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<InfoSpotView> getIdentifiers(@PathVariable int spotId){
         logger.info("sending indentifiers for all spots");
         return infoSpotRepository.getAllIdentifiers(spotId);
+    }
+
+    //geting spot info for search view
+    @GetMapping(path = "/searchinfos/{spotId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<InfoSpotView2> getInfos(@PathVariable int spotId){
+        logger.info("sending info for spot with id "+spotId);
+        return infoSpotRepository.getSpotInfo(spotId);
     }
     //working
     // get all spots
@@ -36,8 +44,10 @@ public class InfoSpotController
         logger.info("Sending all spots");
         return infoSpotRepository.findAll();
     }
-    //working
-    // get spot by id
+}
+
+/*
+// get spot by id
     @GetMapping(path= "/{spotId:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
     public InfoSpot getSpot(@PathVariable(value="spotId") int spotId) throws NotFoundException
     {
@@ -47,6 +57,6 @@ public class InfoSpotController
         else return _infospot.get();
           
     }
-    
-}
+
+*/
 
