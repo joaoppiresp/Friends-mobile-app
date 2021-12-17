@@ -23,10 +23,10 @@ public class InfoSpotController
     private InfoSpotRepository infoSpotRepository;
     
     //getting Identifiers
-    @GetMapping(path = "/idents", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<InfoSpotView> getIdentifiers(){
+    @GetMapping(path = "/idents/{spotId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<InfoSpotView> getIdentifiers(@PathVariable int spotId){
         logger.info("sending indentifiers for all spots");
-        return infoSpotRepository.getAllIdentifiers();
+        return infoSpotRepository.getAllIdentifiers(spotId);
     }
     //working
     // get all spots
