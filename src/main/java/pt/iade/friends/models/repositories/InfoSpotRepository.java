@@ -9,7 +9,7 @@ import pt.iade.friends.models.Views.InfoSpotView2;
 import pt.iade.friends.models.InfoSpot;
 public interface InfoSpotRepository extends CrudRepository<InfoSpot, Integer> 
 {   
-    String getSpotIdentifiersQuery = "SELECT spot_name AS sptName, spot_id AS spotId FROM infospot ";
+    String getSpotIdentifiersQuery = "SELECT spot_name AS sptName FROM infospot ";
     String getSpotInfoQuery = "SELECT spot_name AS sptName, spot_address AS sptAddress, contact_info AS sptContactInfo FROM infospot ";
     
     //getting Identifiers
