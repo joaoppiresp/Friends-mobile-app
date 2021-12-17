@@ -20,6 +20,4 @@ public interface InfoSpotRepository extends CrudRepository<InfoSpot, Integer>
     @Query(value=getSpotInfoQuery + "WHERE infospot.spot_name =:name", nativeQuery=true)
     Iterable<InfoSpotView2> getSpotInfo(@Param("name") String name);
 
-
-
 }
