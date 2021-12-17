@@ -17,8 +17,8 @@ public interface InfoSpotRepository extends CrudRepository<InfoSpot, Integer>
     Iterable<InfoSpotView> getAllIdentifiers(@Param("spotId") int spotId);
 
     //getting Info for searchView
-    @Query(value=getSpotInfoQuery + "WHERE infospot.spot_id =:spotId", nativeQuery=true)
-    Iterable<InfoSpotView2> getSpotInfo(@Param("spotId") int spotId);
+    @Query(value=getSpotInfoQuery + "WHERE infospot.spot_name =:name", nativeQuery=true)
+    Iterable<InfoSpotView2> getSpotInfo(@Param("name") String name);
 
 
 

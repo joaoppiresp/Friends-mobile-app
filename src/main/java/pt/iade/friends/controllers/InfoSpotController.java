@@ -31,10 +31,10 @@ public class InfoSpotController
     }
 
     //geting spot info for search view
-    @GetMapping(path = "/searchinfos/{spotId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<InfoSpotView2> getInfos(@PathVariable int spotId){
-        logger.info("sending info for spot with id "+spotId);
-        return infoSpotRepository.getSpotInfo(spotId);
+    @GetMapping(path = "/searchinfos/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<InfoSpotView2> getInfos(@PathVariable String name){
+        logger.info("sending info for spot with name "+name);
+        return infoSpotRepository.getSpotInfo(name);
     }
     //working
     // get all spots
