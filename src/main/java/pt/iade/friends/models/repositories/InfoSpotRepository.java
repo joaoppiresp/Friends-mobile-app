@@ -8,7 +8,7 @@ import pt.iade.friends.models.Views.InfoSpotView;
 import pt.iade.friends.models.InfoSpot;
 public interface InfoSpotRepository extends CrudRepository<InfoSpot, Integer> 
 {   
-    String getSpotIdentifiersQuery = "SELECT spot_name, spot_id FROM infospot ";
+    String getSpotIdentifiersQuery = "SELECT spot_name AS sptname, spot_id AS spotid FROM infospot ";
     
     //getting Identifiers
     @Query(value=getSpotIdentifiersQuery + "WHERE infospot.spot_id >=:spotId", nativeQuery=true)
