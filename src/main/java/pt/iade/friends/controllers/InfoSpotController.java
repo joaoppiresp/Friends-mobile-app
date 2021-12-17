@@ -29,7 +29,6 @@ public class InfoSpotController
         logger.info("sending indentifiers for all spots");
         return infoSpotRepository.getAllIdentifiers(spotId);
     }
-
     //geting spot info for search view
     @GetMapping(path = "/searchinfos/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<InfoSpotView2> getInfos(@PathVariable String name){
@@ -54,9 +53,7 @@ public class InfoSpotController
         logger.info("Sending spot"+spotId);
         Optional<InfoSpot> _infospot = infoSpotRepository.findById(spotId);
         if (!_infospot.isPresent()) throw new NotFoundException(""+spotId, "InfoSpot", "spotId");
-        else return _infospot.get();
-          
+        else return _infospot.get();     
     }
-
 */
 
