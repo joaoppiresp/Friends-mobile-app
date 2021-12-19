@@ -42,7 +42,7 @@ public class InfoSpotController
     @GetMapping(path="/markers/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<InfoSpotView3> makeMarkers(@PathVariable String name){
         logger.info("sending info for marker building"+name);
-        return infoSpotRepository.GetInfoMarker(name);
+        return infoSpotRepository.getInfoMarker(name);
     }
 
     //working
