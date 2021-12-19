@@ -12,7 +12,7 @@ public interface InfoSpotRepository extends CrudRepository<InfoSpot, Integer>
 {   
     String getSpotIdentifiersQuery = "SELECT spot_name AS sptName FROM infospot ";
     String getSpotInfoQuery = "SELECT spot_name AS sptName, spot_address AS sptAddress, contact_info AS sptContactInfo FROM infospot ";
-    String getSpotInfoMarkerQuery = "SELECT spot_name AS sptName, spot_lat AS lat, spot_long AS long FROM infospot ";
+    String getSpotInfoMarkerQuery = "SELECT spot_lat AS lat, spot_long AS long FROM infospot ";
 
     //getting Identifiers
     @Query(value=getSpotIdentifiersQuery + "WHERE infospot.spot_id >=:spotId", nativeQuery=true)
