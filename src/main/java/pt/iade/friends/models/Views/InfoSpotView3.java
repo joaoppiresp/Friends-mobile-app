@@ -4,6 +4,6 @@ import java.math.BigDecimal;
 
 public interface InfoSpotView3 {
     
-    BigDecimal getSptLat();
-    BigDecimal getSptLong();
+    Float getSptLat();
+    Float getSptLong();
 }
