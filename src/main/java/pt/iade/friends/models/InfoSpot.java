@@ -1,5 +1,7 @@
 package pt.iade.friends.models;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,6 +21,8 @@ public class InfoSpot
     @Column(name = "contact_info") public String contactInfo;
     @Column(name = "spot_address") public String spotAddress;
     @Column(name = "spttype_fk") public int sptType;
+    @Column(name = "spot_lat") public BigDecimal sptLat;
+    @Column(name = "spot_long") public BigDecimal sptLong;
 
 
     public InfoSpot() {}
@@ -28,5 +32,7 @@ public class InfoSpot
     public String getContactInfo() {return contactInfo;}
     public String getSptAddress() {return spotAddress;}
     public int getSpotType() {return sptType;}
+    public BigDecimal getSptLat(){return sptLat;}
+    public BigDecimal getSptLong(){return sptLong;}
 
 }

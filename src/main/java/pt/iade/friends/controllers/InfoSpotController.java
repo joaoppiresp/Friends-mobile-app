@@ -14,6 +14,7 @@ import pt.iade.friends.models.InfoSpot;
 import pt.iade.friends.models.repositories.InfoSpotRepository;
 import pt.iade.friends.models.Views.InfoSpotView;
 import pt.iade.friends.models.Views.InfoSpotView2;
+import pt.iade.friends.models.Views.InfoSpotView3;
 
 @RestController
 @RequestMapping(path = "/api/spots")
@@ -29,12 +30,21 @@ public class InfoSpotController
         logger.info("sending indentifiers for all spots");
         return infoSpotRepository.getAllIdentifiers(spotId);
     }
+    //working
     //geting spot info for search view
     @GetMapping(path = "/searchinfos/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<InfoSpotView2> getInfos(@PathVariable String name){
         logger.info("sending info for spot with name "+name);
         return infoSpotRepository.getSpotInfo(name);
     }
+    //
+    //get spot info for markers
+    @GetMapping(path="/markers/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<InfoSpotView3> makeMarkers(@PathVariable String name){
+        logger.info("sending info for marker building"+name);
+        return infoSpotRepository.GetInfoMarker(name);
+    }
+
     //working
     // get all spots
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
