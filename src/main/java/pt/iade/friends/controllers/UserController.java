@@ -44,7 +44,7 @@ public class UserController
     }
 
     // save User
-        @PostMapping(path ="/create", produces = MediaType.APPLICATION_JSON_VALUE)
+        @PostMapping(path ="", produces = MediaType.APPLICATION_JSON_VALUE)
         public User saveUser(@RequestBody User user) 
         {
             User savedUser = userRepository.save(user);
