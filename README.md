@@ -13,7 +13,7 @@ medidas de segurança impostas, propomo-nos a criar uma app que facilite aos jov
 
 # Repositório temporário do projeto em android studio
 
-https://github.com/joaoppiresp/friends-android
+https://github.com/Bolt40N/Friends_Android_Studio_Proj_Mobile
 
 # Repositório de relatórios de progresso
 
