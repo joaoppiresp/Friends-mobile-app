@@ -21,6 +21,5 @@ public class Interest
     public Interest(){}
 
     public int getInterestId(){return interestId;}
-    @JsonIgnore
     public String getIntType(){return intType;}
 }
