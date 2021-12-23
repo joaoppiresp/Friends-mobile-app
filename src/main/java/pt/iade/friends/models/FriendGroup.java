@@ -7,20 +7,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "friends")
+@Table(name = "friendgroup")
 public class FriendGroup
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "owner_id") private int ownerId;
-    @Column(name = "group_name") private String groupName;
     @Column(name = "group_id") private int groupId;
+    @Column(name = "group_name") private String groupName;
+    @Column(name = "owner_id") private int ownerId;
     @Column(name = "friend_fk") private int friendFk;
 
     public FriendGroup(){}
     
-    public int getOwnerId() {return ownerId;}
-    public String getGroupName() {return groupName;}
     public int getGroupId() {return groupId;}
+    public String getGroupName() {return groupName;}
+    public int getOwnerId() {return ownerId;}
     public int getFriendFk(){return friendFk;}
 }
