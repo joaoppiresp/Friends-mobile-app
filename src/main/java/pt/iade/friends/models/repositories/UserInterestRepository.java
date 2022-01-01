@@ -7,13 +7,11 @@ import pt.iade.friends.models.Views.UserInterestView;
 
 public interface UserInterestRepository extends CrudRepository<UserInterest, Integer> 
 {
-    String getUserInterestQuery = " Select user_nm AS Nome,"+
-    " int_type AS Interest "+ 
-    "FROM users "+ 
-    "Inner Join userinterest ON users.user_id=userinterest.users_fk "+
+    String getUserInterestQuery = " int_type AS Interest "+ 
+    "FROM interests "+ 
     "Inner Join interests ON userinterest.int_fk=interests.interest_id";
 
-    @Query(value =getUserInterestQuery + "WHERE userinterests.users_fk=:usersFk", nativeQuery = true)
-    Iterable<UserInterestView> filterUserInterest(@Param("usersFk") int usersFk);
+    @Query(value =getUserInterestQuery + "WHERE userinterests.int_fk=:intFk", nativeQuery = true)
+    Iterable<UserInterestView> filterUserInterest(@Param("intFk") int intFk);
     
 }
