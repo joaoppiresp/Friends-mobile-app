@@ -12,7 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import pt.iade.friends.models.UserInterest;
-import pt.iade.friends.models.Views.UserInterestView;
 import pt.iade.friends.models.exceptions.NotFoundException;
 import pt.iade.friends.models.repositories.UserInterestRepository;
 
@@ -24,21 +23,22 @@ public class UserInterestController
     @Autowired
     private UserInterestRepository userInterestRepository;
 
-    @GetMapping(path = "/id/{intFk:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<UserInterestView> getUserInterestbyId(@PathVariable int intFk)
+    // get all user interest
+    @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<UserInterest> getUserInterest()
     {
-        logger.info(" Sending all user interest " +intFk);
-        return userInterestRepository.filterUserInterest(intFk);
+        logger.info("sending all User Interest");
+        return userInterestRepository.findAll();
     }
 
-    // get user by Id
+    // get user interest by Id
     @GetMapping(path ="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public UserInterest getUser(@PathVariable(value ="id") int id) 
     {
         logger.info("Sending User with id" +id);
-        Optional <UserInterest> _user=userInterestRepository.findById(id);
-        if(!_user.isPresent()) throw 
+        Optional <UserInterest> _userInterest=userInterestRepository.findById(id);
+        if(!_userInterest.isPresent()) throw 
         new NotFoundException("" +id,"UserInterest","id");
-        else return _user.get();
+        else return _userInterest.get();
     }
 }
