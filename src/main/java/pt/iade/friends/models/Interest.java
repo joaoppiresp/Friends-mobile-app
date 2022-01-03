@@ -6,8 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name = "interests")
 
@@ -21,6 +19,5 @@ public class Interest
     public Interest(){}
 
     public int getInterestId(){return interestId;}
-    @JsonIgnore
     public String getIntType(){return intType;}
 }

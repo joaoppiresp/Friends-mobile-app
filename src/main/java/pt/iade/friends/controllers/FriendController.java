@@ -46,7 +46,7 @@ public class FriendController
     }
 
         // save friend
-        @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+        @PostMapping(path = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
         public Friend saveUser(@RequestBody Friend friend) 
         {
             Friend saveFriend = friendRepository.save(friend);

@@ -44,7 +44,7 @@ public class InterestController
     }
 
         // save Interest
-        @PostMapping(path = "/save", produces = MediaType.APPLICATION_JSON_VALUE)
+        @PostMapping(path = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
         public Interest saveInterest(@RequestBody Interest interest) 
         {
             Interest saveInterest = interestRepository.save(interest);
