@@ -50,8 +50,8 @@ public class FriendController
         public Friend saveUser(@RequestBody Friend friend) 
         {
             Friend saveFriend = friendRepository.save(friend);
-        logger.info(" Saving friend with id "+saveFriend.getFriendId());
-        return saveFriend;
+            logger.info(" Saving friend with id "+saveFriend.getFriendId());
+            return saveFriend;
         }
     
         // delete friend
