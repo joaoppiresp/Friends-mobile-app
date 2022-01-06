@@ -14,9 +14,9 @@ public class UserInterest
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_inte_id") private int userInteId;
-    @Column(name = "int_fk") private int intFk;
-    @Column(name = "users_fk") private int usersFk ;
+    @Column(name = "user_inte_id") public int userInteId;
+    @Column(name = "int_fk") public int intFk;
+    @Column(name = "users_fk") public int usersFk ;
 
     public UserInterest(){};
 

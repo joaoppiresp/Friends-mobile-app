@@ -12,10 +12,10 @@ public class FriendGroup
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "group_id") private int groupId;
-    @Column(name = "group_name") private String groupName;
-    @Column(name = "owner_id") private int ownerId;
-    @Column(name = "friend_fk") private int friendFk;
+    @Column(name = "group_id") public int groupId;
+    @Column(name = "group_name") public String groupName;
+    @Column(name = "owner_id") public int ownerId;
+    @Column(name = "friend_fk") public int friendFk;
 
     public FriendGroup(){}
     

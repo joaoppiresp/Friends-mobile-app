@@ -13,8 +13,8 @@ public class Interest
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "interest_id") private int interestId;
-    @Column(name = "int_type") private String intType;
+    @Column(name = "interest_id") public int interestId;
+    @Column(name = "int_type") public String intType;
 
     public Interest(){}
 

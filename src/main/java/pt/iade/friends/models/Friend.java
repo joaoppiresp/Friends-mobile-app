@@ -12,10 +12,10 @@ public class Friend
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "senderid") private int senderId;
-    @Column(name = "receiverid") private int receiverId;
-    @Column(name = "friendship_status") private String friendshipStatus;
-    @Column(name = "actiontakerid") private int actionTakerId;
+    @Column(name = "senderid") public int senderId;
+    @Column(name = "receiverid") public int receiverId;
+    @Column(name = "friendship_status") public String friendshipStatus;
+    @Column(name = "actiontakerid") public int actionTakerId;
     @Column(name = "datetime") public Double dateTime;
 
     public Friend(){}
