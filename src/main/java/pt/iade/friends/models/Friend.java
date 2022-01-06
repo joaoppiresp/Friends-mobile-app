@@ -21,7 +21,7 @@ public class Friend
     @Column(name = "actiontakerid") public int actionTakerId;
     @Column(name = "datetime") public Data dateTime;
 
-    public Friend(){}
+    public Friend(){};
         
     public int getSenderId() {return senderId;}
     public int getReceiverId() {return receiverId;}
