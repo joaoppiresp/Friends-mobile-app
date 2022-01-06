@@ -4,7 +4,7 @@ public interface FriendView
 {
     int getSenderid();
     int getReceiverid();
-    String getFriendshipStatus();
+    String getStatus();
     int getActiontakerid();
     String getReceivernm(); 
 }

@@ -9,7 +9,7 @@ public interface FriendRepository extends CrudRepository<Friend, Integer>
 {
     String getNmReceiverid = " Select senderid, "+
     "receiverid, "+
-    "friendship_status, "+
+    "friendship_status AS status, "+
     "actiontakerid, "+
     "user_nm AS receivernm "+ 
     "From friends "+
