@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import pt.iade.friends.models.exceptions.NotFoundException;
 import pt.iade.friends.models.Friend;
+import pt.iade.friends.models.Views.FriendView;
 import pt.iade.friends.models.repositories.FriendRepository;
 import pt.iade.friends.models.responses.Response;
 
@@ -50,7 +51,7 @@ public class FriendController
         public Friend saveUser(@RequestBody Friend friend) 
         {
             Friend saveFriend = friendRepository.save(friend);
-            logger.info(" Saving friend with id "+saveFriend.getFriendId());
+            logger.info(" Saving friend with id "+saveFriend.getSenderId());
             return saveFriend;
         }
     
@@ -62,6 +63,25 @@ public class FriendController
             friendRepository.deleteById(id);
             return new Response(" Deleted friend with id "+id, null);
         }
+
+        // friends by action Taker Id
+        @GetMapping(path = "/actiontakerid/{actionTakerId:[0-9]+", produces = MediaType.APPLICATION_JSON_VALUE)
+        public Iterable<FriendView> getNmFriendbyA(@PathVariable int actionTakerId)
+        {
+            logger.info("Sending all friend for action Taker Id with id "+actionTakerId);
+            return friendRepository.filteractionTakerId(actionTakerId);
+        }
+
+        // friends by sender id
+        @GetMapping(path = "/senderid/{senderId:[0-9]+", produces = MediaType.APPLICATION_JSON_VALUE)
+        public Iterable<FriendView> getNmFriendbyS(@PathVariable int senderId)
+        {
+            logger.info("Sending all friend for sender Id with id "+senderId);
+            return friendRepository.filtersenderId(senderId);
+        }
+
+
+
 }
     
     
