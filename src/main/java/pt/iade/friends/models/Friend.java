@@ -5,6 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.crypto.Data;
+
+import org.hibernate.exception.DataException;
 
 @Entity
 @Table(name = "friends")
@@ -16,7 +19,7 @@ public class Friend
     @Column(name = "receiverid") public int receiverId;
     @Column(name = "friendship_status") public String friendshipStatus;
     @Column(name = "actiontakerid") public int actionTakerId;
-    @Column(name = "datetime") public Double dateTime;
+    @Column(name = "datetime") public DataException dateTime;
 
     public Friend(){}
         
@@ -24,7 +27,7 @@ public class Friend
     public int getReceiverId() {return receiverId;}
     public String getFriendshipStatus() {return friendshipStatus;}
     public int getActionTakerId() {return actionTakerId;}
-    public Double getDateTime() {return dateTime;}
+    public DataException getDateTime() {return dateTime;}
  
    
 }
