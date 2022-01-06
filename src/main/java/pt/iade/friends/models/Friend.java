@@ -13,7 +13,7 @@ import org.hibernate.exception.DataException;
 @Table(name = "friends")
 public class Friend
 {
-    
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "senderid") public int senderId;
     @Column(name = "receiverid") public int receiverId;
