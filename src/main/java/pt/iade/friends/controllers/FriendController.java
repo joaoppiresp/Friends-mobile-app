@@ -65,7 +65,7 @@ public class FriendController
         }
 
         // friends by action Taker Id
-        @GetMapping(path = "/actiontakerid/{actionTakerId:[0-9]+", produces = MediaType.APPLICATION_JSON_VALUE)
+        @GetMapping(path = "/actiontakerid/{actionTakerId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
         public Iterable<FriendView> getNmFriendbyA(@PathVariable int actionTakerId)
         {
             logger.info("Sending all friend for action Taker Id with id "+actionTakerId);
@@ -73,7 +73,7 @@ public class FriendController
         }
 
         // friends by sender id
-        @GetMapping(path = "/senderid/{senderId:[0-9]+", produces = MediaType.APPLICATION_JSON_VALUE)
+        @GetMapping(path = "/senderid/{senderId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
         public Iterable<FriendView> getNmFriendbyS(@PathVariable int senderId)
         {
             logger.info("Sending all friend for sender Id with id "+senderId);
