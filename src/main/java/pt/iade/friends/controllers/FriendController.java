@@ -64,14 +64,6 @@ public class FriendController
             return new Response(" Deleted friend with id "+id, null);
         }
 
-        // friends by action Taker Id
-        @GetMapping(path = "/actiontakerid/{actionTakerId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-        public Iterable<FriendView> getNmFriendbyA(@PathVariable int actionTakerId)
-        {
-            logger.info("Sending all friend for action Taker Id with id "+actionTakerId);
-            return friendRepository.filteractionTakerId(actionTakerId);
-        }
-
         // friends by sender id
         @GetMapping(path = "/senderid/{senderId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
         public Iterable<FriendView> getNmFriendbyS(@PathVariable int senderId)

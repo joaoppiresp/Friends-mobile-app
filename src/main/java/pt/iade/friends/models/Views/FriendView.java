@@ -2,5 +2,9 @@ package pt.iade.friends.models.Views;
 
 public interface FriendView 
 {
-    String getUserNm();
+    int getSenderid();
+    int getReceiverid();
+    String getFriendship_status();
+    int getActiontakerid();
+    String getReceivernm(); 
 }

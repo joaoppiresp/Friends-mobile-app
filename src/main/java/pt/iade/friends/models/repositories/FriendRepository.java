@@ -17,22 +17,11 @@ public interface FriendRepository extends CrudRepository<Friend, Integer>
     "WHERE friends.friendship_status='A' "+
     "AND senderid=1 ";
 
-    String getNmSenderid = " Select senderid, "+
-    "receiverid,"+
-    "friendship_status,"+
-    "actiontakerid,"+
-    "user_nm AS sendernm"+ 
-    "From friends "+
-    "Inner Join users on friends.senderid=users.user_id "+
-    "WHERE friends.friendship_status='A' "+
-    "AND senderid=1 ";
+    
 
     //friends by A with name
-    @Query(value=getNmReceiverid + "WHERE friends.actiontakerid=:actionTakerId", nativeQuery = true)
-    Iterable<FriendView> filteractionTakerId(@Param("actionTakerId") int actionTakerId);
-        
-    //friends by A with name
-    @Query(value=getNmSenderid + "WHERE friends.senderid=:senderId", nativeQuery = true)
+    @Query(value=getNmReceiverid + "WHERE friends.senderid=:senderId", nativeQuery = true)
     Iterable<FriendView> filtersenderId(@Param("senderId") int senderId);
+        
 }
 
