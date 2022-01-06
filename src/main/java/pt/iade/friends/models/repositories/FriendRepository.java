@@ -8,10 +8,10 @@ import pt.iade.friends.models.Views.FriendView;
 public interface FriendRepository extends CrudRepository<Friend, Integer> 
 {
     String getNmReceiverid = " Select senderid, "+
-    "receiverid,"+
-    "friendship_status,"+
-    "actiontakerid,"+
-    "user_nm AS receivernm"+ 
+    "receiverid, "+
+    "friendship_status, "+
+    "actiontakerid, "+
+    "user_nm AS receivernm "+ 
     "From friends "+
     "Inner Join users on friends.actiontakerid=users.user_id "+
     "WHERE friends.friendship_status='A' "+

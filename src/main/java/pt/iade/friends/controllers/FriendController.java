@@ -68,12 +68,9 @@ public class FriendController
         @GetMapping(path = "/senderid/{senderId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
         public Iterable<FriendView> getNmFriendbyS(@PathVariable int senderId)
         {
-            logger.info("Sending all friend for sender Id with id "+senderId);
+            logger.info("Sending all friend for sender with id");
             return friendRepository.filtersenderId(senderId);
         }
-
-
-
 }
     
     
