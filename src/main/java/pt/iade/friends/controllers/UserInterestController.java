@@ -21,7 +21,7 @@ import pt.iade.friends.models.repositories.UserInterestRepository;
 import pt.iade.friends.models.responses.Response;
 
 @RestController
-@RequestMapping(path = "/api/userinterest")
+@RequestMapping(path = "/api/userinterests")
 public class UserInterestController 
 {
     private Logger logger = LoggerFactory.getLogger(UserInterestController.class);
@@ -49,16 +49,16 @@ public class UserInterestController
 
      // save User Ineterest
      @PostMapping(path ="/create", produces = MediaType.APPLICATION_JSON_VALUE)
-     public UserInterest saveUser(@RequestBody UserInterest userInterest) 
+     public UserInterest saveUserInterest(@RequestBody UserInterest userInterest) 
      {
         UserInterest savedUserInterest = userInterestRepository.save(userInterest);
-     logger.info("Saving User Interest with id");
+     logger.info("Saving User Interest with id" + savedUserInterest.getInteId());
      return savedUserInterest;
      }
  
  // delete User
      @DeleteMapping(path ="/delete/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-     public Response deleteUser(@PathVariable(value ="id") int id) 
+     public Response deleteUserInterest(@PathVariable(value ="id") int id) 
      {
          logger.info("Deleted User Interest with id"+id);
          userInterestRepository.deleteById(id);
