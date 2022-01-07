@@ -51,7 +51,7 @@ public class FriendController
         public Friend saveFriend(@RequestBody Friend friend) 
         {
             Friend saveFriend = friendRepository.save(friend);
-            logger.info(" Saving friend with id "+saveFriend.senderId);
+            logger.info(" Saving friend with id "+saveFriend.senderId+saveFriend.receiverId+saveFriend.dateTime+saveFriend.status);
             return saveFriend;
         }
     
