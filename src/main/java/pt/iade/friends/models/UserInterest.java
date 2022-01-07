@@ -14,13 +14,13 @@ public class UserInterest
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_inte_id") public int userInteId;
+    @Column(name = "user_inte_id") public int inteId;
     @Column(name = "int_fk") public int intFk;
     @Column(name = "users_fk") public int usersFk ;
 
     public UserInterest(){};
 
-    public int getUserInteId(){return userInteId;}
+    public int getInteId(){return inteId;}
     public int getIntFk(){return intFk;}
     public int getUsersFk(){return usersFk;}    
 }

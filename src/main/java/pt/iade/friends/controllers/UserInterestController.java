@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import pt.iade.friends.models.UserInterest;
+import pt.iade.friends.models.Views.UserInterestView;
 import pt.iade.friends.models.exceptions.NotFoundException;
 import pt.iade.friends.models.repositories.UserInterestRepository;
 import pt.iade.friends.models.responses.Response;
@@ -63,4 +64,14 @@ public class UserInterestController
          userInterestRepository.deleteById(id);
          return new Response("Deleted User Interest with id" +id, null);
      }
+
+     // get interest user  name and id
+     @GetMapping(path = "/usersfk/{usersFk:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
+        public Iterable<UserInterestView> getIntUserNmandId(@PathVariable int usersFk)
+        {
+            logger.info("Sending all user interest for user with id");
+            return userInterestRepository.filterNm(usersFk);
+        }
+
+
 }
