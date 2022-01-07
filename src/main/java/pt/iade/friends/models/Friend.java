@@ -1,6 +1,4 @@
 package pt.iade.friends.models;
-import java.time.DateTimeException;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +16,7 @@ public class Friend
     @Column(name = "receiverid") public int receiverId;
     @Column(name = "friendship_status") public String status;
     @Column(name = "actiontakerid") public int actionTakerId;
-    @Column(name = "datetime") public DateTimeException dateTime;
+    @Column(name = "datetime") public String dateTime;
 
     public Friend(){};
         
@@ -26,7 +24,7 @@ public class Friend
     public int getReceiverId() {return receiverId;}
     public String getStatus() {return status;}
     public int getActionTakerId() {return actionTakerId;}
-    public DateTimeException getDateTime() {return dateTime;}
+    public String getDateTime() {return dateTime;}
  
    
 }
