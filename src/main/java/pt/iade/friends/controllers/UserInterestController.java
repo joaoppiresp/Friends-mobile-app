@@ -64,4 +64,14 @@ public class UserInterestController
          userInterestRepository.deleteById(id);
          return new Response("Deleted User Interest with id" +id, null);
      }
+
+     // get interest user  name and id
+     @GetMapping(path = "/inteid/{inteId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
+        public Iterable<UserInterestView> getIntUserNmandId(@PathVariable int inteId)
+        {
+            logger.info("Sending all user interest for user with id");
+            return userInterestRepository.filterNm(inteId);
+        }
+
+
 }
