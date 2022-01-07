@@ -48,7 +48,7 @@ public class InterestController
         public Interest saveInterest(@RequestBody Interest interest) 
         {
             Interest saveInterest = interestRepository.save(interest);
-        logger.info(" Saving interest with id ");
+        logger.info(" Saving interest with id " + saveInterest.interestId);
         return saveInterest;
         }
     

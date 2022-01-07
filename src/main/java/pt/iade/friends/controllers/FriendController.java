@@ -37,7 +37,7 @@ public class FriendController
 
     // get friend by id
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Friend getFriends(@PathVariable(value="id") int id) 
+    public Friend getFriend(@PathVariable(value="id") int id) 
     {
         logger.info(" Sending friends with id " + id);
         Optional <Friend> _friend=friendRepository.findById(id);
@@ -48,10 +48,10 @@ public class FriendController
 
         // save friend
         @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-        public Friend saveUser(@RequestBody Friend friend) 
+        public Friend saveFriend(@RequestBody Friend friend) 
         {
             Friend saveFriend = friendRepository.save(friend);
-            logger.info(" Saving friend with id ");
+            logger.info(" Saving friend with id "+saveFriend.senderId);
             return saveFriend;
         }
     

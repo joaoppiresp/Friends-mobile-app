@@ -48,7 +48,7 @@ public class UserController
         public User saveUser(@RequestBody User user) 
         {
             User savedUser = userRepository.save(user);
-        logger.info("Saving user with id");
+        logger.info("Saving user with id" + savedUser.getId());
         return savedUser;
         }
     
