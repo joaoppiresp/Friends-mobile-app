@@ -66,7 +66,7 @@ public class UserInterestController
      }
 
      // get interest user  name and id
-     @GetMapping(path = "/inteid/{inteId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
+     @GetMapping(path = "/usersfk/{usersFk:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
         public Iterable<UserInterestView> getIntUserNmandId(@PathVariable int usersFk)
         {
             logger.info("Sending all user interest for user with id");
