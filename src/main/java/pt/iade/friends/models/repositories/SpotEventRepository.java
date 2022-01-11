@@ -10,8 +10,6 @@ public interface SpotEventRepository extends CrudRepository<SpotEvent, Integer>{
     String getEvntQuery = "Select price AS price, " +
     "infospot.spot_name AS sptName, "+
     "infospot.spot_address AS sptaddress, "+ 
-    "date_part('year', evnt_date) AS evyear, date_part('month', evnt_date) AS evmonth, date_part('day', evnt_date) AS evday, "+
-    "date_part('hour', evnt_date) AS evhour, date_part('minute', evnt_date) AS evmin, "+
     "eventtype.evnt_type AS type "+
     "From pricing "+
     "Inner Join infospot on pricing.spot_fk = infospot.spot_id "+

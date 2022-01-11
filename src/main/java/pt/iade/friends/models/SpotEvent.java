@@ -13,7 +13,6 @@ public class SpotEvent
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "spot_evnt_id") public int evntId;
-    @Column(name = "evnt_date") public Double evntDate;
     @Column(name= "event_date_milis") public Double dateMilis;
     @Column(name = "event_name") public String eventNm;
     @Column(name = "spot_fk") public int spotFK;
@@ -23,7 +22,6 @@ public class SpotEvent
     };
 
     public int getevntId() {return evntId;}
-    public Double getevntDate() {return evntDate;}
     public Double getDateMilis() {return dateMilis;}
     public String getevntNm() {return eventNm;}
     public int getspotFK() {return spotFK;}

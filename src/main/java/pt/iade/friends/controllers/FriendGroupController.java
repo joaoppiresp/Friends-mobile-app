@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pt.iade.friends.models.exceptions.NotFoundException;
 import pt.iade.friends.models.FriendGroup;
+import pt.iade.friends.models.Views.FriendGroupView;
 import pt.iade.friends.models.repositories.FriendGroupRepository;
 import pt.iade.friends.models.responses.Response;
 
@@ -34,31 +35,31 @@ public class FriendGroupController
     }
 
     // get group by id
-    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public FriendGroup getFriendGroup(@PathVariable(value="id") int id) 
-    {
-        logger.info(" Sending user with id " + id);
-        Optional <FriendGroup> _friendgroup=friendgroupRepository.findById(id);
-        if(!_friendgroup.isPresent()) throw 
-        new NotFoundException("  "+id," friend group ", " id ");
-        else return _friendgroup.get();
+    @GetMapping(path = "/owners/{ownerId:[0-9]+}", produces= MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<FriendGroupView> getGroupsByOwner(@PathVariable int ownerId){
+
+        logger.info("Sending all groups for user with id "+ownerId);
+        return friendgroupRepository.filterbyOwner(ownerId);
+
     }
 
-        // save Group
-       @PostMapping(path = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
-       public FriendGroup saveFriendGroup(@RequestBody FriendGroup friendGroup) 
-       {
+    /*
+    // save Group
+    @PostMapping(path = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
+    public FriendGroup saveFriendGroup(@RequestBody FriendGroup friendGroup) 
+    {
         FriendGroup savedFriendGroup = friendgroupRepository.save(friendGroup);
-       logger.info(" Saving user with id "+ savedFriendGroup.friendgroupId);
+        logger.info(" Saving user with id "+ savedFriendGroup.friendgroupId);
        return savedFriendGroup;
-       }
+    }
+    */
    
-        // delete Group
-       @DeleteMapping(path = "/delete/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-       public Response deleteFriendGroup(@PathVariable(value="id") int id) 
-       {
-           logger.info(" Deleted Group with id "+id);
-           friendgroupRepository.deleteById(id);
-           return new Response(" Deleted Group with id "+id, null);
-       }
+    // delete Group
+    @DeleteMapping(path = "/delete/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Response deleteFriendGroup(@PathVariable(value="id") int id) 
+    {
+        logger.info(" Deleted Group with id "+id);
+        friendgroupRepository.deleteById(id);
+        return new Response(" Deleted Group with id "+id, null);
+    }
 }

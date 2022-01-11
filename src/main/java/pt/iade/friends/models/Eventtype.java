@@ -18,7 +18,7 @@ public class Eventtype{
     @Column(name = "evnt_id") public int evntId;
     @Column(name = "evnt_type") public String evntTp;
 
-    protected Eventtype(){}
+    public Eventtype(){}
 
     public int getEvntId(){return evntId;}
     @JsonIgnore

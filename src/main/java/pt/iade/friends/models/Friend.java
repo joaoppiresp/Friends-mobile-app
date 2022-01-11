@@ -16,7 +16,7 @@ public class Friend
     @Column(name = "receiverid") public int receiverId;
     @Column(name = "friendship_status") public String status;
     @Column(name = "actiontakerid") public int actionTakerId;
-    @Column(name = "datetime") public String dateTime;
+    @Column(name = "datetime") public Double dateTime;
 
     public Friend(){};
         
@@ -24,7 +24,7 @@ public class Friend
     public int getReceiverId() {return receiverId;}
     public String getStatus() {return status;}
     public int getActionTakerId() {return actionTakerId;}
-    public String getDateTime() {return dateTime;}
+    public Double getDateTime() {return dateTime;}
  
    
 }

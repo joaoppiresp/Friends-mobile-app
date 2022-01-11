@@ -14,16 +14,12 @@ import java.math.BigDecimal;
 public class Pricing {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pri_id") private int prcId;
-    @Column(name = "price") private BigDecimal price;
     @Column(name = "prctype_fk") private int prctypeFk;
+    @Column(name = "price") private BigDecimal price;
     @Column(name = "spot_fk") private int spotId;
 
-    public Pricing(){
-        //
-    };
+    public Pricing(){};
 
-    public int getpriceId(){return prcId;}
     public BigDecimal getprice(){return price;}
     public int getprctypeFk(){return prctypeFk;}
     public int getspotFk(){return spotId;}

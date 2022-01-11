@@ -7,10 +7,5 @@ public interface SpotEventView {
     BigDecimal getPrice();
     String getSptName();
     String getSptAddress();
-    Double getEvYear();
-    Double getEvMonth();
-    Double getEvDay();
-    Double getEvHour();
-    Double getEvMin();
     String getType();
 }
