@@ -12,8 +12,8 @@ public class FriendGroup
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "group_name") public String gpname;
     @Column(name = "owner_id") public int owner;
+    @Column(name = "group_name") public String gpname;
     @Column(name = "friend_fk") public int friendId;
     @Column(name = "friendship_truth") public String friendship;
 
