@@ -35,16 +35,16 @@ public class FriendGroupController
 
     }
 
-    /*
-    // save Group
+    
+    //save Group
     @PostMapping(path = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
     public FriendGroup saveFriendGroup(@RequestBody FriendGroup friendGroup) 
     {
         FriendGroup savedFriendGroup = friendgroupRepository.save(friendGroup);
-        logger.info(" Saving user with id "+ savedFriendGroup.friendgroupId);
+        logger.info(" Saving friendgroup for owner "+ savedFriendGroup.owner);
        return savedFriendGroup;
     }
-    */
+    
    
     // delete Group
     @DeleteMapping(path = "/delete/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
