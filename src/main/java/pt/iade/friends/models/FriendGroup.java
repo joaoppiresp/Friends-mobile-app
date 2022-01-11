@@ -12,9 +12,7 @@ public class FriendGroup
 {
     @Id
     @Column(name = "owner_id") public int owner;
-    @Id
     @Column(name = "group_name") public String gpname;
-    @Id
     @Column(name = "friend_fk") public int friendId;
     @Column(name = "friendship_truth") public String friendship;
 
