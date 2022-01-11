@@ -18,7 +18,6 @@ public class FriendGroup
 
     public FriendGroup(){}
     
-    
     public String getGpName() {return gpname;}
     public int getOwnerId() {return owner;}
     public int getFriendFk(){return friendId;}
