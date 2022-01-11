@@ -41,7 +41,7 @@ public class FriendGroupController
     public FriendGroup saveFriendGroup(@RequestBody FriendGroup friendGroup) 
     {
         FriendGroup savedFriendGroup = friendgroupRepository.save(friendGroup);
-        logger.info(" Saving friendgroup for owner "+ savedFriendGroup.getOwnerId());
+        logger.info(" Saving friendgroup with name "+ savedFriendGroup.getGpName());
        return savedFriendGroup;
     }
     
