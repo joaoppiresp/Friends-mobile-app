@@ -2,7 +2,7 @@ package pt.iade.friends.models.Views;
 
 public interface FriendGroupView {
 
-    String getName();
+    String getGpName();
     int getOwner();
     int getFriends();
     String getFriendsNm();

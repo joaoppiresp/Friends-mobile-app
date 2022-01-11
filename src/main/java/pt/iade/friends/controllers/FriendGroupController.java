@@ -25,7 +25,7 @@ public class FriendGroupController
     private Logger logger = LoggerFactory.getLogger(FriendGroupController.class);
     @Autowired
     private FriendGroupRepository friendgroupRepository;
-   
+    //working
     // get group by id
     @GetMapping(path = "/owners/{owner}", produces= MediaType.APPLICATION_JSON_VALUE)
     public Iterable<FriendGroupView> getGroupsByOwner(@PathVariable int owner){
