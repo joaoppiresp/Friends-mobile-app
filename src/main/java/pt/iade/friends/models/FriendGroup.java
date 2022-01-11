@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public class FriendGroup
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "owner_id") public int owner;
     @Column(name = "group_name") public String gpname;
     @Column(name = "friend_fk") public int friendId;
