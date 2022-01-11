@@ -10,9 +10,10 @@ import javax.persistence.Table;
 @Table(name = "friendgroup")
 public class FriendGroup
 {
-    
-    @Column(name = "owner_id") public int owner;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "group_name") public String gpname;
+    @Column(name = "owner_id") public int owner;
     @Column(name = "friend_fk") public int friendId;
     @Column(name = "friendship_truth") public String friendship;
 
