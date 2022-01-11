@@ -12,7 +12,7 @@ public class FriendGroup
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "owner_id") public int ownerId;
+    @Column(name = "owner_id") public int owner;
     @Column(name = "group_name") public String name;
     @Column(name = "friend_fk") public int friendId;
     @Column(name = "friendship_truth") public String friendship;
@@ -21,7 +21,7 @@ public class FriendGroup
     
     
     public String getName() {return name;}
-    public int getOwnerId() {return ownerId;}
+    public int getOwnerId() {return owner;}
     public int getFriendFk(){return friendId;}
     public String getFriendshipTruth(){return friendship;}
 }

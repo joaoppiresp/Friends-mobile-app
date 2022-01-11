@@ -27,11 +27,11 @@ public class FriendGroupController
     private FriendGroupRepository friendgroupRepository;
    
     // get group by id
-    @GetMapping(path = "/owners/{ownerId}", produces= MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<FriendGroupView> getGroupsByOwner(@PathVariable int ownerId){
+    @GetMapping(path = "/owners/{owner}", produces= MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<FriendGroupView> getGroupsByOwner(@PathVariable int owner){
 
-        logger.info("Sending all groups for user with id "+ownerId);
-        return friendgroupRepository.filterbyOwner(ownerId);
+        logger.info("Sending all groups for user with id "+owner);
+        return friendgroupRepository.filterbyOwner(owner);
 
     }
 
