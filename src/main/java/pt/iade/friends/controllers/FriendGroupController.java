@@ -36,7 +36,7 @@ public class FriendGroupController
     
     //save Group
     @PostMapping(path = "/{owner}/newgroups", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Response saveFriendGroup(@PathVariable int owner, @RequestBody String gpname,@RequestBody int friends, @RequestBody String friendship) 
+    public Response saveFriendGroup(@RequestBody int owner, @RequestBody String gpname,@RequestBody int friends, @RequestBody String friendship) 
     {
         logger.info(" Saving friendgroup for user "+ owner);
         Integer inserted = friendgroupRepository.saveGroup(gpname,owner,friends,friendship);
