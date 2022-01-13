@@ -1,6 +1,5 @@
 package pt.iade.friends.controllers;
 
-import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pt.iade.friends.models.exceptions.NotFoundException;
 import pt.iade.friends.models.FriendGroup;
 import pt.iade.friends.models.Views.FriendGroupView;
 import pt.iade.friends.models.repositories.FriendGroupRepository;
@@ -37,12 +35,12 @@ public class FriendGroupController
 
     
     //save Group
-    @PostMapping(path = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
-    public FriendGroup saveFriendGroup(@RequestBody FriendGroup friendGroup) 
+    @PostMapping(path = "/newgroups", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Response saveFriendGroup(@RequestBody int owner, @RequestBody String gpname,@RequestBody int friends, @RequestBody String friendship) 
     {
-        FriendGroup savedFriendGroup = friendgroupRepository.save(friendGroup);
-        logger.info(" Saving friendgroup with name "+ savedFriendGroup.getGpName());
-       return savedFriendGroup;
+        logger.info(" Saving friendgroup for user "+ owner);
+        Integer inserted = friendgroupRepository.saveGroup(gpname,owner,friends,friendship);
+        return new Response("new group created", inserted);
     }
     
    
