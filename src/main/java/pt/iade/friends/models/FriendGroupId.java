@@ -1,25 +1,20 @@
 package pt.iade.friends.models;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.io.Serializable;
 
-@Entity
-@Table(name = "friendgroup")
-public class FriendGroup
-{
-    @EmbeddedId
-    private FriendGroupId id;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+@Embeddable
+public class FriendGroupId implements Serializable {
+
     @Column(name = "owner_id") public int owner;
     @Column(name = "group_name") public String gpname;
     @Column(name = "friend_fk") public int friendId;
-    @Column(name = "friendship_truth") public String friendship;
-
-    public FriendGroup(){}
     
+    public FriendGroupId(){}
+
     public String getGpName() {return gpname;}
     public int getOwnerId() {return owner;}
     public int getFriendFk(){return friendId;}
-    public String getFriendshipTruth(){return friendship;}
 }

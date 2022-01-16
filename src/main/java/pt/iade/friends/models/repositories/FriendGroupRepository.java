@@ -28,4 +28,6 @@ public interface FriendGroupRepository extends CrudRepository<FriendGroup, Integ
                       @Param("friends") int friends,
                       @Param("friendship") String friendship);
 
+    //adding a friend to the group
+    //removing a friend from a group
 }
