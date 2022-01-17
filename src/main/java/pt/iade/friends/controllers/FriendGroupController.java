@@ -42,7 +42,15 @@ public class FriendGroupController
         return new Response("new group created", inserted);
     }
     
+    @PostMapping(path ="/create", produces = MediaType.APPLICATION_JSON_VALUE)
+        public FriendGroup saveFGroup(@RequestBody FriendGroup friendGroup) 
+        {
+            return friendgroupRepository.save(friendGroup);
+    
+        }
    
+
+
     // delete Group
     @DeleteMapping(path = "/delete/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response deleteFriendGroup(@PathVariable(value="id") int id) 
