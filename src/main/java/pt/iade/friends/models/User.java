@@ -20,6 +20,7 @@ public class User
     @Column(name = "user_nm") public String nm;
     @Column(name = "user_place") public String place;
     @Column(name = "user_password") public String password;
+    @Column(name = "image") public String image;
 
     public User(){}
 
@@ -30,4 +31,5 @@ public class User
     public String getNm() {return nm;}
     public String getPlace() {return place;}
     public String getPassword(){return password;}
+    public String getImage(){return image;}
 }
