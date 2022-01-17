@@ -38,7 +38,7 @@ public class FriendGroupController
     public Response saveFriendGroup(@PathVariable int owner, @RequestBody String gpname,@RequestBody int friends, @RequestBody String friendship) 
     {
         logger.info(" Saving friendgroup for user "+ owner);
-        Integer inserted = friendgroupRepository.saveGroup(gpname,owner,friends,friendship);
+        Integer inserted = friendgroupRepository.saveGroup(gpname,friends,friendship);
         return new Response("new group created", inserted);
     }
     
