@@ -30,9 +30,6 @@ public interface FriendRepository extends CrudRepository<Friend, Integer>
     String friendRequests ="INSERT INTO friends(friendship_status,senderid,receiverid,actiontakerid) "+
     "values(:status,:senderId,:receiverId,:actionTakerId)";
 
-    String AcceptRequests ="INSERT INTO friends(friendship_status,senderid,receiverid,actiontakerid) "+
-    "values(:status,:senderId,:receiverId,:actionTakerId)";
-
     String deletingFriend = "DELETE FROM friends WHERE friends.senderid=:senderId AND friends.actiontakerid=:actionTakerId AND friends.friendship_status='A'";
 
     //checking requests made
@@ -43,21 +40,13 @@ public interface FriendRepository extends CrudRepository<Friend, Integer>
     @Query(value=getNmReceiverid + "AND friends.senderid=:senderId", nativeQuery = true)
     Iterable<FriendView> filtersenderId(@Param("senderId") int senderId);
 
-    //sending friend request
+    //sending friend request, accepting a friend request, declining a friend request and blocking a friend
     @Modifying @Transactional(readOnly = false)
     @Query(value=friendRequests, nativeQuery=true)
     Integer friendRequest(@Param("status") String status,
                           @Param("senderId") int senderId,
                           @Param("receiverId") int receiverId,
                           @Param("actionTakerId") int actionTakerId);
-        
-    //accepting a friend request
-    @Modifying @Transactional(readOnly = false)
-    @Query(value=AcceptRequests, nativeQuery=true)
-    Integer acceptingRequests(@Param("status") String status,
-                              @Param("senderId") int senderId,
-                              @Param("receiverId") int receiverId,
-                              @Param("actionTakerId") int actionTakerId);
     
     //deleting a friend
     @Modifying @Transactional(readOnly = false)

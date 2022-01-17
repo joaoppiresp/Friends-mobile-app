@@ -44,22 +44,14 @@ public class FriendController
         return friendRepository.filtersenderId(senderId);
     }
     //working
-    // sending friend request
+    // sending, accepting, declining and blocking a friend request/friend
     @PostMapping(path = "/requestingfriends", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response friendRequest(@RequestParam String status,@RequestParam int senderId,@RequestParam int receiverId,@RequestParam int actionTakerId)
     {
         Integer inserted = friendRepository.friendRequest(status,senderId,receiverId,actionTakerId);
         return new Response("new friend request", inserted);
     }
-    //working
-    // accepting friend request
-    @PostMapping(path = "/acceptingfriends", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Response acceptingRequests(@RequestParam String status,@RequestParam int senderId,@RequestParam int receiverId,@RequestParam int actionTakerId)
-    {
-        Integer inserted = friendRepository.friendRequest(status,senderId,receiverId,actionTakerId);
-        return new Response("new friend accepted", inserted);
-    }
-    
+    //not working
     // delete friend
     @PostMapping(path = "/deletefriends", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response deleteFriend(@RequestParam int senderId,@RequestParam int actionTakerId) 
@@ -67,7 +59,6 @@ public class FriendController
         Integer endfriendship = friendRepository.deleteFriend(senderId,actionTakerId);
         return new Response("friends deleted: ", endfriendship);
     }
-
 }
     
     
