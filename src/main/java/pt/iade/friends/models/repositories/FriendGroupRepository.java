@@ -13,8 +13,11 @@ public interface FriendGroupRepository extends CrudRepository<FriendGroup, Integ
     "INNER JOIN users ON friendgroup.friend_fk=users.user_id "+
     "WHERE friendgroup.friendship_truth='A' ";
 
-    String newGroup ="INSERT INTO friendgroup(group_name,owner_id,friend_fk,friendship_truth) "+
+    String newGroup = "INSERT INTO friendgroup(group_name,owner_id,friend_fk,friendship_truth) "+
     "values(:gpname,:owner, :friends, :friendship)";
+
+    String deleteGroups = "DELETE FROM friendgroup WHERE friendgroup.group_name=:gpname "+
+    "AND friendgroup.ownerid=:owner ";
 
     //groups by owner id
     @Query(value=getFriendGroup + "AND friendgroup.owner_id=:owner", nativeQuery=true)
@@ -27,6 +30,11 @@ public interface FriendGroupRepository extends CrudRepository<FriendGroup, Integ
                       @Param("owner") int owner,
                       @Param("friends") int friends,
                       @Param("friendship") String friendship);
+
+    //deleting a group
+    @Modifying @Transactional(readOnly = false)
+    @Query(value=deleteGroups, nativeQuery=true)
+    Integer deleteGroup(@Param("gpname") String gpname, @Param("owner") int owner);
 
     //adding a friend to the group
     //removing a friend from a group

@@ -35,7 +35,7 @@ public class FriendGroupController
         return friendgroupRepository.filterbyOwner(owner);
 
     }
-
+    //working
     //save Group
     @PostMapping(path = "/newgroups", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response saveFriendGroup(@RequestParam String gpname,@RequestParam int owner,@RequestParam int friends, @RequestParam String friendship) 
@@ -45,11 +45,10 @@ public class FriendGroupController
     }
     
     // delete Group
-    @DeleteMapping(path = "/delete/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Response deleteFriendGroup(@PathVariable(value="id") int id) 
+    @PostMapping(path = "/deletegroups", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Response deleteFriendGroup(@RequestParam String gpname,@RequestParam int owner) 
     {
-        logger.info(" Deleted Group with id "+id);
-        friendgroupRepository.deleteById(id);
-        return new Response(" Deleted Group with id "+id, null);
+        Integer deleted = friendgroupRepository.deleteGroup(gpname,owner);
+        return new Response("group deleted", deleted);
     }
 }
