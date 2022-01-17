@@ -2,7 +2,7 @@ package pt.iade.friends.models.repositories;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-import java.util.Optional;
+
 import pt.iade.friends.models.UserInterest;
 import pt.iade.friends.models.Views.UserInterestView;
 
@@ -15,6 +15,4 @@ public interface UserInterestRepository extends CrudRepository<UserInterest, Int
 
     @Query(value= getUserInteNm + "AND userinterest.users_fk=:usersFk", nativeQuery = true)
     Iterable<UserInterestView> filterNm(@Param("usersFk")int usersFk);
-
-    Optional<UserInterest> findByUser(int usersFk);
 }
