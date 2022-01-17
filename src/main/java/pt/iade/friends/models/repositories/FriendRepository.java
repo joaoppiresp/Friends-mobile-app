@@ -18,13 +18,26 @@ public interface FriendRepository extends CrudRepository<Friend, Integer>
     "Inner Join users on friends.actiontakerid=users.user_id "+
     "WHERE friends.friendship_status='A' ";    
 
+    String getRequests = " Select senderid, "+
+    "receiverid, "+
+    "friendship_status AS status, "+
+    "actiontakerid, "+
+    "user_nm AS receivernm "+ 
+    "From friends "+
+    "Inner Join users on friends.actiontakerid=users.user_id "+
+    "WHERE friends.friendship_status='R' ";
+
     String friendRequests ="INSERT INTO friends(friendship_status,senderid,receiverid,actiontakerid) "+
     "values(:status,:senderId,:receiverId,:actionTakerId)";
 
     String AcceptRequests ="INSERT INTO friends(friendship_status,senderid,receiverid,actiontakerid) "+
     "values(:status,:senderId,:receiverId,:actionTakerId)";
 
-    //friends by A with name
+    //checking requests made
+    @Query(value=getRequests + "AND friends.senderid=:senderId", nativeQuery = true)
+    Iterable<FriendView> filterRequests(@Param("senderId") int senderId);
+
+    //friends
     @Query(value=getNmReceiverid + "AND friends.senderid=:senderId", nativeQuery = true)
     Iterable<FriendView> filtersenderId(@Param("senderId") int senderId);
 

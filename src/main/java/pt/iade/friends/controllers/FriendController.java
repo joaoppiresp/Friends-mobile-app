@@ -28,6 +28,14 @@ public class FriendController
     @Autowired
     private FriendRepository friendRepository;
 
+    //checking friend requests made
+    @GetMapping(path = "/senderid/{senderId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<FriendView> filterRequests(@PathVariable int senderId)
+    {
+        logger.info("Sending all friend for sender with id");
+        return friendRepository.filtersenderId(senderId);
+    }
+
     //working
     // friends by sender id
     @GetMapping(path = "/senderid/{senderId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -36,7 +44,7 @@ public class FriendController
         logger.info("Sending all friend for sender with id");
         return friendRepository.filtersenderId(senderId);
     }
-    
+    //working
     // sending friend request
     @PostMapping(path = "/requestingfriends", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response friendRequest(@RequestParam String status,@RequestParam int senderId,@RequestParam int receiverId,@RequestParam int actionTakerId)
@@ -44,7 +52,7 @@ public class FriendController
         Integer inserted = friendRepository.friendRequest(status,senderId,receiverId,actionTakerId);
         return new Response("new friend request", inserted);
     }
-
+    //working
     // accepting friend request
     @PostMapping(path = "/acceptingfriends", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response acceptingRequests(@RequestParam String status,@RequestParam int senderId,@RequestParam int receiverId,@RequestParam int actionTakerId)
