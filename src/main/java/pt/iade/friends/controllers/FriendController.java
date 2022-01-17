@@ -30,10 +30,10 @@ public class FriendController
 
     //checking friend requests made
     @GetMapping(path = "/requestsmade/{senderId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<FriendView> filterRequests(@PathVariable int senderId)
+    public Iterable<FriendView> filterRequestss(@PathVariable int senderId)
     {
         logger.info("Sending all friend for sender with id");
-        return friendRepository.filtersenderId(senderId);
+        return friendRepository.filterRequests(senderId);
     }
 
     //working
