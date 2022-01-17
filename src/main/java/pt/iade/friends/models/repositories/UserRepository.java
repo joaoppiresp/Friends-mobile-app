@@ -21,6 +21,7 @@ public interface UserRepository extends CrudRepository<User, Integer>
 
     String updatePassword = "UPDATE users SET user_password=:password WHERE user_id=:userId";
 
+    String updateProfilePic = "UPDATE users SET image=:image WHERE user_id=:userId";
 
     Optional<User> findByNm(String nm);
     Optional<User> findByEmail(String email);
@@ -50,4 +51,10 @@ public interface UserRepository extends CrudRepository<User, Integer>
     @Modifying @Transactional(readOnly = false)
     @Query(value=updatePassword, nativeQuery=true)
     Integer changingUserPassword(@Param("password") String password, @Param("userId") int userId);
+
+    //changing profile picture
+    @Modifying @Transactional(readOnly = false)
+    @Query(value=updateProfilePic, nativeQuery=true)
+    Integer changingProfilePicture(@Param("image") String image, @Param("userId") int userId);
+    
 }

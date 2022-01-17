@@ -73,63 +73,70 @@ public class UserController
         else return _user.get();
     }
         
-        //get user by Useremail
-        @GetMapping(path ="/userbyemail/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
-        public User getUserEmail(@PathVariable(value ="email")String email)
-        {
-            logger.info("Sending user with useremail:" +email);
-            Optional<User> _user = userRepository.findByEmail(email);
-            if(!_user.isPresent())throw
-            new NotFoundException("" +email,"user","email");
-            else return _user.get();
-        }
+    //get user by Useremail
+    @GetMapping(path ="/userbyemail/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public User getUserEmail(@PathVariable(value ="email")String email)
+    {
+        logger.info("Sending user with useremail:" +email);
+        Optional<User> _user = userRepository.findByEmail(email);
+        if(!_user.isPresent())throw
+        new NotFoundException("" +email,"user","email");
+        else return _user.get();
+    }
         
-        //get user by name and password
-        @GetMapping(path = "/{user_nm}/{user_password}", produces = MediaType.APPLICATION_JSON_VALUE)
-        public User getUserbyNmAndPassword
-        (@PathVariable(value ="user_nm")String nm, @PathVariable(value ="user_password")String password)
-        {
-            logger.info("Sending user with name:" +nm+ "password:" +password);
-            return userRepository.findByNmAndPassword(nm, password);
-        }
+    //get user by name and password
+    @GetMapping(path = "/{user_nm}/{user_password}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public User getUserbyNmAndPassword
+    (@PathVariable(value ="user_nm")String nm, @PathVariable(value ="user_password")String password)
+    {
+        logger.info("Sending user with name:" +nm+ "password:" +password);
+        return userRepository.findByNmAndPassword(nm, password);
+    }
     //working
      // change email account
      @PostMapping(path = "/changingemails", produces = MediaType.APPLICATION_JSON_VALUE)
      public Response changingEmailAccount(@RequestParam String email,@RequestParam int userId) 
      {
-         Integer emailChange = userRepository.changingEmail(email,userId);
-         return new Response("email updated ", emailChange);
+        Integer emailChange = userRepository.changingEmail(email,userId);
+        return new Response("email updated ", emailChange);
      }
      //working
      // change phone number
      @PostMapping(path = "/changingphonenumbers", produces = MediaType.APPLICATION_JSON_VALUE)
      public Response changingPhoneNumber(@RequestParam String phoneNumber,@RequestParam int userId) 
      {
-         Integer phoneNumberChange = userRepository.changingPhoneNumber(phoneNumber,userId);
-         return new Response("phone number updated ", phoneNumberChange);
+        Integer phoneNumberChange = userRepository.changingPhoneNumber(phoneNumber,userId);
+        return new Response("phone number updated ", phoneNumberChange);
      }
      //working
      // change user name
      @PostMapping(path = "/changingusernames", produces = MediaType.APPLICATION_JSON_VALUE)
      public Response changingUserName(@RequestParam String nm,@RequestParam int userId) 
      {
-         Integer usernmChange = userRepository.changingUserName(nm,userId);
-         return new Response("username updated ", usernmChange);
+        Integer usernmChange = userRepository.changingUserName(nm,userId);
+        return new Response("username updated ", usernmChange);
      }
      //working
      // change place
      @PostMapping(path = "/changingplaces", produces = MediaType.APPLICATION_JSON_VALUE)
      public Response changingPlace(@RequestParam String place,@RequestParam int userId) 
      {
-         Integer placeChange = userRepository.changingUserPlace(place,userId);
-         return new Response("place updated ", placeChange);
+        Integer placeChange = userRepository.changingUserPlace(place,userId);
+        return new Response("place updated ", placeChange);
      }
      //working
      // change password
      @PostMapping(path = "/changingpasswords", produces = MediaType.APPLICATION_JSON_VALUE)
      public Response changingPassword(@RequestParam String password,@RequestParam int userId) 
      {
-         Integer passwordChange = userRepository.changingUserPassword(password, userId);
-         return new Response("password updated ", passwordChange);
+        Integer passwordChange = userRepository.changingUserPassword(password, userId);
+        return new Response("password updated ", passwordChange);
      }
+    // change profile picture
+    @PostMapping(path = "/changingprofilepicture", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Response changingProfilePic(@RequestParam String image,@RequestParam int userId) 
+    {
+        Integer pictureChange = userRepository.changingProfilePicture(image, userId);
+        return new Response("profile picture path updated ", pictureChange);
+    }
 }
