@@ -33,7 +33,7 @@ public interface FriendRepository extends CrudRepository<Friend, Integer>
     String AcceptRequests ="INSERT INTO friends(friendship_status,senderid,receiverid,actiontakerid) "+
     "values(:status,:senderId,:receiverId,:actionTakerId)";
 
-    String deletingFriend = "DELETE FROM friends WHERE friends.senderid=:senderId, friends.actiontakerid=:actionTakerId "+
+    String deletingFriend = "DELETE FROM friends WHERE friends.senderid=:senderId AND friends.actiontakerid=:actionTakerId "+
     "AND friends.friendship_status='A";
 
     //checking requests made
