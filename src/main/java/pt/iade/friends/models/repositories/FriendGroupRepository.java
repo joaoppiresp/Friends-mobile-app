@@ -13,17 +13,18 @@ public interface FriendGroupRepository extends CrudRepository<FriendGroup, Integ
     "INNER JOIN users ON friendgroup.friend_fk=users.user_id "+
     "WHERE friendgroup.friendship_truth='A' ";
 
-    String newGroup ="INSERT INTO friendgroup(group_name,friend_fk,friendship_truth) "+
-    "values(:gpname, :friends, :friendship)";
+    String newGroup ="INSERT INTO friendgroup(group_name,owner_id,friend_fk,friendship_truth) "+
+    "values(:gpname,:owner, :friends, :friendship)";
 
     //groups by owner id
     @Query(value=getFriendGroup + "AND friendgroup.owner_id=:owner", nativeQuery=true)
     Iterable<FriendGroupView> filterbyOwner(@Param("owner") int owner);
 
     //saving a new group
-    @Modifying @Transactional
+    @Modifying @Transactional(readOnly = false)
     @Query(value=newGroup, nativeQuery=true)
     Integer saveGroup(@Param("gpname") String gpname,
+                      @Param("owner") int owner,
                       @Param("friends") int friends,
                       @Param("friendship") String friendship);
 

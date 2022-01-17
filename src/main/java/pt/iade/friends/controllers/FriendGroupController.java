@@ -36,24 +36,13 @@ public class FriendGroupController
     }
 
     //save Group
-    @PostMapping(path = "/1/newgroups", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Response saveFriendGroup(@PathVariable int owner, @RequestBody String gpname,@RequestBody int friends, @RequestBody String friendship) 
+    @PostMapping(path = "/newgroups", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Response saveFriendGroup(@RequestBody String gpname,@RequestBody int owner,@RequestBody int friends, @RequestBody String friendship) 
     {
-        logger.info(" Saving friendgroup for user "+ owner);
-        Integer inserted = friendgroupRepository.saveGroup(gpname,friends,friendship);
+        Integer inserted = friendgroupRepository.saveGroup(gpname,owner,friends,friendship);
         return new Response("new group created", inserted);
     }
     
-    @PostMapping(path ="/create", produces = MediaType.APPLICATION_JSON_VALUE)
-        public FriendGroup saveFGroup(@RequestBody FriendGroup friendGroup) 
-        {
-        
-            return friendgroupRepository.save(friendGroup);
-    
-        }
-   
-
-
     // delete Group
     @DeleteMapping(path = "/delete/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response deleteFriendGroup(@PathVariable(value="id") int id) 
