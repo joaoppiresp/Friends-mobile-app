@@ -29,7 +29,7 @@ public class FriendController
     private FriendRepository friendRepository;
 
     //checking friend requests made
-    @GetMapping(path = "/senderid/{senderId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/requestsmade/{senderId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<FriendView> filterRequests(@PathVariable int senderId)
     {
         logger.info("Sending all friend for sender with id");
