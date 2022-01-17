@@ -60,9 +60,9 @@ public class FriendController
         return new Response("new friend accepted", inserted);
     }
     
-    // delete Group
+    // delete friend
     @PostMapping(path = "/deletefriends", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Response deleteFriendGroup(@RequestParam int senderId,@RequestParam int actionTakerId) 
+    public Response deleteFriend(@RequestParam int senderId,@RequestParam int actionTakerId) 
     {
         Integer endfriendship = friendRepository.deleteFriend(senderId,actionTakerId);
         return new Response("friends deleted: ", endfriendship);
