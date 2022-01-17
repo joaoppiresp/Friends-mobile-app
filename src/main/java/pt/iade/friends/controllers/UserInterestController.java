@@ -37,13 +37,13 @@ public class UserInterestController
     }
 
     // get user interest by Id
-    @GetMapping(path ="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserInterest getUser(@PathVariable(value ="id") int id) 
+    @GetMapping(path ="/{usersFk}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public UserInterest getUser(@PathVariable(value ="usersFk") int usersFk) 
     {
-        logger.info("Sending User with id" +id);
-        Optional <UserInterest> _userInterest=userInterestRepository.findById(id);
+        logger.info("Sending User Interest with id" +usersFk);
+        Optional <UserInterest> _userInterest=userInterestRepository.findByUser(usersFk);
         if(!_userInterest.isPresent()) throw 
-        new NotFoundException("" +id,"UserInterest","id");
+        new NotFoundException("" +usersFk,"UserInterest","id");
         else return _userInterest.get();
     }
 

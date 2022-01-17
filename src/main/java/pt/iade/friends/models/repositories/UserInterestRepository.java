@@ -2,12 +2,15 @@ package pt.iade.friends.models.repositories;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-
+import java.util.Optional;
 import pt.iade.friends.models.UserInterest;
 import pt.iade.friends.models.Views.UserInterestView;
 
 public interface UserInterestRepository extends CrudRepository<UserInterest, Integer> 
 {
+
+    Optional<UserInterest> findByUser(int usersFk);
+
     String getUserInteNm = " SELECT user_inte_id AS id, int_type AS interest "+
     "FROM users "+
     "INNER JOIN userinterest ON users.user_id=userinterest.users_fk "+
