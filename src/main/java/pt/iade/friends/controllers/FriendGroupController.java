@@ -43,12 +43,20 @@ public class FriendGroupController
         Integer inserted = friendgroupRepository.saveGroup(gpname,owner,friends,friendship);
         return new Response("new group created", inserted);
     }
-    
+    //working
     // delete Group
     @PostMapping(path = "/deletegroups", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response deleteFriendGroup(@RequestParam String gpname,@RequestParam int owner) 
     {
         Integer deleted = friendgroupRepository.deleteGroup(gpname,owner);
-        return new Response("group deleted", deleted);
+        return new Response("group deleted with number of entries ", deleted);
+    }
+
+    //delete friend from group
+    @PostMapping(path = "/deletefromgroups", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Response deleteFromGroup(@RequestParam String gpname,@RequestParam int friends) 
+    {
+        Integer deletedF = friendgroupRepository.deleteFromGroup(gpname,friends);
+        return new Response("group deleted", deletedF);
     }
 }

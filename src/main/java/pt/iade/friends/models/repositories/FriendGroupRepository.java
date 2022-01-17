@@ -19,6 +19,9 @@ public interface FriendGroupRepository extends CrudRepository<FriendGroup, Integ
     String deleteGroups = "DELETE FROM friendgroup WHERE friendgroup.group_name=:gpname "+
     "AND friendgroup.owner_id=:owner ";
 
+    String deletingFriendFromGroup = "DELETE FROM friendgroup WHERE friendgroup.group_name=:gpname "+
+    "AND friendgroup.friend_fk=:friends";
+
     //groups by owner id
     @Query(value=getFriendGroup + "AND friendgroup.owner_id=:owner", nativeQuery=true)
     Iterable<FriendGroupView> filterbyOwner(@Param("owner") int owner);
@@ -36,6 +39,8 @@ public interface FriendGroupRepository extends CrudRepository<FriendGroup, Integ
     @Query(value=deleteGroups, nativeQuery=true)
     Integer deleteGroup(@Param("gpname") String gpname, @Param("owner") int owner);
 
-    //adding a friend to the group
     //removing a friend from a group
+    @Modifying @Transactional(readOnly = false)
+    @Query(value=deletingFriendFromGroup, nativeQuery=true)
+    Integer deleteFromGroup(@Param("gpname") String gpname, @Param("friends") int friends);
 }
