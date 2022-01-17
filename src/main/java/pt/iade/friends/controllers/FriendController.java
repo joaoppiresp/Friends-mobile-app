@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import pt.iade.friends.models.exceptions.NotFoundException;
@@ -35,16 +36,25 @@ public class FriendController
         logger.info("Sending all friend for sender with id");
         return friendRepository.filtersenderId(senderId);
     }
-    /*
-    // save friend
-    @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Friend saveFriend(@RequestBody Friend friend) 
+    
+    // sending friend request
+    @PostMapping(path = "/requestingfriends", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Response friendRequest(@RequestParam String status,@RequestParam int senderId,@RequestParam int receiverId,@RequestParam int actionTakerId)
     {
-        Friend saveFriend = friendRepository.save(friend);
-        logger.info(" Saving friend with id "+saveFriend.senderId+saveFriend.receiverId+saveFriend.dateTime+saveFriend.status);
-        return saveFriend;
+        Integer inserted = friendRepository.friendRequest(status,senderId,receiverId,actionTakerId);
+        return new Response("new friend request", inserted);
     }
-    */
+
+    // accepting friend request
+    @PostMapping(path = "/acceptingfriends", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Response acceptingRequests(@RequestParam String status,@RequestParam int senderId,@RequestParam int receiverId,@RequestParam int actionTakerId)
+    {
+        Integer inserted = friendRepository.friendRequest(status,senderId,receiverId,actionTakerId);
+        return new Response("new friend accepted", inserted);
+    }
+
+    
+    
     // delete friend
     @DeleteMapping(path = "/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response deleteFriend(@PathVariable(value="id") int id) 
