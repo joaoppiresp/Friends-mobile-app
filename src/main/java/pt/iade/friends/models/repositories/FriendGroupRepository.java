@@ -14,7 +14,7 @@ public interface FriendGroupRepository extends CrudRepository<FriendGroup, Integ
     "WHERE friendgroup.friendship_truth='A' ";
 
     String newGroup ="INSERT INTO friendgroup(group_name,owner_id,friend_fk,friendship_truth) "+
-    "values(:gpname, :owner, :friends, :friendship)";
+    "values(:gpname, :friends, :friendship)";
 
     //groups by owner id
     @Query(value=getFriendGroup + "AND friendgroup.owner_id=:owner", nativeQuery=true)
