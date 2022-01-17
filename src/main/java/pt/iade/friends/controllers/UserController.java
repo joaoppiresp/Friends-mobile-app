@@ -92,12 +92,44 @@ public class UserController
             logger.info("Sending user with name:" +nm+ "password:" +password);
             return userRepository.findByNmAndPassword(nm, password);
         }
-
+    //working
      // change email account
      @PostMapping(path = "/changingemails", produces = MediaType.APPLICATION_JSON_VALUE)
      public Response changingEmailAccount(@RequestParam String email,@RequestParam int userId) 
      {
          Integer emailChange = userRepository.changingEmail(email,userId);
          return new Response("email updated ", emailChange);
+     }
+
+     // change phone number
+     @PostMapping(path = "/changingphonenumbers", produces = MediaType.APPLICATION_JSON_VALUE)
+     public Response changingPhoneNumber(@RequestParam String phoneNumber,@RequestParam int userId) 
+     {
+         Integer phoneNumberChange = userRepository.changingPhoneNumber(phoneNumber,userId);
+         return new Response("phone number updated ", phoneNumberChange);
+     }
+
+     // change user name
+     @PostMapping(path = "/changingusernames", produces = MediaType.APPLICATION_JSON_VALUE)
+     public Response changingUserName(@RequestParam String nm,@RequestParam int userId) 
+     {
+         Integer usernmChange = userRepository.changingUserName(nm,userId);
+         return new Response("username updated ", usernmChange);
+     }
+
+     // change place
+     @PostMapping(path = "/changingplaces", produces = MediaType.APPLICATION_JSON_VALUE)
+     public Response changingPlace(@RequestParam String place,@RequestParam int userId) 
+     {
+         Integer placeChange = userRepository.changingUserPlace(place,userId);
+         return new Response("place updated ", placeChange);
+     }
+
+     // change password
+     @PostMapping(path = "/changingpasswords", produces = MediaType.APPLICATION_JSON_VALUE)
+     public Response changingPassword(@RequestParam String password,@RequestParam int userId) 
+     {
+         Integer passwordChange = userRepository.changingUserPassword(password, userId);
+         return new Response("password updated ", passwordChange);
      }
 }
