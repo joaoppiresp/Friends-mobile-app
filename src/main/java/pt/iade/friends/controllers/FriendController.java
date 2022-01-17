@@ -26,26 +26,16 @@ public class FriendController
     private Logger logger = LoggerFactory.getLogger(FriendController.class);
     @Autowired
     private FriendRepository friendRepository;
-    @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
 
-    // get all friends
-    public Iterable <Friend> getFriend() 
+    //working
+    // friends by sender id
+    @GetMapping(path = "/senderid/{senderId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<FriendView> getNmFriendbyS(@PathVariable int senderId)
     {
-        logger.info(" Sending all Friends ");
-        return friendRepository.findAll();
+        logger.info("Sending all friend for sender with id");
+        return friendRepository.filtersenderId(senderId);
     }
-
-    // get friend by id
-    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Friend getFriend(@PathVariable(value="id") int id) 
-    {
-        logger.info(" Sending friends with id " + id);
-        Optional <Friend> _friend=friendRepository.findById(id);
-        if(!_friend.isPresent()) throw 
-        new NotFoundException("  "+id," friend ", " id ");
-        else return _friend.get();
-    }
-
+    /*
     // save friend
     @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public Friend saveFriend(@RequestBody Friend friend) 
@@ -54,7 +44,7 @@ public class FriendController
         logger.info(" Saving friend with id "+saveFriend.senderId+saveFriend.receiverId+saveFriend.dateTime+saveFriend.status);
         return saveFriend;
     }
-    
+    */
     // delete friend
     @DeleteMapping(path = "/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response deleteFriend(@PathVariable(value="id") int id) 
@@ -64,13 +54,6 @@ public class FriendController
         return new Response(" Deleted friend with id "+id, null);
     }
 
-    // friends by sender id
-    @GetMapping(path = "/senderid/{senderId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<FriendView> getNmFriendbyS(@PathVariable int senderId)
-    {
-        logger.info("Sending all friend for sender with id");
-        return friendRepository.filtersenderId(senderId);
-    }
 }
     
     
