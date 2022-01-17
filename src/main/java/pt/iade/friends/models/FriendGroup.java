@@ -3,6 +3,9 @@ package pt.iade.friends.models;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -11,15 +14,8 @@ public class FriendGroup
 {
     @EmbeddedId
     private FriendGroupId id;
-    @Column(name = "owner_id") public int owner;
-    @Column(name = "group_name") public String gpname;
-    @Column(name = "friend_fk") public int friendId;
-    @Column(name = "friendship_truth") public String friendship;
 
+    
     public FriendGroup(){}
     
-    public String getGpName() {return gpname;}
-    public int getOwnerId() {return owner;}
-    public int getFriendFk(){return friendId;}
-    public String getFriendshipTruth(){return friendship;}
 }

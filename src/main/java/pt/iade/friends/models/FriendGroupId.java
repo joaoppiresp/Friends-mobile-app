@@ -8,8 +8,8 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class FriendGroupId implements Serializable {
 
-    @Column(name = "owner_id") public int owner;
     @Column(name = "group_name") public String gpname;
+    @Column(name = "owner_id") public int owner;
     @Column(name = "friend_fk") public int friendId;
     
     public FriendGroupId(){}
