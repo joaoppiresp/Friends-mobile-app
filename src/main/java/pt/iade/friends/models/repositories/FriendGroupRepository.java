@@ -17,7 +17,7 @@ public interface FriendGroupRepository extends CrudRepository<FriendGroup, Integ
     "values(:gpname,:owner, :friends, :friendship)";
 
     String deleteGroups = "DELETE FROM friendgroup WHERE friendgroup.group_name=:gpname "+
-    "AND friendgroup.ownerid=:owner ";
+    "AND friendgroup.owner_id=:owner ";
 
     //groups by owner id
     @Query(value=getFriendGroup + "AND friendgroup.owner_id=:owner", nativeQuery=true)
