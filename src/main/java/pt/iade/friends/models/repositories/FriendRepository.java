@@ -24,7 +24,7 @@ public interface FriendRepository extends CrudRepository<Friend, Integer>
     "actiontakerid, "+
     "user_nm AS receivernm "+ 
     "From friends "+
-    "Inner Join users on friends.actiontakerid=users.user_id "+
+    "Inner Join users on friends.receiverid=users.user_id "+
     "WHERE friends.friendship_status='R' ";
 
     String friendRequests ="INSERT INTO friends(friendship_status,senderid,receiverid,actiontakerid) "+
