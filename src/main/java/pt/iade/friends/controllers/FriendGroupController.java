@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pt.iade.friends.models.FriendGroup;
 import pt.iade.friends.models.Views.FriendGroupView;
@@ -37,7 +38,7 @@ public class FriendGroupController
 
     //save Group
     @PostMapping(path = "/newgroups", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Response saveFriendGroup(@RequestBody String gpname,@RequestBody int owner,@RequestBody int friends, @RequestBody String friendship) 
+    public Response saveFriendGroup(@RequestParam String gpname,@RequestParam int owner,@RequestParam int friends, @RequestParam String friendship) 
     {
         Integer inserted = friendgroupRepository.saveGroup(gpname,owner,friends,friendship);
         return new Response("new group created", inserted);
