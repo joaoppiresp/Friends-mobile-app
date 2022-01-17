@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pt.iade.friends.models.exceptions.NotFoundException;
 import pt.iade.friends.models.User;
@@ -91,4 +92,12 @@ public class UserController
             logger.info("Sending user with name:" +nm+ "password:" +password);
             return userRepository.findByNmAndPassword(nm, password);
         }
-    }
+
+     // change email account
+     @PostMapping(path = "/changingemails", produces = MediaType.APPLICATION_JSON_VALUE)
+     public Response changingEmailAccount(@RequestParam String email,@RequestParam int userId) 
+     {
+         Integer emailChange = userRepository.changingEmail(email,userId);
+         return new Response("email updated ", emailChange);
+     }
+}
