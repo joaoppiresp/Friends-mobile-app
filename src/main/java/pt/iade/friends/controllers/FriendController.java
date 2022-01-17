@@ -27,7 +27,7 @@ public class FriendController
     private Logger logger = LoggerFactory.getLogger(FriendController.class);
     @Autowired
     private FriendRepository friendRepository;
-
+    //working
     //checking friend requests made
     @GetMapping(path = "/requestsmade/{senderId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<FriendView> filterRequestss(@PathVariable int senderId)
@@ -35,7 +35,6 @@ public class FriendController
         logger.info("Sending all friend for sender with id");
         return friendRepository.filterRequests(senderId);
     }
-
     //working
     // friends by sender id
     @GetMapping(path = "/senderid/{senderId:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -60,16 +59,13 @@ public class FriendController
         Integer inserted = friendRepository.friendRequest(status,senderId,receiverId,actionTakerId);
         return new Response("new friend accepted", inserted);
     }
-
     
-    
-    // delete friend
-    @DeleteMapping(path = "/{id:[0-9]+}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Response deleteFriend(@PathVariable(value="id") int id) 
+    // delete Group
+    @PostMapping(path = "/deletefriends", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Response deleteFriendGroup(@RequestParam int senderId,@RequestParam int actionTakerId) 
     {
-        logger.info(" Deleted user with id "+id);
-        friendRepository.deleteById(id);
-        return new Response(" Deleted friend with id "+id, null);
+        Integer endfriendship = friendRepository.deleteFriend(senderId,actionTakerId);
+        return new Response("friends deleted: ", endfriendship);
     }
 
 }

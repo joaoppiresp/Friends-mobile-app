@@ -33,11 +33,14 @@ public interface FriendRepository extends CrudRepository<Friend, Integer>
     String AcceptRequests ="INSERT INTO friends(friendship_status,senderid,receiverid,actiontakerid) "+
     "values(:status,:senderId,:receiverId,:actionTakerId)";
 
+    String deletingFriend = "DELETE FROM friends WHERE friends.senderid=:senderId, friends.actiontakerid=:actionTakerId "+
+    "AND friends.friendship_status='A";
+
     //checking requests made
     @Query(value=getRequests + "AND friends.senderid=:senderId", nativeQuery = true)
     Iterable<FriendView> filterRequests(@Param("senderId") int senderId);
 
-    //friends
+    //listing friends
     @Query(value=getNmReceiverid + "AND friends.senderid=:senderId", nativeQuery = true)
     Iterable<FriendView> filtersenderId(@Param("senderId") int senderId);
 
@@ -56,5 +59,9 @@ public interface FriendRepository extends CrudRepository<Friend, Integer>
                               @Param("senderId") int senderId,
                               @Param("receiverId") int receiverId,
                               @Param("actionTakerId") int actionTakerId);
-        
+    
+    //deleting a friend
+    @Modifying @Transactional(readOnly = false)
+    @Query(value=deletingFriend, nativeQuery=true)
+    Integer deleteFriend(@Param("senderId") int senderId, @Param("actionTakerId") int actionTakerId);
 }
