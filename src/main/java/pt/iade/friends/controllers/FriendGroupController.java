@@ -1,5 +1,7 @@
 package pt.iade.friends.controllers;
 
+import javax.persistence.Version;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +47,7 @@ public class FriendGroupController
     @PostMapping(path ="/create", produces = MediaType.APPLICATION_JSON_VALUE)
         public FriendGroup saveFGroup(@RequestBody FriendGroup friendGroup) 
         {
+        
             return friendgroupRepository.save(friendGroup);
     
         }

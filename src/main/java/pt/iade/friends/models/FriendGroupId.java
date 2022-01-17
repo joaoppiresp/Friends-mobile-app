@@ -4,11 +4,13 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Version;
 
 @Embeddable
 public class FriendGroupId implements Serializable {
 
     @Column(name = "group_name") public String gpname;
+    @Version
     @Column(name = "owner_id") public int owner;
     @Column(name = "friend_fk") public int friendId;
     
