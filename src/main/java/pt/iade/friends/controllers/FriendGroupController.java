@@ -51,7 +51,7 @@ public class FriendGroupController
         Integer deleted = friendgroupRepository.deleteGroup(gpname,owner);
         return new Response("group deleted with number of entries ", deleted);
     }
-
+    //working
     //delete friend from group
     @PostMapping(path = "/deletefromgroups", produces = MediaType.APPLICATION_JSON_VALUE)
     public Response deleteFromGroup(@RequestParam String gpname,@RequestParam int friends) 
