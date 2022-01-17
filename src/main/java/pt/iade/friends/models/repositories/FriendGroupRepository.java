@@ -24,7 +24,7 @@ public interface FriendGroupRepository extends CrudRepository<FriendGroup, Integ
     @Modifying @Transactional
     @Query(value=newGroup, nativeQuery=true)
     Integer saveGroup(@Param("gpname") String gpname,
-                      //@Param("owner") int owner,
+                      @Param("owner") int owner,
                       @Param("friends") int friends,
                       @Param("friendship") String friendship);
 
