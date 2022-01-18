@@ -133,10 +133,10 @@ public class UserController
         return new Response("password updated ", passwordChange);
      }
     // change profile picture
-    @PostMapping(path = "/changingprofilepicture", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Response changingProfilePic(@RequestParam String image,@RequestParam int userId) 
+    @PostMapping(path = "/changingprofilepicture/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Response changingProfilePic(@PathVariable(value ="userId")int userId,@RequestParam String image) 
     {
-        Integer pictureChange = userRepository.changingProfilePicture(image, userId);
+        Integer pictureChange = userRepository.changingProfilePicture(userId,image);
         return new Response("profile picture path updated ", pictureChange);
     }
 }

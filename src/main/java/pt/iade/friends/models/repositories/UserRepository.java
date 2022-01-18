@@ -55,6 +55,6 @@ public interface UserRepository extends CrudRepository<User, Integer>
     //changing profile picture
     @Modifying @Transactional(readOnly = false)
     @Query(value=updateProfilePic, nativeQuery=true)
-    Integer changingProfilePicture(@Param("image") String image, @Param("userId") int userId);
+    Integer changingProfilePicture( @Param("userId") int userId, @Param("image") String image);
     
 }
