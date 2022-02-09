@@ -24,15 +24,8 @@ public class UserController
     private Logger logger = LoggerFactory.getLogger(UserController.class);
     @Autowired
     private UserRepository userRepository;
-    @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-
-    // get all users
-    public Iterable <User> getUser() 
-    {
-        logger.info("Sending all Users");
-        return userRepository.findAll();
-    }
-
+    
+    
     // get user by Id
     @GetMapping(path ="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public User getUser(@PathVariable(value ="id") int id) 
