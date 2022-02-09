@@ -32,17 +32,6 @@ public class InterestController
         return interestRepository.findAll();
     }
 
-    // get interest by Id
-    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Interest getInterest(@PathVariable(value="id") int id) 
-    {
-        logger.info(" Sending Interests with id " + id);
-        Optional <Interest> _interest=interestRepository.findById(id);
-        if(!_interest.isPresent()) throw 
-        new NotFoundException("  "+id," Interest ", " id ");
-        else return _interest.get();
-    }
-
         // save Interest
         @PostMapping(path = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
         public Interest saveInterest(@RequestBody Interest interest) 
